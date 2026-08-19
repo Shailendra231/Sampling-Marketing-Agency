@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { SVGProps } from "react";
-import { CAPABILITIES, CASE_STUDIES, CDN, LOGO_SETS, SERVICES } from "@/data/site";
+import { CAPABILITIES, CASE_STUDIES, CDN, LOGO_SETS, SERVICES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, Panel, PillLink } from "@/components/site/ui";
 import { SmaMark } from "@/components/site/SmaMark";
 
@@ -92,9 +92,9 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:image", content: `${CDN}/2025/11/winners-1500x1000.jpg` },
       { name: "twitter:image", content: `${CDN}/2025/11/winners-1500x1000.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/" },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });

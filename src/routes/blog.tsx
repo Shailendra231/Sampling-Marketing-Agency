@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BLOG_POSTS, CDN } from "@/data/site";
+import { BLOG_POSTS, CDN, SITE_URL } from "@/data/site";
 import { ContactCta, PageHero, Panel } from "@/components/site/ui";
 
 export const Route = createFileRoute("/blog")({
@@ -14,13 +14,14 @@ export const Route = createFileRoute("/blog")({
       { property: "og:title", content: "Product Sampling Agency Blog | News, views & inspiration" },
       {
         property: "og:description",
-        content: "Brand activation and experiential marketing insights from Product Sampling Agency.",
+        content:
+          "Brand activation and experiential marketing insights from Product Sampling Agency.",
       },
       { property: "og:image", content: `${CDN}/2026/03/DSC09482-667x500.jpg` },
       { name: "twitter:image", content: `${CDN}/2026/03/DSC09482-667x500.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/blog" },
+      { property: "og:url", content: `${SITE_URL}/blog` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/blog" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
   }),
   component: Blog,
 });

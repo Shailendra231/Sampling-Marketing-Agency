@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN } from "@/data/site";
+import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
 import {
   CaseStudyGrid,
   ContactCta,
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/what-we-do/brand-experience")({
       },
       { property: "og:image", content: `${CDN}/2025/11/Thrust_Hardrock_-45-of-82-1500x1000.jpg` },
       { name: "twitter:image", content: `${CDN}/2025/11/Thrust_Hardrock_-45-of-82-1500x1000.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/what-we-do/brand-experience" },
+      { property: "og:url", content: `${SITE_URL}/what-we-do/brand-experience` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/what-we-do/brand-experience" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/brand-experience` }],
   }),
   component: BrandExperience,
 });

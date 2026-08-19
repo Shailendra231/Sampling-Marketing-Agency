@@ -32,6 +32,14 @@
   "observability": {
     "enabled": true
   },
+  // Custom domains match exact hostnames — no wildcards — so apex and www are
+  // separate entries. These require productsamplingagency.in to be an ACTIVE
+  // zone in this Cloudflare account; until the nameservers move off Hostinger,
+  // `wrangler deploy` fails with a zone-not-found error.
+  "routes": [
+    { "pattern": "productsamplingagency.in", "custom_domain": true },
+    { "pattern": "www.productsamplingagency.in", "custom_domain": true }
+  ],
   // Wrangler runs this itself before deploying, so the deploy does not depend on
   // a Build command being configured in the Workers Builds dashboard.
   "build": {

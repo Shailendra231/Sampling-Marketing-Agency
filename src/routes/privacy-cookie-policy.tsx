@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Panel } from "@/components/site/ui";
+import { SITE_URL } from "@/data/site";
 
 export const Route = createFileRoute("/privacy-cookie-policy")({
   head: () => ({
@@ -15,9 +16,9 @@ export const Route = createFileRoute("/privacy-cookie-policy")({
         property: "og:description",
         content: "How Product Sampling Agency handles personal data and cookies.",
       },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/privacy-cookie-policy" },
+      { property: "og:url", content: `${SITE_URL}/privacy-cookie-policy` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/privacy-cookie-policy" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/privacy-cookie-policy` }],
   }),
   component: PrivacyPolicy,
 });

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN } from "@/data/site";
+import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/what-we-do/staffing")({
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/what-we-do/staffing")({
       },
       { property: "og:image", content: `${CDN}/2025/09/FB_IMG_1474524669123.jpg` },
       { name: "twitter:image", content: `${CDN}/2025/09/FB_IMG_1474524669123.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/what-we-do/staffing" },
+      { property: "og:url", content: `${SITE_URL}/what-we-do/staffing` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/what-we-do/staffing" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/staffing` }],
   }),
   component: Staffing,
 });

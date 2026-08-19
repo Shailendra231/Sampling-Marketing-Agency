@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN } from "@/data/site";
+import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, PageHero, Panel } from "@/components/site/ui";
 
 export const Route = createFileRoute("/projects")({
@@ -18,9 +18,9 @@ export const Route = createFileRoute("/projects")({
       },
       { property: "og:image", content: `${CDN}/2025/09/Big-Dish-Live-51-1500x1000.jpg` },
       { name: "twitter:image", content: `${CDN}/2025/09/Big-Dish-Live-51-1500x1000.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/projects" },
+      { property: "og:url", content: `${SITE_URL}/projects` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/projects" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/projects` }],
   }),
   component: Projects,
 });

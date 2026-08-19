@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN } from "@/data/site";
+import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/what-we-do/product-sampling")({
@@ -14,13 +14,14 @@ export const Route = createFileRoute("/what-we-do/product-sampling")({
       { property: "og:title", content: "Product Sampling Agency | Product Sampling Agency" },
       {
         property: "og:description",
-        content: "Boost sales, build loyalty and inspire advocacy with Product Sampling Agency product sampling.",
+        content:
+          "Boost sales, build loyalty and inspire advocacy with Product Sampling Agency product sampling.",
       },
       { property: "og:image", content: `${CDN}/2023/08/heineken_staff-2.jpg` },
       { name: "twitter:image", content: `${CDN}/2023/08/heineken_staff-2.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/what-we-do/product-sampling" },
+      { property: "og:url", content: `${SITE_URL}/what-we-do/product-sampling` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/what-we-do/product-sampling" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/product-sampling` }],
   }),
   component: ProductSampling,
 });
@@ -67,12 +68,13 @@ function ProductSampling() {
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <div className="space-y-4 text-lg text-ink/75">
             <p>
-              Product Sampling Agency is more than a product sampling agency; we’re a trusted partner for top brands
-              like Mondelez, Danone, Adidas, Pernod Ricard, Samsung, and Diageo.
+              Product Sampling Agency is more than a product sampling agency; we’re a trusted
+              partner for top brands like Mondelez, Danone, Adidas, Pernod Ricard, Samsung, and
+              Diageo.
             </p>
             <p>
-              We know strategic product sampling can be game-changing. Studies show that brands using
-              sampling outperform competitors and achieve higher ROI. Why? Because:
+              We know strategic product sampling can be game-changing. Studies show that brands
+              using sampling outperform competitors and achieve higher ROI. Why? Because:
             </p>
             <ul className="list-disc space-y-2 pl-6">
               <li>People buy what they’ve tried and loved</li>
@@ -92,8 +94,8 @@ function ProductSampling() {
                 loyal champions
               </li>
               <li>
-                <strong className="text-ink">Build success</strong>: Lay the foundation for long-term
-                brand love
+                <strong className="text-ink">Build success</strong>: Lay the foundation for
+                long-term brand love
               </li>
             </ul>
             <p className="font-semibold text-ink">
@@ -117,9 +119,9 @@ function ProductSampling() {
         </div>
         <p className="mt-12 max-w-4xl text-lg font-semibold text-ink">
           When it comes to reaching consumers, driving sales, and amplifying your brand’s impact,
-          product sampling is a strategic choice that yields impressive results. Trust Product Sampling Agency, the
-          experts in product sampling, to design and execute impactful campaigns that deliver
-          exceptional outcomes for your brand.
+          product sampling is a strategic choice that yields impressive results. Trust Product
+          Sampling Agency, the experts in product sampling, to design and execute impactful
+          campaigns that deliver exceptional outcomes for your brand.
         </p>
       </Panel>
 
@@ -131,12 +133,13 @@ function ProductSampling() {
           <div className="space-y-4">
             <p className="font-semibold text-ink">Why?</p>
             <p>
-              We recognise the diversity of different demographics, the nuances in worldwide consumer
-              expectations, and evolving trends that influence global markets.
+              We recognise the diversity of different demographics, the nuances in worldwide
+              consumer expectations, and evolving trends that influence global markets.
             </p>
             <p>
-              We also invest time into understanding your brand’s unique qualities and core elements,
-              building meaningful and memorable experiences that resonate, and generate sales.
+              We also invest time into understanding your brand’s unique qualities and core
+              elements, building meaningful and memorable experiences that resonate, and generate
+              sales.
             </p>
           </div>
           <div className="space-y-4">
@@ -158,7 +161,8 @@ function ProductSampling() {
           We create measurable moments
         </h2>
         <p className="mt-6 max-w-3xl text-lg text-ink/75">
-          Product Sampling Agency, the leading product sampling agency, has a remarkable track record of{" "}
+          Product Sampling Agency, the leading product sampling agency, has a remarkable track
+          record of{" "}
           <strong className="text-ink">
             successfully reaching over 3 million consumers in the past 5 years around the world
           </strong>

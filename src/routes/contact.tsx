@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { CDN, STAFFING_LOGIN } from "@/data/site";
+import { CDN, SITE_URL, STAFFING_LOGIN } from "@/data/site";
 import { PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/contact")({
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
       { name: "twitter:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/contact" },
+      { property: "og:url", content: `${SITE_URL}/contact` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/contact" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: Contact,
 });

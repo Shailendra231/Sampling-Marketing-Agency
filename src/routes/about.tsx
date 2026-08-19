@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BLOG_POSTS, CDN } from "@/data/site";
+import { BLOG_POSTS, CDN, SITE_URL } from "@/data/site";
 import { ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/about")({
@@ -14,13 +14,14 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "We are Product Sampling Agency" },
       {
         property: "og:description",
-        content: "A team of passionate, creative people who believe in the power of human connection.",
+        content:
+          "A team of passionate, creative people who believe in the power of human connection.",
       },
       { property: "og:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
       { name: "twitter:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
-      { property: "og:url", content: "https://purity-clone-hub.lovable.app/about" },
+      { property: "og:url", content: `${SITE_URL}/about` },
     ],
-    links: [{ rel: "canonical", href: "https://purity-clone-hub.lovable.app/about" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
   component: About,
 });
@@ -91,7 +92,10 @@ function About() {
       <Panel tone="white" className="!py-10">
         <div className="grid gap-6 md:grid-cols-2">
           {[
-            { src: `${CDN}/2023/06/dsc06700-1-1.jpg`, alt: "Product Sampling Agency staff chatting" },
+            {
+              src: `${CDN}/2023/06/dsc06700-1-1.jpg`,
+              alt: "Product Sampling Agency staff chatting",
+            },
             { src: `${CDN}/2023/06/dsc08530-1-1.jpg`, alt: "Product Sampling Agency staff" },
           ].map((image) => (
             <img
@@ -108,9 +112,18 @@ function About() {
       <Panel tone="cloud">
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { src: `${CDN}/2023/06/DSC06650-1500x1002.jpg`, alt: "Product Sampling Agency staff talking" },
-            { src: `${CDN}/2023/06/dsc06700-1-1-750x500.jpg`, alt: "Product Sampling Agency staff chatting" },
-            { src: `${CDN}/2023/06/dsc08530-1-1-750x500.jpg`, alt: "Product Sampling Agency staff" },
+            {
+              src: `${CDN}/2023/06/DSC06650-1500x1002.jpg`,
+              alt: "Product Sampling Agency staff talking",
+            },
+            {
+              src: `${CDN}/2023/06/dsc06700-1-1-750x500.jpg`,
+              alt: "Product Sampling Agency staff chatting",
+            },
+            {
+              src: `${CDN}/2023/06/dsc08530-1-1-750x500.jpg`,
+              alt: "Product Sampling Agency staff",
+            },
           ].map((image) => (
             <img
               key={image.src}
@@ -124,9 +137,7 @@ function About() {
       </Panel>
 
       <Panel tone="white">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">
-          News, views and inspiration
-        </h2>
+        <h2 className="font-display text-3xl font-bold md:text-4xl">News, views and inspiration</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {BLOG_POSTS.slice(0, 3).map((post) => (
             <article key={post.title} className="overflow-hidden rounded-3xl bg-cloud">

@@ -1,5 +1,8 @@
 export const CDN = "https://naboo.lon1.cdn.digitaloceanspaces.com/wearepurity/uploads";
 
+/** Canonical public origin. Used for canonical links, og:url, and the sitemap. */
+export const SITE_URL = "https://productsamplingagency.in";
+
 export const STAFFING_LOGIN = "https://productsamplingagency.com/apply";
 
 export type NavItem = {

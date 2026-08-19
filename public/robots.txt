@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://purity-clone-hub.lovable.app/sitemap.xml
+Sitemap: https://productsamplingagency.in/sitemap.xml
