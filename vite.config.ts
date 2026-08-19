@@ -7,6 +7,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Pin the deploy target so CI never depends on env auto-detection.
+  // Ignored inside Lovable builds, which pin it via LOVABLE_NITRO_PRESET.
+  nitro: { preset: "cloudflare_module" },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
