@@ -1,0 +1,24 @@
+// Cloudflare deploys this Worker through nitro, which generates the real config
+// at .output/server/wrangler.json during `npm run build` and points wrangler at
+// it via .wrangler/deploy/config.json. That redirect takes precedence over this
+// file, so the values here are a mirror, not the source of truth.
+//
+// This file exists so that a root config is ALWAYS present. Without one,
+// `wrangler deploy` treats the project as unconfigured, runs C3 framework
+// detection, and tries to rewrite vite.config.ts — which fails with "Cannot
+// modify Vite config: could not find a valid plugins array", because the
+// Lovable defineConfig wrapper has no plugins array of its own.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sampling-marketing-agency",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-08-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".output/public"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
