@@ -1,5 +1,9 @@
-name: Deploy to Cloudflare Workers
+name: CI
 
+# Deployment is handled by Cloudflare Workers Builds, which is connected
+# directly to this repository. This workflow only verifies that the code
+# typechecks and that the Cloudflare bundle builds — it must not deploy, or it
+# would race Workers Builds and deploy the same Worker twice per push.
 on:
   push:
     branches: [main]
@@ -7,17 +11,15 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# One deploy at a time per ref. A newer push supersedes an in-flight run so a
-# slow build can never land on top of a newer one.
 concurrency:
-  group: deploy-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
-  deploy:
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -28,27 +30,16 @@ jobs:
           node-version: 24
           cache: npm
 
-      # `npm ci` requires package-lock.json to be committed and in sync with
-      # package.json. Switch to bun (bun install --frozen-lockfile) if bun.lock
-      # becomes the canonical lockfile.
       - name: Install dependencies
         run: npm ci
 
       - name: Typecheck
         run: npx tsc --noEmit
 
-      # On pull requests, build only — proves the Cloudflare bundle compiles
-      # without touching the live Worker.
       - name: Build
-        if: github.event_name == 'pull_request'
         run: npm run build
 
-      # `npm run deploy` builds and then runs `wrangler deploy`. Nitro writes
-      # .wrangler/deploy/config.json during the build, which wrangler follows to
-      # the generated .output/server/wrangler.json.
-      - name: Build and deploy
-        if: github.event_name != 'pull_request'
-        run: npm run deploy
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # Validates the generated wrangler config and that the Worker fits the
+      # size limits, without contacting Cloudflare or needing credentials.
+      - name: Validate Worker bundle
+        run: npx wrangler deploy --dry-run

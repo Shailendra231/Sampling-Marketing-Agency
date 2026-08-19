@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "deploy": "npm run build && wrangler deploy --name sampling-marketing-agency"
+    "deploy": "npm run build && wrangler deploy",
+    "postbuild": "node scripts/set-worker-name.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
