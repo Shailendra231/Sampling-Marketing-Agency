@@ -32,6 +32,13 @@
   "observability": {
     "enabled": true
   },
+  // Declaring `routes` makes wrangler disable the workers.dev subdomain by
+  // default. That left the Worker with no serving target at all ("No targets
+  // deployed") whenever the custom-domain attach failed. Keep both enabled so
+  // there is always a reachable URL; the canonical tags point at
+  // productsamplingagency.in, so the extra origin is not an SEO problem.
+  "workers_dev": true,
+  "preview_urls": true,
   // Custom domains match exact hostnames — no wildcards — so apex and www are
   // separate entries. These require productsamplingagency.in to be an ACTIVE
   // zone in this Cloudflare account; until the nameservers move off Hostinger,
