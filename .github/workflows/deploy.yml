@@ -36,10 +36,8 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
-      - name: Build
-        run: npm run build
-
-      # Validates the generated wrangler config and that the Worker fits the
-      # size limits, without contacting Cloudflare or needing credentials.
-      - name: Validate Worker bundle
+      # wrangler.jsonc declares build.command, so this builds the app and then
+      # validates the generated config and Worker size limits — without
+      # contacting Cloudflare or needing any credentials.
+      - name: Build and validate Worker bundle
         run: npx wrangler deploy --dry-run
