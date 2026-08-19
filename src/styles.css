@@ -1,0 +1,352 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * SMA Brand System — design system definition.
+ * Source of truth: "SMA Brand System" (Option C). Sections referenced below
+ * as [01]…[07] map to that document.
+ *
+ * This site is DARK-FIRST. The brand system defines only dark grounds, so the
+ * dark values live directly in :root and there is no light mode. Do not add
+ * `dark:` variants — the base theme IS the dark theme.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * All colors MUST use oklch format. Each token below carries its source hex
+ * in a comment; the oklch values round-trip to those hexes exactly.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-sans:
+    "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  /* [02] Brand — violet tonal ramp */
+  --color-violet-100: var(--violet-100);
+  --color-violet-200: var(--violet-200);
+  --color-violet-300: var(--violet-300);
+  --color-violet-400: var(--violet-400);
+  --color-violet-500: var(--violet-500);
+  --color-violet-600: var(--violet-600);
+  --color-violet-700: var(--violet-700);
+  --color-violet-800: var(--violet-800);
+  --color-violet-900: var(--violet-900);
+
+  /* [02] Brand — green tonal ramp */
+  --color-green-100: var(--green-100);
+  --color-green-200: var(--green-200);
+  --color-green-300: var(--green-300);
+  --color-green-400: var(--green-400);
+  --color-green-500: var(--green-500);
+  --color-green-600: var(--green-600);
+  --color-green-700: var(--green-700);
+  --color-green-800: var(--green-800);
+  --color-green-900: var(--green-900);
+
+  /* [02] Neutrals */
+  --color-dark: var(--dark);
+  --color-gray: var(--gray);
+
+  /* Surfaces */
+  --color-raised: var(--raised);
+  --color-panel: var(--panel);
+  --color-deep-violet: var(--deep-violet);
+  --color-divider: var(--divider);
+  --color-border-violet: var(--border-violet);
+  --color-border-strong: var(--border-strong);
+
+  /* Text roles */
+  --color-body: var(--body);
+  --color-body-strong: var(--body-strong);
+  --color-violet-tint: var(--violet-tint);
+  --color-on-violet: var(--on-violet);
+
+  /* Legacy aliases — retargeted to SMA roles. Being removed; prefer the
+     tokens above in new code. */
+  --color-ink: var(--ink);
+  --color-blaze: var(--blaze);
+  --color-amber: var(--amber);
+  --color-violet: var(--violet);
+  --color-cloud: var(--cloud);
+  --color-slate-body: var(--slate-body);
+  --color-magenta: var(--magenta);
+
+  /* [05] Corner radius. The document declares 12/16/28/pill but every card in
+     [06] is drawn at 20px, so 20 is kept as the card step. */
+  --radius-brand-sm: 12px;
+  --radius-brand-md: 16px;
+  --radius-brand-lg: 20px;
+  --radius-brand-xl: 28px;
+  --radius-panel: 28px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* [04] Type scale. Sizes the document uses but never tabulates (15/18/30)
+     are included as lead/eyebrow/section steps. */
+  --text-eyebrow: 13px;
+  --text-eyebrow--line-height: 1.2;
+  --text-caption: 14px;
+  --text-caption--line-height: 1.6;
+  --text-lead: 18px;
+  --text-lead--line-height: 1.65;
+  --text-h3: 20px;
+  --text-h3--line-height: 1.4;
+  --text-h2: 28px;
+  --text-h2--line-height: 1.25;
+  --text-section: 30px;
+  --text-section--line-height: 1.2;
+  --text-h1: 40px;
+  --text-h1--line-height: 1.12;
+  --text-display: 56px;
+  --text-display--line-height: 1.02;
+  --text-hero: 68px;
+  --text-hero--line-height: 1.02;
+
+  /* Elevation — [06] specifies only the green CTA glow. */
+  --shadow-glow-green: 0 10px 30px oklch(0.8761 0.2819 139.97 / 0.3);
+  --shadow-glow-violet: 0 10px 30px oklch(0.4823 0.2694 285.02 / 0.35);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* ── [02] Violet tonal ramp ───────────────────────────────────────── */
+  --violet-100: oklch(0.9395 0.0314 297.72); /* #EDE7FE */
+  --violet-200: oklch(0.8575 0.0758 298.36); /* #D6C6FC */
+  --violet-300: oklch(0.7502 0.1335 296.92); /* #B79BF8 */
+  --violet-400: oklch(0.6056 0.2189 292.72); /* #8B5CF6 */
+  --violet-500: oklch(0.4823 0.2694 285.02); /* #5E17EB — Violet Purple, primary */
+  --violet-600: oklch(0.4146 0.2344 284.18); /* #4A0FC2 */
+  --violet-700: oklch(0.3623 0.2058 282.71); /* #3A0CA3 */
+  --violet-800: oklch(0.2944 0.1622 283.34); /* #2A0A78 */
+  --violet-900: oklch(0.2271 0.1191 284.33); /* #1B0750 */
+
+  /* ── [02] Green tonal ramp ────────────────────────────────────────── */
+  --green-100: oklch(0.9699 0.0608 134.88); /* #E4FFD6 */
+  --green-200: oklch(0.9364 0.1397 134.57); /* #C2FF9E */
+  --green-300: oklch(0.9076 0.2105 136.30); /* #9BFF66 */
+  --green-400: oklch(0.8847 0.2642 138.67); /* #6DFF2B */
+  --green-500: oklch(0.8761 0.2819 139.97); /* #52FF00 — Neon Green, action */
+  --green-600: oklch(0.7665 0.2483 140.29); /* #3FD600 */
+  --green-700: oklch(0.7044 0.2366 141.92); /* #1AC100 */
+  --green-800: oklch(0.5653 0.1888 141.69); /* #158F00 — the only green safe on white */
+  --green-900: oklch(0.4196 0.1393 141.43); /* #0D5E00 */
+
+  /* ── [02] Neutrals ───────────────────────────────────────────────── */
+  --dark: oklch(0.1615 0.0105 285.17); /* #0D0D12 */
+  --gray: oklch(0.5331 0.0233 285.58); /* #6B6B7A — decorative rules only, 3.7:1 */
+
+  /* ── Surfaces (used throughout the document, untokenised there) ───── */
+  --raised: oklch(0.2079 0.0521 287.79); /* #17132E — card gradient start */
+  --panel: oklch(0.2258 0.0458 287.88); /* #1B1830 — neutral chip, inner panel */
+  --deep-violet: oklch(0.2506 0.0745 291.31); /* #231942 — hero radial, secondary gradient */
+  --divider: oklch(0.2305 0.0382 287.59); /* #1C1A2E — subtle row rule */
+  --border-violet: oklch(0.3404 0.1130 287.63); /* #372A6E */
+  /* Form wells can't be delineated by fill — no surface differs from its panel
+     by more than 1.19:1 on this ground — so inputs rely on this border. */
+  --border-strong: oklch(0.3909 0.0988 289.45); /* #453A76, 1.81 on --raised */
+
+  /* ── Text roles ──────────────────────────────────────────────────── */
+  --body: oklch(0.7860 0.0225 291.62); /* #B9B7C7 — body copy, 9.8:1 */
+  --body-strong: oklch(0.8784 0.0274 292.71); /* #D7D4E8 — 13.4:1 */
+  --violet-tint: oklch(0.8112 0.1013 293.57); /* #C4B5FD — labels, eyebrows, 10.5:1 */
+  --on-violet: oklch(0.9116 0.0480 295.91); /* #E4DCFF — body on violet gradients */
+
+  /* ── [03] Gradients ──────────────────────────────────────────────── */
+  --gradient-primary: linear-gradient(90deg, var(--violet-700), var(--violet-500));
+  --gradient-secondary: linear-gradient(90deg, var(--deep-violet), var(--violet-500));
+  --gradient-accent: linear-gradient(90deg, var(--green-700), var(--green-500));
+  /* [06] the Get Started button; [07] the application band and card ground */
+  --gradient-cta: linear-gradient(180deg, var(--green-400), var(--green-600));
+  --gradient-band: linear-gradient(100deg, var(--violet-700), var(--violet-500));
+  --gradient-card: linear-gradient(160deg, var(--raised), var(--dark));
+  --gradient-hero: radial-gradient(
+    120% 120% at 100% 0%,
+    var(--deep-violet) 0%,
+    var(--dark) 62%
+  );
+  /* Homepage hero card: dark violet field with a bright violet bloom
+     center-right, per the GRADIENT APPLICATION board in [07]. */
+  --gradient-hero-card:
+    radial-gradient(56% 76% at 64% 52%, var(--violet-500) 0%, transparent 72%),
+    linear-gradient(
+      135deg,
+      var(--violet-900) 0%,
+      var(--violet-800) 46%,
+      var(--violet-900) 100%
+    );
+  --gradient-mark-glow: radial-gradient(
+    closest-side,
+    oklch(0.8761 0.2819 139.97 / 0.28) 0%,
+    transparent 100%
+  );
+
+  /* ── Semantic roles (dark-first) ─────────────────────────────────── */
+  --background: var(--deep-violet); /* #231942 — site ground */
+  --foreground: oklch(1 0 0); /* #FFFFFF, 16.3:1 on --background */
+  --card: var(--raised);
+  --card-foreground: oklch(1 0 0);
+  --popover: var(--panel);
+  --popover-foreground: oklch(1 0 0);
+
+  /* Violet-500 is the brand primary and reads 7.5:1 under white text, but it
+     is only 2.58:1 against --dark — never use it as text or a border on the
+     page ground. For violet text on dark use --violet-300 / --violet-400. */
+  --primary: var(--violet-500);
+  --primary-foreground: oklch(1 0 0);
+  --accent: var(--green-500);
+  --accent-foreground: var(--dark); /* 14.5:1 */
+  --secondary: var(--panel);
+  --secondary-foreground: var(--violet-tint);
+  --muted: var(--panel);
+  /* The document's #6B6B7A is 3.1:1 on this ground and fails AA at the 11–14px
+     it is used at; lifted to #9694A6 (5.49:1). --gray keeps the original for
+     decorative rules only. */
+  --muted-foreground: oklch(0.6741 0.0264 290.78); /* #9694A6 */
+  --destructive: oklch(0.7116 0.1812 22.84); /* #FF6B6B */
+  --destructive-foreground: var(--dark);
+  --border: oklch(0.3448 0.0883 290.76); /* #3A2F63 — reads on #231942 ground */
+  --input: oklch(0.3448 0.0883 290.76);
+  --ring: var(--green-500); /* focus rings ride the action colour */
+
+  /* Charts — brand ramps alternating violet/green so adjacent series split */
+  --chart-1: var(--violet-400);
+  --chart-2: var(--green-500);
+  --chart-3: var(--violet-200);
+  --chart-4: var(--green-700);
+  --chart-5: var(--violet-600);
+
+  --sidebar: var(--raised);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: var(--violet-500);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: var(--panel);
+  --sidebar-accent-foreground: var(--violet-tint);
+  --sidebar-border: oklch(0.3448 0.0883 290.76);
+  --sidebar-ring: var(--green-500);
+
+  /* ── Legacy aliases, retargeted to the SMA palette ───────────────── */
+  --ink: oklch(1 0 0); /* was #2b0d54; `text-ink` is now white on dark */
+  --cloud: var(--raised); /* tinted surface panel */
+  --blaze: var(--panel); /* violet-tinted surface */
+  --amber: var(--violet-tint);
+  --violet: var(--violet-500);
+  --magenta: var(--green-300); /* accent word colour */
+  --slate-body: var(--body);
+  --gradient-sunset: var(--gradient-primary);
+}
+
+@utility bg-gradient-sunset {
+  background-image: var(--gradient-sunset);
+}
+
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+@utility bg-gradient-secondary {
+  background-image: var(--gradient-secondary);
+}
+
+@utility bg-gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
+@utility bg-gradient-cta {
+  background-image: var(--gradient-cta);
+}
+
+@utility bg-gradient-band {
+  background-image: var(--gradient-band);
+}
+
+@utility bg-gradient-card {
+  background-image: var(--gradient-card);
+}
+
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-gradient-hero-card {
+  background-image: var(--gradient-hero-card);
+}
+
+@utility bg-gradient-mark-glow {
+  background-image: var(--gradient-mark-glow);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  /* [06] gives no focus treatment; the action colour carries it. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
