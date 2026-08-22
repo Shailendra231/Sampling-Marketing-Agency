@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { NAV, STAFFING_LOGIN } from "@/data/site";
+import { NAV } from "@/data/site";
 import { SmaMark } from "./SmaMark";
 
 function Wordmark({ className = "" }: { className?: string }) {
@@ -115,9 +115,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a href={STAFFING_LOGIN} className="mt-4 text-base font-medium underline">
-              Staffing login
-            </a>
             <Socials />
           </nav>
         </div>

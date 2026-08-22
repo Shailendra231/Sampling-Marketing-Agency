@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { Socials, Wordmark } from "./Header";
-import { STAFFING_LOGIN } from "@/data/site";
 
 export function Footer() {
   return (
@@ -60,11 +59,6 @@ export function Footer() {
                     <Link to="/privacy-cookie-policy" className="hover:text-ink">
                       Privacy &amp; Cookie Policy
                     </Link>
-                  </li>
-                  <li>
-                    <a href={STAFFING_LOGIN} className="hover:text-ink">
-                      Staffing login
-                    </a>
                   </li>
                 </ul>
               </div>
