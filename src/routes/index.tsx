@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import type { SVGProps } from "react";
 import { CAPABILITIES, CASE_STUDIES, CDN, LOGO_SETS, SERVICES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, Panel, PillLink } from "@/components/site/ui";
-import { SmaMark } from "@/components/site/SmaMark";
 
 /**
  * Icons and copy for the three pillars, taken verbatim from the Cards row of
@@ -102,36 +101,14 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="space-y-6 pb-6">
-      {/* HERO — GRADIENT APPLICATION board, SMA Brand System [07] */}
-      <section className="px-5 md:px-10">
-        <div className="relative mx-auto max-w-[1600px] overflow-hidden rounded-[28px] bg-gradient-hero-card px-6 py-14 md:px-14 md:py-20">
-          <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
-            <div>
-              <h1 className="font-display text-h2 font-extrabold leading-[1.05] tracking-[-0.02em] md:text-h1 lg:text-display">
-                We help brands
-                <br />
-                sample. <span className="text-green-500">engage.</span>
-                <br />
-                and <span className="text-violet-300">convert.</span>
-              </h1>
-              <p className="mt-6 max-w-sm text-caption leading-relaxed text-on-violet md:text-base">
-                Driving real product connections that turn into loyal customers.
-              </p>
-              <div className="mt-8">
-                <PillLink to="/contact">Let&rsquo;s Connect</PillLink>
-              </div>
-            </div>
-
-            <div className="relative flex items-center justify-center">
-              <div
-                aria-hidden="true"
-                className="absolute aspect-square w-[85%] bg-gradient-mark-glow blur-2xl"
-              />
-              <SmaMark className="relative w-[68%] max-w-[420px] text-green-500 drop-shadow-[0_0_40px_rgba(82,255,0,0.35)]" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Panel tone="sunset" className="relative min-h-[520px]">
+        <h1 className="font-display max-w-3xl text-6xl font-bold leading-[0.98] tracking-tight md:text-8xl">
+          A brand activation agency
+        </h1>
+        <p className="mt-8 max-w-xl text-lg text-ink/80 md:text-2xl">
+          Shaping activation strategy through brand experience, product sampling and people.
+        </p>
+      </Panel>
 
       {/* THREE PILLARS — cards from SMA Brand System [06] */}
       <section className="px-5 md:px-10">
