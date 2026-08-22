@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { SITE_URL, STAFFING_LOGIN } from "@/data/site";
+import { CONTACT_EMAIL, SITE_URL, STAFFING_LOGIN } from "@/data/site";
 import { PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/contact")({
@@ -49,7 +49,7 @@ const FIELDS = [
 const OFFICES = [
   {
     region: "India",
-    email: "in@productsamplingagency.com",
+    email: CONTACT_EMAIL,
     entity: "Product Sampling Agency",
     lines: ["Star Tower", "Sector 30", "Gurugram", "Haryana 122001", "India"],
   },

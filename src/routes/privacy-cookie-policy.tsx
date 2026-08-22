@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Panel } from "@/components/site/ui";
-import { SITE_URL } from "@/data/site";
+import { CONTACT_EMAIL, SITE_URL } from "@/data/site";
 
 export const Route = createFileRoute("/privacy-cookie-policy")({
   head: () => ({
@@ -48,8 +48,8 @@ function PrivacyPolicy() {
           <h2 className="font-display pt-4 text-2xl font-bold text-ink">Contact</h2>
           <p>
             For any data or privacy request, email{" "}
-            <a href="mailto:uk@productsamplingagency.com" className="underline">
-              uk@productsamplingagency.com
+            <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
+              {CONTACT_EMAIL}
             </a>
             .
           </p>

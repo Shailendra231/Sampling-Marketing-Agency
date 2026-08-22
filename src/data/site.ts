@@ -5,6 +5,9 @@ export const CDN = "https://naboo.lon1.cdn.digitaloceanspaces.com/wearepurity/up
 /** Canonical public origin. Used for canonical links, og:url, and the sitemap. */
 export const SITE_URL = "https://productsamplingagency.in";
 
+/** Public contact address. Used for every mailto link on the site. */
+export const CONTACT_EMAIL = "productsamplingagency@gmail.com";
+
 export const STAFFING_LOGIN = "https://productsamplingagency.com/apply";
 
 export type NavItem = {
@@ -28,11 +31,7 @@ export const NAV: NavItem[] = [
     ],
   },
   { label: "Our Work", to: "/projects" },
-  {
-    label: "About",
-    to: "/about",
-    children: [{ label: "We are PSA", to: "/about" }],
-  },
+  { label: "About", to: "/about" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];

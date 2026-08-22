@@ -84,11 +84,7 @@ export function Footer() {
             <Link to="/" className="text-ink" aria-label="Product Sampling Agency home">
               <Wordmark />
             </Link>
-            <p>
-              © 2026 Product Sampling Agency Ltd
-              <span className="mx-2">·</span>
-              Site by Stratos
-            </p>
+            <p>© 2026 Product Sampling Agency Ltd</p>
           </div>
         </div>
       </div>
