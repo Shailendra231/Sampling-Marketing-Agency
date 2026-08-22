@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
+import { CASE_STUDIES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, PageHero, Panel } from "@/components/site/ui";
 
 export const Route = createFileRoute("/projects")({
@@ -16,8 +16,8 @@ export const Route = createFileRoute("/projects")({
         property: "og:description",
         content: "Brand activation case studies from the UK, USA and international markets.",
       },
-      { property: "og:image", content: `${CDN}/2025/09/Big-Dish-Live-51-1500x1000.jpg` },
-      { name: "twitter:image", content: `${CDN}/2025/09/Big-Dish-Live-51-1500x1000.jpg` },
+      { property: "og:image", content: `${SITE_URL}/images/a-lively-outdoor-indoor-mall.webp` },
+      { name: "twitter:image", content: `${SITE_URL}/images/a-lively-outdoor-indoor-mall.webp` },
       { property: "og:url", content: `${SITE_URL}/projects` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/projects` }],

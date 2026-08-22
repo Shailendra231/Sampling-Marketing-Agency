@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BLOG_POSTS, CDN, SITE_URL } from "@/data/site";
+import { BLOG_POSTS, SITE_URL } from "@/data/site";
 import { ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/about")({
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/about")({
         content:
           "A team of passionate, creative people who believe in the power of human connection.",
       },
-      { property: "og:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
-      { name: "twitter:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
+      { property: "og:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
+      { name: "twitter:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
       { property: "og:url", content: `${SITE_URL}/about` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
@@ -43,13 +43,13 @@ function About() {
       <Panel tone="white">
         <div className="grid gap-8 md:grid-cols-2">
           <img
-            src={`${CDN}/2023/06/mark-dunn-purity.jpg`}
+            src={"/images/a-bright-modern-office-interior.webp"}
             alt="Mark Dunn"
             loading="lazy"
             className="aspect-[3/2] w-full rounded-3xl object-cover"
           />
           <img
-            src={`${CDN}/2023/06/purity-team-image.jpg`}
+            src={"/images/a-bright-outdoor-covered-community.webp"}
             alt="Product Sampling Agency team picture"
             loading="lazy"
             className="aspect-[3/2] w-full rounded-3xl object-cover"
@@ -93,10 +93,13 @@ function About() {
         <div className="grid gap-6 md:grid-cols-2">
           {[
             {
-              src: `${CDN}/2023/06/dsc06700-1-1.jpg`,
+              src: "/images/a-busy-outdoor-indoor-mall-2.webp",
               alt: "Product Sampling Agency staff chatting",
             },
-            { src: `${CDN}/2023/06/dsc08530-1-1.jpg`, alt: "Product Sampling Agency staff" },
+            {
+              src: "/images/a-clean-modern-social-media-2.webp",
+              alt: "Product Sampling Agency staff",
+            },
           ].map((image) => (
             <img
               key={image.src}
@@ -113,15 +116,15 @@ function About() {
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
-              src: `${CDN}/2023/06/DSC06650-1500x1002.jpg`,
+              src: "/images/a-lively-outdoor-indoor-mall.webp",
               alt: "Product Sampling Agency staff talking",
             },
             {
-              src: `${CDN}/2023/06/dsc06700-1-1-750x500.jpg`,
+              src: "/images/a-realistic-street-sidewalk-scene.webp",
               alt: "Product Sampling Agency staff chatting",
             },
             {
-              src: `${CDN}/2023/06/dsc08530-1-1-750x500.jpg`,
+              src: "/images/a-bright-outdoor-covered-community.webp",
               alt: "Product Sampling Agency staff",
             },
           ].map((image) => (

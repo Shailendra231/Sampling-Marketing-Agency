@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { SVGProps } from "react";
-import { CAPABILITIES, CASE_STUDIES, CDN, LOGO_SETS, SERVICES, SITE_URL } from "@/data/site";
+import { CAPABILITIES, CASE_STUDIES, LOGO_SETS, SERVICES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, Panel, PillLink } from "@/components/site/ui";
 
 /**
@@ -89,8 +89,8 @@ export const Route = createFileRoute("/")({
         content:
           "Shaping activation strategy through brand experience, product sampling and people.",
       },
-      { property: "og:image", content: `${CDN}/2025/11/winners-1500x1000.jpg` },
-      { name: "twitter:image", content: `${CDN}/2025/11/winners-1500x1000.jpg` },
+      { property: "og:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
+      { name: "twitter:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
       { property: "og:url", content: `${SITE_URL}/` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
@@ -194,7 +194,7 @@ function Index() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((item) => (
             <div key={item.title} className="flex gap-4">
-              <img src={item.icon} alt="" aria-hidden="true" loading="lazy" className="h-9 w-9" />
+              <item.Icon aria-hidden="true" className="h-9 w-9 text-green-500" strokeWidth={1.6} />
               <div>
                 <h3 className="font-display text-lg font-bold">{item.title}</h3>
                 <p className="mt-1 text-ink/70">{item.copy}</p>
@@ -215,13 +215,13 @@ function Index() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {[
             {
-              image: `${CDN}/2025/09/heineken_photo.jpg`,
+              image: "/images/a-realistic-indoor-public-space.webp",
               alt: "woman taking photo of staff",
               title: "For Brands",
               copy: "For brands that want to engage, excite and ignite consumers, through single live moments to multi-location rollouts.",
             },
             {
-              image: `${CDN}/2023/07/kfc-delivery-pit-stop-4.jpg`,
+              image: "/images/outdoor-street-market-scene-with.webp",
               alt: "KFC delivery pit stop",
               title: "For Agencies",
               copy: "For agencies that want to partner with a brand activation specialist that is ready to elevate your marketing ideas.",

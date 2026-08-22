@@ -36,3 +36,6 @@ Screenshot *.png
 
 # Single lockfile: this project installs with npm (see .github/workflows).
 bun.lock
+
+# Source images (originals). Optimised WebP lives in public/images.
+Samplrr_Service_Images/

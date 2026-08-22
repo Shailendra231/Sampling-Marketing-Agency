@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
+import { CASE_STUDIES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/what-we-do/product-sampling")({
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/what-we-do/product-sampling")({
         content:
           "Boost sales, build loyalty and inspire advocacy with Product Sampling Agency product sampling.",
       },
-      { property: "og:image", content: `${CDN}/2023/08/heineken_staff-2.jpg` },
-      { name: "twitter:image", content: `${CDN}/2023/08/heineken_staff-2.jpg` },
+      { property: "og:image", content: `${SITE_URL}/images/a-busy-outdoor-indoor-mall.webp` },
+      { name: "twitter:image", content: `${SITE_URL}/images/a-busy-outdoor-indoor-mall.webp` },
       { property: "og:url", content: `${SITE_URL}/what-we-do/product-sampling` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/product-sampling` }],

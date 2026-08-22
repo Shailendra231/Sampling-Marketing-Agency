@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
+import { CASE_STUDIES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/what-we-do/staffing")({
@@ -17,8 +17,14 @@ export const Route = createFileRoute("/what-we-do/staffing")({
         content:
           "High-performing, expertly trained ambassadors, promotional staff and event teams.",
       },
-      { property: "og:image", content: `${CDN}/2025/09/FB_IMG_1474524669123.jpg` },
-      { name: "twitter:image", content: `${CDN}/2025/09/FB_IMG_1474524669123.jpg` },
+      {
+        property: "og:image",
+        content: `${SITE_URL}/images/a-bright-realistic-outdoor-community.webp`,
+      },
+      {
+        name: "twitter:image",
+        content: `${SITE_URL}/images/a-bright-realistic-outdoor-community.webp`,
+      },
       { property: "og:url", content: `${SITE_URL}/what-we-do/staffing` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/staffing` }],

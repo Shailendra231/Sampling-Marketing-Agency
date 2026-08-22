@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CASE_STUDIES, CDN, SITE_URL } from "@/data/site";
+import { CASE_STUDIES, SITE_URL } from "@/data/site";
 import {
   CaseStudyGrid,
   ContactCta,
@@ -23,8 +23,8 @@ export const Route = createFileRoute("/what-we-do/brand-experience")({
         property: "og:description",
         content: "Live experiences that deliver brand activations and drive results.",
       },
-      { property: "og:image", content: `${CDN}/2025/11/Thrust_Hardrock_-45-of-82-1500x1000.jpg` },
-      { name: "twitter:image", content: `${CDN}/2025/11/Thrust_Hardrock_-45-of-82-1500x1000.jpg` },
+      { property: "og:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
+      { name: "twitter:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
       { property: "og:url", content: `${SITE_URL}/what-we-do/brand-experience` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/brand-experience` }],
@@ -78,12 +78,12 @@ function BrandExperience() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {[
             {
-              image: `${CDN}/2025/11/Thrust_Hardrock_-45-of-82-1500x1000.jpg`,
+              image: "/images/a-busy-indoor-mall-cinema.webp",
               alt: "Thrust brand activation crowd",
               title: "Turn activation into experiences that perform",
             },
             {
-              image: `${CDN}/2025/09/heineken_photo-1500x1000.jpg`,
+              image: "/images/a-lively-outdoor-indoor-mall.webp",
               alt: "woman taking photo of staff",
               title: "Launch a new product to the right audience",
             },

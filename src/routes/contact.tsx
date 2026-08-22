@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { CDN, SITE_URL, STAFFING_LOGIN } from "@/data/site";
+import { SITE_URL, STAFFING_LOGIN } from "@/data/site";
 import { PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/contact")({
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Tell us what you’re looking to achieve and we’ll come back with next steps.",
       },
-      { property: "og:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
-      { name: "twitter:image", content: `${CDN}/2023/06/purity-team-image.jpg` },
+      { property: "og:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
+      { name: "twitter:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
       { property: "og:url", content: `${SITE_URL}/contact` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
