@@ -18,7 +18,7 @@ export const NAV: NavItem[] = [
   { label: "Brand Experience", to: "/what-we-do/brand-experience" },
   { label: "Product Sampling", to: "/what-we-do/product-sampling" },
   {
-    label: "Staffing",
+    label: "Services",
     to: "/what-we-do/staffing",
     children: [
       { label: "PSA People", to: "/what-we-do/staffing" },
@@ -31,10 +31,7 @@ export const NAV: NavItem[] = [
   {
     label: "About",
     to: "/about",
-    children: [
-      { label: "We are PSA", to: "/about" },
-      { label: "Contact", to: "/contact" },
-    ],
+    children: [{ label: "We are PSA", to: "/about" }],
   },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
