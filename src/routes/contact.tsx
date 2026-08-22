@@ -60,7 +60,7 @@ const MESSAGE_MAX = 200;
 /** Shared field chrome. Fill alone cannot separate a well from its panel on this
  *  ground (max 1.19:1), so the border carries it and focus lands on green. */
 const fieldCls =
-  "mt-2 w-full rounded-brand-md border border-border-strong bg-dark px-4 text-foreground " +
+  "mt-2 w-full rounded-brand-md border border-border-strong bg-field px-4 text-foreground " +
   "outline-none transition-colors placeholder:text-muted-foreground " +
   "hover:border-violet-tint/60 focus-visible:ring-2 focus-visible:ring-green-500";
 
@@ -252,20 +252,6 @@ function Contact() {
           </p>
           <div className="mt-7">
             <PillLink href={STAFFING_LOGIN}>Apply online</PillLink>
-          </div>
-        </div>
-      </section>
-
-      {/* 4 — LEGAL */}
-      <section className="px-5 md:px-10">
-        <div className="mx-auto max-w-[1600px] border-t border-border pt-8">
-          <div className="max-w-4xl space-y-2 text-caption text-muted-foreground">
-            <p>Product Sampling Agency Ltd is registered in England, 6416093.</p>
-            <p>Registered address: c/o BAND, 111 Charterhouse Street, London, EC1M 6AW.</p>
-            <p>
-              Product Sampling Agency Limited is a VAT registered company with VAT number
-              GB921389714.
-            </p>
           </div>
         </div>
       </section>

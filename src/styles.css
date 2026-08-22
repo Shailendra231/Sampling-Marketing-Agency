@@ -73,6 +73,7 @@
   --color-divider: var(--divider);
   --color-border-violet: var(--border-violet);
   --color-border-strong: var(--border-strong);
+  --color-field: var(--field);
 
   /* Text roles */
   --color-body: var(--body);
@@ -203,6 +204,10 @@
   /* Form wells can't be delineated by fill — no surface differs from its panel
      by more than 1.19:1 on this ground — so inputs rely on this border. */
   --border-strong: oklch(0.3909 0.0988 289.45); /* #453A76, 1.81 on --raised */
+  /* Input wells sit ABOVE their panel rather than below it — a near-black well
+     read as a hole punched in the card. Placeholder text stays at AA here
+     (4.87:1); going lighter than this drops it below 4.5. */
+  --field: oklch(0.2899 0.0794 287.53); /* #2A2350 */
 
   /* ── Text roles ──────────────────────────────────────────────────── */
   --body: oklch(0.7860 0.0225 291.62); /* #B9B7C7 — body copy, 9.8:1 */
