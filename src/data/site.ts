@@ -63,9 +63,10 @@ export const SERVICES = [
 
 /** Client logos, served from /public. Each renders on a light tile because most
  *  of these are dark artwork on transparency and would vanish on our ground. */
-export const CLIENT_LOGOS = [
-  { src: "/Barsys.png", name: "Barsys" },
-  { src: "/brancosoft.webp", name: "BrancoSoft" },
+export const CLIENT_LOGOS: { src: string; name: string; wide?: boolean }[] = [
+  // Our own mark is a long, short wordmark, so the tile constrains it by width
+  // and it lands shorter than the rest. `wide` buys it back a little room.
+  { src: "/samplrr.svg", name: "Samplrr", wide: true },
   { src: "/CoTravpng.png", name: "CoTrav" },
   { src: "/newgen.svg", name: "Newgen" },
   { src: "/Ondios.png", name: "OneDios" },
@@ -73,6 +74,7 @@ export const CLIENT_LOGOS = [
   { src: "/taxivaxi.png", name: "TaxiVaxi" },
   { src: "/Trident.svg", name: "Trident Hotels" },
   { src: "/voxturr.png", name: "Voxturr" },
+  { src: "/Barsys.png", name: "Barsys" },
 ];
 
 /** Capability icons come from lucide-react so they inherit currentColor — the
