@@ -65,13 +65,14 @@ export const SERVICES = [
  *  of these are dark artwork on transparency and would vanish on our ground. */
 export const CLIENT_LOGOS = [
   { src: "/Barsys.png", name: "Barsys" },
+  { src: "/brancosoft.webp", name: "BrancoSoft" },
   { src: "/CoTravpng.png", name: "CoTrav" },
   { src: "/newgen.svg", name: "Newgen" },
   { src: "/Ondios.png", name: "OneDios" },
   { src: "/Safeobuddy.png", name: "Safe'O'Buddy" },
   { src: "/taxivaxi.png", name: "TaxiVaxi" },
   { src: "/Trident.svg", name: "Trident Hotels" },
-  { src: "/images/logo-voxturr-300x79.png", name: "Voxturr" },
+  { src: "/voxturr.png", name: "Voxturr" },
 ];
 
 /** Capability icons come from lucide-react so they inherit currentColor — the
