@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { SVGProps } from "react";
-import { CAPABILITIES, CASE_STUDIES, LOGO_SETS, SERVICES, SITE_URL } from "@/data/site";
+import { CAPABILITIES, CASE_STUDIES, CLIENT_LOGOS, SERVICES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, Panel, PillLink } from "@/components/site/ui";
 
 /**
@@ -175,14 +175,18 @@ function Index() {
             </div>
           </div>
           <div className="grid grid-cols-2 items-center gap-6 sm:grid-cols-3">
-            {LOGO_SETS.map((logo) => (
-              <img
-                key={logo}
-                src={logo}
-                alt="Brands we have run sampling for"
-                loading="lazy"
-                className="h-16 w-full object-contain"
-              />
+            {CLIENT_LOGOS.map((logo) => (
+              <div
+                key={logo.src}
+                className="flex h-20 items-center justify-center rounded-brand-md bg-white px-5"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  loading="lazy"
+                  className="max-h-10 w-auto max-w-full object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>

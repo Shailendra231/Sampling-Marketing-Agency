@@ -1,7 +1,5 @@
 import { BarChart3, BookOpen, Cookie, Lightbulb, Users, UsersRound } from "lucide-react";
 
-export const CDN = "https://naboo.lon1.cdn.digitaloceanspaces.com/wearepurity/uploads";
-
 /** Canonical public origin. Used for canonical links, og:url, and the sitemap. */
 export const SITE_URL = "https://productsamplingagency.in";
 
@@ -63,16 +61,17 @@ export const SERVICES = [
   },
 ] as const;
 
-export const LOGO_SETS = [
-  `${CDN}/2023/08/Logo-set-1-1.png`,
-  `${CDN}/2023/08/Logo-set-2-1-1-1.png`,
-  `${CDN}/2023/08/logos-set3-update.png`,
-  `${CDN}/2023/08/Logo-set-5-1.png`,
-  `${CDN}/2023/08/Logo-set-6-1.png`,
-  `${CDN}/2023/08/Logo-set-7-1.png`,
-  `${CDN}/2023/08/Logo-set-8-1.png`,
-  `${CDN}/2023/08/Logo-set-9-1.png`,
-  `${CDN}/2023/08/Logo-set-10.png`,
+/** Client logos, served from /public. Each renders on a light tile because most
+ *  of these are dark artwork on transparency and would vanish on our ground. */
+export const CLIENT_LOGOS = [
+  { src: "/Barsys.png", name: "Barsys" },
+  { src: "/CoTravpng.png", name: "CoTrav" },
+  { src: "/newgen.svg", name: "Newgen" },
+  { src: "/Ondios.png", name: "OneDios" },
+  { src: "/Safeobuddy.png", name: "Safe'O'Buddy" },
+  { src: "/taxivaxi.png", name: "TaxiVaxi" },
+  { src: "/Trident.svg", name: "Trident Hotels" },
+  { src: "/images/logo-voxturr-300x79.png", name: "Voxturr" },
 ];
 
 /** Capability icons come from lucide-react so they inherit currentColor — the
