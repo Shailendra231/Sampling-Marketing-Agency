@@ -40,11 +40,11 @@ function BrandExperience() {
         intro="Live experiences that deliver brand activations and drive results."
       />
 
-      <Panel tone="white">
+      <Panel tone="base">
         <h2 className="font-display max-w-3xl text-4xl font-bold leading-tight md:text-5xl">
           We’re an experiential marketing agency with intent
         </h2>
-        <div className="mt-8 grid gap-6 text-lg text-ink/75 lg:grid-cols-2">
+        <div className="mt-8 grid gap-6 text-lg text-foreground/75 lg:grid-cols-2">
           <p>
             Every brand experience is built with purpose. We start by understanding <em>why</em> an
             experience is needed; What needs to be achieved? Who do we need to reach? Where will a
@@ -61,7 +61,7 @@ function BrandExperience() {
         </div>
       </Panel>
 
-      <Panel tone="cloud" className="!py-10">
+      <Panel tone="raised" className="!py-10">
         <h2 className="font-display text-3xl font-bold md:text-5xl">
           Proven experiential marketing results
         </h2>
@@ -71,7 +71,7 @@ function BrandExperience() {
 
       <Panel>
         <h2 className="font-display text-3xl font-bold md:text-5xl">Why brand experience works</h2>
-        <p className="mt-6 max-w-3xl text-lg text-ink/80">
+        <p className="mt-6 max-w-3xl text-lg text-foreground/80">
           Our campaigns ensure brands show up in the moments that really matter, driving engagement,
           trial and action through live experiences. Perfect for when you need to:
         </p>

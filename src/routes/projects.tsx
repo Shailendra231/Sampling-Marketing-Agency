@@ -33,7 +33,7 @@ function Projects() {
         intro="Brand activations, product sampling campaigns and staffing projects delivered for brands and agencies around the world."
       />
 
-      <Panel tone="white" className="!py-10">
+      <Panel tone="base" className="!py-10">
         <Marquee text="Case Studies" />
         <CaseStudyGrid items={CASE_STUDIES} />
       </Panel>

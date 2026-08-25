@@ -107,7 +107,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap",
       },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      // SVG first for crisp rendering at any density; PNG is the fallback for
+      // browsers that do not take SVG icons.
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -135,7 +139,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background font-sans text-ink antialiased">
+      <div className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Header />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <main>

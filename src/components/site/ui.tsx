@@ -4,18 +4,18 @@ import { CASE_STUDIES, type CaseStudy } from "@/data/site";
 
 export function Panel({
   children,
-  tone = "blaze",
+  tone = "panel",
   className = "",
 }: {
   children: ReactNode;
-  tone?: "blaze" | "sunset" | "cloud" | "white";
+  tone?: "panel" | "primary" | "raised" | "base";
   className?: string;
 }) {
   const tones = {
-    blaze: "bg-blaze text-ink",
-    sunset: "bg-gradient-sunset text-ink",
-    cloud: "bg-cloud text-ink",
-    white: "bg-background text-ink",
+    panel: "bg-panel text-foreground",
+    primary: "bg-gradient-primary text-foreground",
+    raised: "bg-raised text-foreground",
+    base: "bg-background text-foreground",
   } as const;
   return (
     <section className="px-5 md:px-10">
@@ -42,7 +42,7 @@ export function PillLink({
   const styles =
     variant === "ink"
       ? "bg-gradient-cta text-dark shadow-glow-green hover:brightness-110"
-      : "bg-blaze text-ink hover:bg-blaze/80";
+      : "bg-panel text-foreground hover:bg-panel/80";
   const cls = `inline-flex h-12 items-center rounded-full px-7 text-sm font-semibold transition-colors ${styles}`;
   if (href) {
     return (
@@ -65,16 +65,20 @@ export function Marquee({ text = "View our Work" }: { text?: string }) {
       {[0, 1, 2].map((i) => (
         <div key={i} className="flex whitespace-nowrap">
           <span
-            className={`font-display text-4xl font-bold uppercase tracking-tight text-ink/15 md:text-6xl ${
-              i === 1 ? "animate-[marquee_38s_linear_infinite_reverse]" : "animate-[marquee_30s_linear_infinite]"
+            className={`font-display text-4xl font-bold uppercase tracking-tight text-foreground/15 md:text-6xl ${
+              i === 1
+                ? "animate-[marquee_38s_linear_infinite_reverse]"
+                : "animate-[marquee_30s_linear_infinite]"
             }`}
           >
             {row}&nbsp;
           </span>
           <span
             aria-hidden="true"
-            className={`font-display text-4xl font-bold uppercase tracking-tight text-ink/15 md:text-6xl ${
-              i === 1 ? "animate-[marquee_38s_linear_infinite_reverse]" : "animate-[marquee_30s_linear_infinite]"
+            className={`font-display text-4xl font-bold uppercase tracking-tight text-foreground/15 md:text-6xl ${
+              i === 1
+                ? "animate-[marquee_38s_linear_infinite_reverse]"
+                : "animate-[marquee_30s_linear_infinite]"
             }`}
           >
             {row}&nbsp;
@@ -103,8 +107,8 @@ export function CaseStudyGrid({ items = CASE_STUDIES }: { items?: CaseStudy[] })
             />
           </div>
           <div className="p-6">
-            <h3 className="font-display text-xl font-bold text-ink">{study.title}</h3>
-            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-ink/70 group-hover:text-ink">
+            <h3 className="font-display text-xl font-bold text-foreground">{study.title}</h3>
+            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground/70 group-hover:text-foreground">
               Go to case study
               <span aria-hidden="true">→</span>
             </span>
@@ -125,11 +129,13 @@ export function PageHero({
   extra?: ReactNode;
 }) {
   return (
-    <Panel tone="sunset" className="min-h-[420px]">
+    <Panel tone="primary" className="min-h-[420px]">
       <h1 className="font-display max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
         {title}
       </h1>
-      {intro ? <p className="mt-6 max-w-2xl text-lg text-ink/80 md:text-xl">{intro}</p> : null}
+      {intro ? (
+        <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">{intro}</p>
+      ) : null}
       {extra}
     </Panel>
   );
@@ -137,12 +143,12 @@ export function PageHero({
 
 export function ContactCta() {
   return (
-    <Panel tone="cloud">
+    <Panel tone="raised">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
           Ready to bring your brand activation to life?
         </h2>
-        <p className="mt-5 text-lg text-ink/75">
+        <p className="mt-5 text-lg text-foreground/75">
           If you’re looking for a brand activation partner who understands live campaigns and is
           excited to drive your brand forward, we’d love to talk.
         </p>

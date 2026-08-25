@@ -33,14 +33,14 @@ function About() {
         title="We are Product Sampling Agency"
         intro="Product Sampling Agency are a team of passionate, creative individuals who believe in the power of human connection."
         extra={
-          <p className="mt-4 max-w-2xl text-lg text-ink/80">
+          <p className="mt-4 max-w-2xl text-lg text-foreground/80">
             Our goal is to craft unforgettable brand experiences that touch the hearts of people
             around the world.
           </p>
         }
       />
 
-      <Panel tone="white">
+      <Panel tone="base">
         <div className="grid gap-8 md:grid-cols-2">
           <img
             src={"/images/a-bright-modern-office-interior.webp"}
@@ -62,7 +62,7 @@ function About() {
           We’re passionate &amp; creative. But mostly, we’re just nice people who love creating
           great experiences
         </h2>
-        <div className="mt-8 grid gap-8 text-lg text-ink/80 lg:grid-cols-2">
+        <div className="mt-8 grid gap-8 text-lg text-foreground/80 lg:grid-cols-2">
           <div className="space-y-4">
             <p>In a world full of noise and competition, standing out is an art.</p>
             <p>At Product Sampling Agency, we get it and we’ve got your back.</p>
@@ -83,13 +83,15 @@ function About() {
               Our clients trust us because we’re the dependable choice, guided by unwavering
               integrity with a good sense of humour.
             </p>
-            <p className="font-semibold text-ink">The time for authentic relationships is now.</p>
+            <p className="font-semibold text-foreground">
+              The time for authentic relationships is now.
+            </p>
             <PillLink to="/contact">Get in touch</PillLink>
           </div>
         </div>
       </Panel>
 
-      <Panel tone="white" className="!py-10">
+      <Panel tone="base" className="!py-10">
         <div className="grid gap-6 md:grid-cols-2">
           {[
             {
@@ -112,7 +114,7 @@ function About() {
         </div>
       </Panel>
 
-      <Panel tone="cloud">
+      <Panel tone="raised">
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
@@ -139,11 +141,11 @@ function About() {
         </div>
       </Panel>
 
-      <Panel tone="white">
+      <Panel tone="base">
         <h2 className="font-display text-3xl font-bold md:text-4xl">News, views and inspiration</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {BLOG_POSTS.slice(0, 3).map((post) => (
-            <article key={post.title} className="overflow-hidden rounded-3xl bg-cloud">
+            <article key={post.title} className="overflow-hidden rounded-3xl bg-raised">
               <img
                 src={post.image}
                 alt={`Product Sampling Agency - ${post.title}`}
@@ -151,7 +153,7 @@ function About() {
                 className="aspect-[3/2] w-full object-cover"
               />
               <div className="p-7">
-                <p className="text-sm font-semibold text-ink/60">{post.date}</p>
+                <p className="text-sm font-semibold text-foreground/60">{post.date}</p>
                 <h3 className="font-display mt-2 text-xl font-bold">{post.title}</h3>
                 <span className="mt-4 inline-block text-sm font-semibold">Read blog →</span>
               </div>

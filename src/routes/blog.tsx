@@ -37,10 +37,10 @@ function Blog() {
     <div className="space-y-6 pb-6">
       <PageHero title="The latest news, views & inspiration" />
 
-      <Panel tone="white">
+      <Panel tone="base">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {BLOG_POSTS.map((post) => (
-            <article key={post.title} className="overflow-hidden rounded-3xl bg-cloud">
+            <article key={post.title} className="overflow-hidden rounded-3xl bg-raised">
               <img
                 src={post.image}
                 alt={`Product Sampling Agency - ${post.title}`}
@@ -48,7 +48,7 @@ function Blog() {
                 className="aspect-[3/2] w-full object-cover"
               />
               <div className="p-7">
-                <p className="text-sm font-semibold text-ink/60">{post.date}</p>
+                <p className="text-sm font-semibold text-foreground/60">{post.date}</p>
                 <h2 className="font-display mt-2 text-xl font-bold">{post.title}</h2>
                 <span className="mt-4 inline-block text-sm font-semibold">Read blog →</span>
               </div>

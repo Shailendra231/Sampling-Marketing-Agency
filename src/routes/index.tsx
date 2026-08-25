@@ -101,11 +101,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="space-y-6 pb-6">
-      <Panel tone="sunset" className="relative min-h-[520px]">
+      <Panel tone="primary" className="relative min-h-[520px]">
         <h1 className="font-display max-w-3xl text-6xl font-bold leading-[0.98] tracking-tight md:text-8xl">
           A brand activation agency
         </h1>
-        <p className="mt-8 max-w-xl text-lg text-ink/80 md:text-2xl">
+        <p className="mt-8 max-w-xl text-lg text-foreground/80 md:text-2xl">
           Shaping activation strategy through brand experience, product sampling and people.
         </p>
       </Panel>
@@ -125,13 +125,13 @@ function Index() {
         </div>
       </section>
 
-      <Panel tone="cloud">
+      <Panel tone="raised">
         <h2 className="font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
           Brand activation.
           <br />
-          <span className="text-magenta">Built for experience.</span>
+          <span className="text-green-300">Built for experience.</span>
         </h2>
-        <p className="mt-8 max-w-2xl text-lg text-ink/80 md:text-xl">
+        <p className="mt-8 max-w-2xl text-lg text-foreground/80 md:text-xl">
           We specialise in brand activations in the UK, USA and selected international markets that
           turn strategy into live experiences designed to perform.
         </p>
@@ -153,7 +153,7 @@ function Index() {
               </div>
               <div className="flex flex-1 flex-col p-7">
                 <h3 className="font-display text-2xl font-bold">{service.title}</h3>
-                <p className="mt-3 flex-1 text-ink/70">{service.copy}</p>
+                <p className="mt-3 flex-1 text-foreground/70">{service.copy}</p>
                 <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold">
                   {service.cta} <span aria-hidden="true">→</span>
                 </span>
@@ -163,11 +163,11 @@ function Index() {
         </div>
       </Panel>
 
-      <Panel tone="white">
+      <Panel tone="base">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
             <h2 className="font-display text-3xl font-bold md:text-4xl">Backed by experience</h2>
-            <p className="mt-5 text-lg text-ink/75">
+            <p className="mt-5 text-lg text-foreground/75">
               Since 2007, we’ve partnered with brands across the UK, USA and selected international
               markets, delivering brand activation campaigns that engage, connect and leave a
               lasting impression.
@@ -190,14 +190,14 @@ function Index() {
         </div>
       </Panel>
 
-      <Panel tone="cloud">
+      <Panel tone="raised">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((item) => (
             <div key={item.title} className="flex gap-4">
               <item.Icon aria-hidden="true" className="h-9 w-9 text-green-500" strokeWidth={1.6} />
               <div>
                 <h3 className="font-display text-lg font-bold">{item.title}</h3>
-                <p className="mt-1 text-ink/70">{item.copy}</p>
+                <p className="mt-1 text-foreground/70">{item.copy}</p>
               </div>
             </div>
           ))}
@@ -208,7 +208,7 @@ function Index() {
         <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
           Focused on your future
         </h2>
-        <p className="mt-6 max-w-2xl text-lg text-ink/80">
+        <p className="mt-6 max-w-2xl text-lg text-foreground/80">
           Our in-house experts and trusted delivery partners manage game-changing campaigns that
           deliver quality, credibility and consistency at every touch point.
         </p>
@@ -238,14 +238,14 @@ function Index() {
               </div>
               <div className="p-7">
                 <h3 className="font-display text-2xl font-bold">{block.title}</h3>
-                <p className="mt-3 text-ink/70">{block.copy}</p>
+                <p className="mt-3 text-foreground/70">{block.copy}</p>
               </div>
             </div>
           ))}
         </div>
       </Panel>
 
-      <Panel tone="white" className="!py-10">
+      <Panel tone="base" className="!py-10">
         <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
           A few of our favourite campaigns
         </h2>

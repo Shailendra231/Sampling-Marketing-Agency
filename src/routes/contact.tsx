@@ -97,7 +97,7 @@ function Contact() {
       />
 
       {/* 1 — PRIMARY ACTION: the enquiry form leads the page */}
-      <Panel tone="cloud">
+      <Panel tone="raised">
         <Eyebrow>Start a conversation</Eyebrow>
         <h2 className="font-display mt-3 text-section font-bold md:text-h1">Discuss a project</h2>
         <p className="mt-4 max-w-2xl text-lead text-body">

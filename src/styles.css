@@ -81,15 +81,6 @@
   --color-violet-tint: var(--violet-tint);
   --color-on-violet: var(--on-violet);
 
-  /* Legacy aliases — retargeted to SMA roles. Being removed; prefer the
-     tokens above in new code. */
-  --color-ink: var(--ink);
-  --color-blaze: var(--blaze);
-  --color-amber: var(--amber);
-  --color-violet: var(--violet);
-  --color-cloud: var(--cloud);
-  --color-slate-body: var(--slate-body);
-  --color-magenta: var(--magenta);
 
   /* [05] Corner radius. The document declares 12/16/28/pill but every card in
      [06] is drawn at 20px, so 20 is kept as the card step. */
@@ -288,19 +279,6 @@
   --sidebar-border: oklch(0.3448 0.0883 290.76);
   --sidebar-ring: var(--green-500);
 
-  /* ── Legacy aliases, retargeted to the SMA palette ───────────────── */
-  --ink: oklch(1 0 0); /* was #2b0d54; `text-ink` is now white on dark */
-  --cloud: var(--raised); /* tinted surface panel */
-  --blaze: var(--panel); /* violet-tinted surface */
-  --amber: var(--violet-tint);
-  --violet: var(--violet-500);
-  --magenta: var(--green-300); /* accent word colour */
-  --slate-body: var(--body);
-  --gradient-sunset: var(--gradient-primary);
-}
-
-@utility bg-gradient-sunset {
-  background-image: var(--gradient-sunset);
 }
 
 @utility bg-gradient-primary {
