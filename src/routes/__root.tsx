@@ -50,7 +50,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          That one broke on our side. A refresh usually sorts it.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -79,18 +79,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Product Sampling Agency | A Brand Activation Agency" },
+      { title: "Product Sampling Agency | Sampling and activations in India" },
       {
         name: "description",
         content:
-          "Product Sampling Agency is a brand activation agency shaping activation strategy through brand experience, product sampling and people.",
+          "Product sampling, live brand activations and trained field teams, planned and run across Indian cities.",
       },
       { name: "author", content: "Product Sampling Agency" },
-      { property: "og:title", content: "Product Sampling Agency | A Brand Activation Agency" },
+      {
+        property: "og:title",
+        content: "Product Sampling Agency | Sampling and activations in India",
+      },
       {
         property: "og:description",
-        content:
-          "Shaping activation strategy through brand experience, product sampling and people.",
+        content: "Sampling, live brand activations and trained field teams, run across India.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "productsamplingagency" },

@@ -5,17 +5,16 @@ import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/componen
 export const Route = createFileRoute("/what-we-do/staffing")({
   head: () => ({
     meta: [
-      { title: "PSA People | Promotional & Event Staffing Agency" },
+      { title: "Field teams | Promotional and event staffing" },
       {
         name: "description",
         content:
-          "PSA People is a specialist staffing agency delivering expertly trained promotional, event and sampling teams across the UK, Europe and the USA.",
+          "Trained promotional, event and sampling staff for campaigns across Indian cities.",
       },
-      { property: "og:title", content: "PSA People | Staffing Agency" },
+      { property: "og:title", content: "Field teams | Product Sampling Agency" },
       {
         property: "og:description",
-        content:
-          "High-performing, expertly trained ambassadors, promotional staff and event teams.",
+        content: "Promoters, samplers and event staff, briefed on your product before the shift.",
       },
       {
         property: "og:image",
@@ -34,41 +33,41 @@ export const Route = createFileRoute("/what-we-do/staffing")({
 
 const REASONS = [
   {
-    title: "Specialist staffing expertise",
-    copy: "18 years of experience supporting brand activations, product trials, and live events of every scale around the world.",
+    title: "We only staff this kind of work",
+    copy: "We staff sampling routes, mall activations and retail promotions week in, week out. Most of our supervisors came up through those shifts themselves.",
   },
   {
     title: "Diversity-driven casting",
-    copy: "Representation matters. We champion diverse talent to ensure your campaigns reflect your audiences authentically.",
+    copy: "We hire locally for each city, so the team speaks the language your customers actually use.",
   },
   {
     title: "Seamless logistics",
-    copy: "From recruitment and briefing to onsite support and managing feedback, we manage every detail – so you don’t have to.",
+    copy: "We recruit, brief, supervise on the day and collect what people said. You approve the plan and read the report.",
   },
   {
-    title: "Reliable, ready-to-go teams",
-    copy: "Whether it’s short notice or a long lead campaign, we can quickly deploy staff who’ve been properly briefed and trained.",
+    title: "Teams that turn up",
+    copy: "Short notice happens. We keep a bench in the main metros, so a replacement is a phone call rather than a crisis.",
   },
   {
     title: "Insight-led performance",
-    copy: "Our staffing doesn’t stop at delivery. We gather feedback, measure impact and help optimise future campaigns.",
+    copy: "After the shift you get counts, photos and the objections people raised. That is usually what changes the next route.",
   },
 ];
 
 const OFFERS = [
   {
     title: "Promotional Staffing",
-    copy: "Street teams, samplers, brand ambassadors and more – driving brand visibility, engagement and trial.",
+    copy: "Street teams and samplers for footpaths, markets, society gates and transit points.",
     cta: "Find your team",
   },
   {
     title: "Event Staffing",
-    copy: "Front-of-house teams, event hosts, supervisors and support staff for seamless guest experiences.",
+    copy: "Hosts, registration desks, supervisors and support staff for events and launches.",
     cta: "Hire event teams",
   },
   {
     title: "Product Sampling Staffing",
-    copy: "Trained sampling staff who influence behaviour and capture valuable insights in-store, on-street or at events.",
+    copy: "In store sampling staff who can demo a product and write down what shoppers say about it.",
     cta: "Book sampling staff",
   },
 ];
@@ -77,33 +76,30 @@ function Staffing() {
   return (
     <div className="space-y-6 pb-6">
       <PageHero
-        title="PSA People"
-        intro="As a specialist staffing agency, PSA People delivers high-performing, expertly trained teams for brand activations, events, product sampling campaigns, retail projects and more."
+        title="Field teams"
+        intro="Trained staff for sampling routes, mall activations, retail promotions and events."
         extra={
           <div className="mt-6 max-w-2xl space-y-4 text-lg text-foreground/80">
             <p>
-              We work with brands, agencies, venues and events across the UK, Europe and the USA to
-              supply staff who are not only professional and reliable, but who understand how to
-              connect with audiences.
+              We supply staff to brands, agencies, malls and event organisers across Indian cities.
+              Reliability matters, but so does whether someone can actually start a conversation
+              with a stranger.
             </p>
-            <p>
-              We provide flexible, scalable staffing solutions that bring your campaigns and events
-              to life.
-            </p>
+            <p>Two people for a weekend or eighty across a month. Same briefing either way.</p>
           </div>
         }
       />
 
       <Panel tone="base">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">We always put people first</h2>
+        <h2 className="font-display text-3xl font-bold md:text-5xl">Who we send</h2>
         <p className="mt-6 max-w-3xl text-lg font-semibold text-foreground">
-          We believe that the right people make all the difference. That’s why we don’t just fill
-          roles, we match individuals to brands, briefs and audiences with precision and care.
+          A promoter who understands the product will outsell a better looking one who does not. We
+          pick for the brief, not from a spreadsheet.
         </p>
         <p className="mt-4 max-w-3xl text-lg text-foreground/75">
-          Our national and international talent pool is diverse, experienced, and fully supported by
-          our PSA People team to ensure every shift is delivered with energy, professionalism and
-          accountability.
+          Everyone gets briefed on the product, the objections and the count before a shift. A
+          supervisor is on site, and attendance is tracked so you are not paying for people who did
+          not turn up.
         </p>
         <div className="mt-8">
           <PillLink to="/contact">Get in touch</PillLink>
@@ -111,9 +107,7 @@ function Staffing() {
       </Panel>
 
       <Panel tone="raised">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">
-          Why Brands, Agencies, Venues and Events Work With Us
-        </h2>
+        <h2 className="font-display text-3xl font-bold md:text-5xl">Why people call us back</h2>
         <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {REASONS.map((reason) => (
             <div key={reason.title} className="rounded-3xl bg-background p-7">
@@ -130,8 +124,8 @@ function Staffing() {
       <Panel>
         <h2 className="font-display text-3xl font-bold md:text-5xl">What We Offer</h2>
         <p className="mt-6 max-w-3xl text-lg text-foreground/80">
-          Each service is backed by our established recruitment, training, and management processes
-          then brought to life by people who represent your brand or event with pride.
+          Recruitment, briefing and supervision are ours to handle. You get one point of contact,
+          and a team that has been told what the product does.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {OFFERS.map((offer) => (
@@ -145,12 +139,10 @@ function Staffing() {
       </Panel>
 
       <Panel tone="base">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">See It In Action</h2>
+        <h2 className="font-display text-3xl font-bold md:text-4xl">Where these teams work</h2>
         <p className="mt-6 max-w-3xl text-lg text-foreground/75">
-          Our case studies showcase how PSA People have helped brands, venues and events deliver
-          standout activations, from the highest profile sporting events in the world to retail
-          campaigns. Whether you’re looking for quality at scale or personality-led presence, our
-          people perform.
+          Malls, metro stations, campuses, markets, society gates and road races. Different crowds,
+          different pitch, same discipline about turning up prepared.
         </p>
         <div className="mt-10">
           <CaseStudyGrid items={CASE_STUDIES.slice(2, 5)} />

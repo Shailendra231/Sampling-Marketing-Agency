@@ -9,10 +9,11 @@ export function Footer() {
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-                Gain further insight
+                Notes from the field
               </h2>
               <p className="mt-3 max-w-md text-foreground/70">
-                Get your brand activation news and insights straight to your inbox.
+                Occasional emails about what worked on site and what flopped. We send one when there
+                is something worth saying, which is not every month.
               </p>
               <form
                 className="mt-6 flex max-w-md flex-col gap-3 sm:flex-row"
@@ -63,9 +64,9 @@ export function Footer() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold text-foreground">Our awards:</h3>
+                <h3 className="font-display text-lg font-bold text-foreground">Where we work</h3>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  {["Best Brand Activation", "Experiential Awards", "Field Marketing"].map(
+                  {["Malls", "Metro & transit", "Campuses", "Markets", "Societies", "Events"].map(
                     (award) => (
                       <span
                         key={award}

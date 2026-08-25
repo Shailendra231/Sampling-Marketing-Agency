@@ -77,17 +77,16 @@ const PILLARS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Product Sampling Agency | A Brand Activation Agency in the UK & USA" },
+      { title: "Product Sampling Agency | Sampling and activations in India" },
       {
         name: "description",
         content:
-          "Product Sampling Agency is a brand activation agency shaping activation strategy through brand experience, product sampling and people across the UK, USA and beyond.",
+          "We put products into people’s hands. Sampling, live activations and trained field teams across Indian cities.",
       },
-      { property: "og:title", content: "Product Sampling Agency | A Brand Activation Agency" },
+      { property: "og:title", content: "We put products in people’s hands" },
       {
         property: "og:description",
-        content:
-          "Shaping activation strategy through brand experience, product sampling and people.",
+        content: "Sampling, live brand activations and trained field teams, run across India.",
       },
       { property: "og:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
       { name: "twitter:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
@@ -103,10 +102,10 @@ function Index() {
     <div className="space-y-6 pb-6">
       <Panel tone="primary" className="relative min-h-[520px]">
         <h1 className="font-display max-w-3xl text-6xl font-bold leading-[0.98] tracking-tight md:text-8xl">
-          A brand activation agency
+          We put products in people’s hands
         </h1>
         <p className="mt-8 max-w-xl text-lg text-foreground/80 md:text-2xl">
-          Shaping activation strategy through brand experience, product sampling and people.
+          Sampling, live brand activations and trained field teams, run across India.
         </p>
       </Panel>
 
@@ -127,13 +126,13 @@ function Index() {
 
       <Panel tone="raised">
         <h2 className="font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
-          Brand activation.
+          Sampling works.
           <br />
-          <span className="text-green-300">Built for experience.</span>
+          <span className="text-green-300">When it is planned properly.</span>
         </h2>
         <p className="mt-8 max-w-2xl text-lg text-foreground/80 md:text-xl">
-          We specialise in brand activations in the UK, USA and selected international markets that
-          turn strategy into live experiences designed to perform.
+          Wrong site, wrong hour, a team nobody briefed. Those three account for most of the
+          sampling budgets we have watched go nowhere, so they are what we plan around.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -166,11 +165,10 @@ function Index() {
       <Panel tone="base">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
-            <h2 className="font-display text-3xl font-bold md:text-4xl">Backed by experience</h2>
+            <h2 className="font-display text-3xl font-bold md:text-4xl">How we work</h2>
             <p className="mt-5 text-lg text-foreground/75">
-              Since 2007, we’ve partnered with brands across the UK, USA and selected international
-              markets, delivering brand activation campaigns that engage, connect and leave a
-              lasting impression.
+              We handle the route, the site permissions, the team and the counting. Afterwards you
+              get the numbers plus a straight account of how it went, weak sites included.
             </p>
             <div className="mt-8">
               <PillLink to="/projects">View our Work</PillLink>
@@ -181,7 +179,7 @@ function Index() {
               <img
                 key={logo}
                 src={logo}
-                alt="Product Sampling Agency client brand logos"
+                alt="Brands we have run sampling for"
                 loading="lazy"
                 className="h-16 w-full object-contain"
               />
@@ -206,11 +204,11 @@ function Index() {
 
       <Panel>
         <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
-          Focused on your future
+          What we handle
         </h2>
         <p className="mt-6 max-w-2xl text-lg text-foreground/80">
-          Our in-house experts and trusted delivery partners manage game-changing campaigns that
-          deliver quality, credibility and consistency at every touch point.
+          Planning, permissions, kit, staffing and reporting. You can hand us the whole thing or
+          drop us into the part you are stuck on.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {[
@@ -218,13 +216,13 @@ function Index() {
               image: "/images/a-realistic-indoor-public-space.webp",
               alt: "woman taking photo of staff",
               title: "For Brands",
-              copy: "For brands that want to engage, excite and ignite consumers, through single live moments to multi-location rollouts.",
+              copy: "One pop up in one mall, or a route across thirty cities. We scale the same way either way.",
             },
             {
               image: "/images/outdoor-street-market-scene-with.webp",
               alt: "KFC delivery pit stop",
               title: "For Agencies",
-              copy: "For agencies that want to partner with a brand activation specialist that is ready to elevate your marketing ideas.",
+              copy: "You keep the client relationship and the idea. We handle sites, staff and the day itself.",
             },
           ].map((block) => (
             <div key={block.title} className="overflow-hidden rounded-3xl bg-background">
@@ -247,7 +245,7 @@ function Index() {
 
       <Panel tone="base" className="!py-10">
         <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
-          A few of our favourite campaigns
+          Some of the work
         </h2>
         <Marquee />
         <CaseStudyGrid items={CASE_STUDIES.slice(0, 6)} />

@@ -24,7 +24,7 @@ export const NAV: NavItem[] = [
     label: "Services",
     to: "/what-we-do/staffing",
     children: [
-      { label: "PSA People", to: "/what-we-do/staffing" },
+      { label: "Field Teams", to: "/what-we-do/staffing" },
       { label: "Promotional Staffing", to: "/what-we-do/staffing" },
       { label: "Event Staffing", to: "/what-we-do/staffing" },
       { label: "Product Sampling Staffing", to: "/what-we-do/staffing" },
@@ -40,25 +40,25 @@ export const SERVICES = [
   {
     title: "Brand Experience",
     image: "/images/a-vibrant-candid-outdoor-indoor.webp",
-    alt: "Product Sampling Agency - Brand Experience",
-    copy: "Campaigns designed to ensure brands show up in the moments that matter, driving engagement, trial and action through live experiences.",
-    cta: "Build your brand experience",
+    alt: "A brand activation running inside a shopping mall",
+    copy: "Tell us what the day has to achieve and we will build the thing that does it. Design, permissions, staff, the lot.",
+    cta: "See how we build experiences",
     to: "/what-we-do/brand-experience",
   },
   {
     title: "Product Sampling",
     image: "/images/a-busy-outdoor-indoor-mall.webp",
-    alt: "Product Sampling Agency - Product Sampling",
-    copy: "Face-to-face sampling that lands in the right place at the right time is a powerful tool for boosting sales, loyalty and creating brand champions.",
-    cta: "Unlock your product power",
+    alt: "A sampling counter with staff handing products to shoppers",
+    copy: "Your product in the right hands, in places people already go. Malls, campuses, metro stations, housing societies, markets and events.",
+    cta: "See how sampling works",
     to: "/what-we-do/product-sampling",
   },
   {
-    title: "PSA People",
+    title: "Field Teams",
     image: "/images/a-bright-modern-office-interior.webp",
-    alt: "Product Sampling Agency - PSA People",
-    copy: "High-performing, expertly trained ambassadors, promotional staff and event teams bring brands to life with confidence, consistency and energy.",
-    cta: "Fuel your brand through people",
+    alt: "A field team preparing product kits before a shift",
+    copy: "Promoters and event staff who know your product before they meet your customer. Nobody goes out on a shift unbriefed.",
+    cta: "Meet the field teams",
     to: "/what-we-do/staffing",
   },
 ] as const;
@@ -78,75 +78,48 @@ export const LOGO_SETS = [
 /** Capability icons come from lucide-react so they inherit currentColor — the
  *  previous SVGs were dark-on-dark once the site moved to a dark ground. */
 export const CAPABILITIES = [
-  {
-    Icon: BarChart3,
-    title: "Shaping activation strategy",
-    copy: "Leveraging cultural trends",
-  },
-  {
-    Icon: Lightbulb,
-    title: "Creative concepts",
-    copy: "From ideation to execution",
-  },
-  {
-    Icon: BookOpen,
-    title: "Brand storytelling",
-    copy: "Crafting authentic stories that connect",
-  },
-  {
-    Icon: Users,
-    title: "Experiential marketing",
-    copy: "Creating engaging experiences",
-  },
-  {
-    Icon: Cookie,
-    title: "Sampling",
-    copy: "Laying the foundations for loyalty",
-  },
-  {
-    Icon: UsersRound,
-    title: "Staffing",
-    copy: "Putting people first",
-  },
+  { Icon: BarChart3, title: "Activation planning", copy: "Which sites, which hours" },
+  { Icon: Lightbulb, title: "Creative concepts", copy: "Ideas built for a footpath, not a deck" },
+  { Icon: BookOpen, title: "Brand storytelling", copy: "Say it before they walk past" },
+  { Icon: Users, title: "Experiential marketing", copy: "Something worth stopping for" },
+  { Icon: Cookie, title: "Sampling", copy: "First try, then the second purchase" },
+  { Icon: UsersRound, title: "Field staffing", copy: "Staff who know the product" },
 ];
 
 export type CaseStudy = { title: string; image: string };
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    title: "N3on Token Launch – Thrust x Blockchain Futurist Conference",
+    title: "Beverage launch across metro stations",
     image: "/images/a-busy-indoor-mall-cinema.webp",
   },
   {
-    title: "Dirtea Sampling Campaign",
+    title: "Snack sampling on intercity trains",
     image: "/images/a-crowded-indoor-scene-inside.webp",
   },
+  { title: "Skincare trial in premium malls", image: "/images/a-lively-outdoor-indoor-mall.webp" },
   {
-    title: "Big Dish Energy Live with Time Out and Uber Eats",
-    image: "/images/a-lively-outdoor-indoor-mall.webp",
-  },
-  {
-    title: "Heineken 0.0 at Grand Central Terminal",
+    title: "Personal care on a high street footpath",
     image: "/images/a-realistic-street-sidewalk-scene.webp",
   },
   {
-    title: "Lee Kum Kee at Barcode 2025",
+    title: "Ready to drink sampling in a market district",
     image: "/images/a-realistic-street-urban-outdoor.webp",
   },
   {
-    title: "Malibu ‘Clock off’",
+    title: "Wellness brand at residential society gates",
     image: "/images/outdoor-daytime-scene-at-the.webp",
   },
   {
-    title: "BOSS & Aston Martin Helmet",
+    title: "Energy drink at a city road race",
     image: "/images/outdoor-event-road-race-scene.webp",
   },
   {
-    title: "Hiscox Energy Express",
+    title: "Food brand with feedback capture at a weekend market",
     image: "/images/outdoor-street-market-scene-with.webp",
   },
   {
-    title: "Time Out & Madri",
+    title: "Campus activation during fest week",
     image: "/images/a-bright-outdoor-indoor-courtyard.webp",
   },
 ];
@@ -156,42 +129,42 @@ export type BlogPost = { date: string; title: string; image: string };
 export const BLOG_POSTS: BlogPost[] = [
   {
     date: "July 2026",
-    title: "What to Look for in a Brand Activation Agency",
+    title: "What actually happens on a sampling day",
     image: "/images/a-wide-promotional-infographic-style.webp",
   },
   {
     date: "July 2026",
-    title: "The Role of Experiential Marketing in the Marketing Mix",
+    title: "Picking sites: footfall is not the whole story",
     image: "/images/a-clean-modern-graphic-advertising.webp",
   },
   {
     date: "July 2026",
-    title: "How a USA Brand Activation empowered community-driven culture",
+    title: "How many samples is enough?",
     image: "/images/a-clean-modern-marketing-comms.webp",
   },
   {
     date: "May 2026",
-    title: "PSA People’s Guide to Festival Staffing",
+    title: "Briefing a field team so the message survives",
     image: "/images/a-clean-modern-social-media.webp",
   },
   {
     date: "April 2026",
-    title: "Leaving a lasting impression – how live Brand Experiences connect",
+    title: "Sampling inside Indian malls, and what it costs you",
     image: "/images/a-realistic-indoor-public-space.webp",
   },
   {
     date: "April 2026",
-    title: "Why product sampling at summer sporting events is a recipe for success",
+    title: "Why some trials convert and others go nowhere",
     image: "/images/wide-outdoor-street-scene-in.webp",
   },
   {
     date: "March 2026",
-    title: "From Experience to Activation: Why Strategy and People Matter Most",
+    title: "Measuring a sampling campaign without guessing",
     image: "/images/a-clean-minimal-product-social.webp",
   },
   {
     date: "January 2026",
-    title: "New year, new brand experience opportunities",
+    title: "Planning around festival season",
     image: "/images/a-bright-outdoor-covered-community.webp",
   },
 ];

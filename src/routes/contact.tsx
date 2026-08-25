@@ -10,12 +10,13 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with Product Sampling Agency at Star Tower, Gurugram to discuss your next brand activation, product sampling campaign or staffing brief.",
+          "Talk to us about a sampling route, a mall activation or a staffing brief. We are at Star Tower, Gurugram.",
       },
-      { property: "og:title", content: "Get in touch | Product Sampling Agency" },
+      { property: "og:title", content: "Talk to us | Product Sampling Agency" },
       {
         property: "og:description",
-        content: "Tell us what you’re looking to achieve and we’ll come back with next steps.",
+        content:
+          "Tell us what the product is and who needs to try it. We will come back with sites and a rough count.",
       },
       { property: "og:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
       { name: "twitter:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
@@ -79,7 +80,7 @@ function Contact() {
     <div className="space-y-6 pb-6">
       <PageHero
         title="Get in touch"
-        intro="Tell us what you’re looking to achieve and we’ll come back with next steps."
+        intro="Tell us what the product is and who needs to try it."
         extra={
           <div className="mt-8 flex flex-wrap gap-3">
             {OFFICES.map((office) => (
@@ -101,7 +102,8 @@ function Contact() {
         <Eyebrow>Start a conversation</Eyebrow>
         <h2 className="font-display mt-3 text-section font-bold md:text-h1">Discuss a project</h2>
         <p className="mt-4 max-w-2xl text-lead text-body">
-          Tell us what you’re looking to achieve and we’ll come back with next steps.
+          Tell us what the product is, who needs to try it, and roughly when. We will come back with
+          sites and a count.
         </p>
         <p className="mt-2 text-caption text-muted-foreground">
           &quot;*&quot; indicates required fields
@@ -124,7 +126,7 @@ function Contact() {
                   Please select —
                 </option>
                 <option>I’d like to discuss a project</option>
-                <option>I’d like to join the PSA People team</option>
+                <option>I’d like to join the field team</option>
                 <option>Something else</option>
               </select>
               <svg
@@ -197,7 +199,7 @@ function Contact() {
 
           <label className="flex items-start gap-3 text-caption">
             <input type="checkbox" name="newsletter" className="mt-1 h-4 w-4 accent-green-500" />
-            <span>Sign me up to the Product Sampling Agency newsletter</span>
+            <span>Send me the occasional field note</span>
           </label>
 
           <button
@@ -244,11 +246,11 @@ function Contact() {
       <section className="px-5 md:px-10">
         <div className="mx-auto max-w-[1600px] rounded-brand-xl bg-gradient-band px-6 py-12 md:px-14 md:py-16">
           <h2 className="font-display max-w-2xl text-h3 font-bold md:text-h2">
-            Interested in joining our staffing team?
+            Looking for shifts?
           </h2>
           <p className="mt-4 max-w-3xl text-on-violet">
-            If you’d like to work with PSA People as a brand ambassador or event staff member, apply
-            via our staffing portal and one of the team will be in touch as soon as possible.
+            If you want shifts as a promoter or event staff, send us a message and we will get back
+            to you when something suits.
           </p>
           <div className="mt-7">
             <PillLink href={STAFFING_LOGIN}>Apply online</PillLink>

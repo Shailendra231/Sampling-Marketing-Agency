@@ -5,17 +5,16 @@ import { ContactCta, PageHero, Panel } from "@/components/site/ui";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog | Brand Activation News & Insights | Product Sampling Agency" },
+      { title: "Blog | Notes from the field | Product Sampling Agency" },
       {
         name: "description",
         content:
-          "The latest news, views and inspiration on brand activation, experiential marketing, product sampling and event staffing from the Product Sampling Agency team.",
+          "What we learn on site: picking locations, briefing teams, and why some campaigns convert and others do not.",
       },
-      { property: "og:title", content: "Product Sampling Agency Blog | News, views & inspiration" },
+      { property: "og:title", content: "Notes from the field" },
       {
         property: "og:description",
-        content:
-          "Brand activation and experiential marketing insights from Product Sampling Agency.",
+        content: "Practical notes on running sampling and activation campaigns in India.",
       },
       {
         property: "og:image",
@@ -35,7 +34,7 @@ export const Route = createFileRoute("/blog")({
 function Blog() {
   return (
     <div className="space-y-6 pb-6">
-      <PageHero title="The latest news, views & inspiration" />
+      <PageHero title="Notes from the field" />
 
       <Panel tone="base">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

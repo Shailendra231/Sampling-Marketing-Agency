@@ -9,12 +9,12 @@ export const Route = createFileRoute("/privacy-cookie-policy")({
       {
         name: "description",
         content:
-          "How Product Sampling Agency collects, uses and protects personal data, and how we use cookies across productsamplingagency.com.",
+          "What we do with the details you send through this site, and what the cookies are for.",
       },
       { property: "og:title", content: "Privacy & Cookie Policy | Product Sampling Agency" },
       {
         property: "og:description",
-        content: "How Product Sampling Agency handles personal data and cookies.",
+        content: "What we do with your details, and what the cookies are for.",
       },
       { property: "og:url", content: `${SITE_URL}/privacy-cookie-policy` },
     ],
@@ -30,24 +30,23 @@ function PrivacyPolicy() {
       <Panel tone="base">
         <div className="max-w-3xl space-y-4 text-lg text-foreground/75">
           <p>
-            Product Sampling Agency respects your privacy. This policy explains what personal
-            information we collect, why we collect it and how we look after it.
+            This page covers what we do with the details you send us through this site, and what the
+            cookies are for.
           </p>
           <h2 className="font-display pt-4 text-2xl font-bold text-foreground">
             Information we collect
           </h2>
           <p>
-            We collect the details you share with us through our enquiry and newsletter forms, such
-            as your name, email address, phone number and company, along with anonymous analytics
-            data about how the site is used.
+            If you fill in the enquiry form or sign up for emails, we keep what you typed: name,
+            email, phone and company. We also see anonymous traffic data about which pages get
+            visited.
           </p>
           <h2 className="font-display pt-4 text-2xl font-bold text-foreground">
             How we use cookies
           </h2>
           <p>
-            We use essential cookies to run the website and third-party cookies to understand how
-            visitors use it and to deliver relevant content. You can opt out of non-essential
-            cookies at any time.
+            Some cookies are needed for the site to work. The rest tell us which pages people read.
+            You can refuse the second kind and nothing will break.
           </p>
           <h2 className="font-display pt-4 text-2xl font-bold text-foreground">Contact</h2>
           <p>

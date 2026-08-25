@@ -146,14 +146,14 @@ export function ContactCta() {
     <Panel tone="raised">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
-          Ready to bring your brand activation to life?
+          Want to see a shift before you commit?
         </h2>
         <p className="mt-5 text-lg text-foreground/75">
-          If you’re looking for a brand activation partner who understands live campaigns and is
-          excited to drive your brand forward, we’d love to talk.
+          Tell us what the product is and who needs to try it. We will come back with sites, a rough
+          count and what it costs.
         </p>
         <div className="mt-8">
-          <PillLink to="/contact">Say Hello</PillLink>
+          <PillLink to="/contact">Talk to us</PillLink>
         </div>
       </div>
     </Panel>

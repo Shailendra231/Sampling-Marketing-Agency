@@ -12,16 +12,15 @@ import {
 export const Route = createFileRoute("/what-we-do/brand-experience")({
   head: () => ({
     meta: [
-      { title: "Brand Experience Agency | Product Sampling Agency" },
+      { title: "Live brand activations | Product Sampling Agency" },
       {
         name: "description",
-        content:
-          "Product Sampling Agency is a brand experience agency creating live experiences that deliver brand activations and drive results in the UK, USA and beyond.",
+        content: "Live brand activations planned, staffed and run across Indian cities.",
       },
-      { property: "og:title", content: "Brand Experience Agency | Product Sampling Agency" },
+      { property: "og:title", content: "Live brand activations | Product Sampling Agency" },
       {
         property: "og:description",
-        content: "Live experiences that deliver brand activations and drive results.",
+        content: "Built around what the day has to achieve, then staffed and run by us.",
       },
       { property: "og:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
       { name: "twitter:image", content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp` },
@@ -37,23 +36,23 @@ function BrandExperience() {
     <div className="space-y-6 pb-6">
       <PageHero
         title="Brand Experience Agency"
-        intro="Live experiences that deliver brand activations and drive results."
+        intro="Planned around what the day has to achieve, then staffed and run by us."
       />
 
       <Panel tone="base">
         <h2 className="font-display max-w-3xl text-4xl font-bold leading-tight md:text-5xl">
-          We’re an experiential marketing agency with intent
+          Every activation should have a job
         </h2>
         <div className="mt-8 grid gap-6 text-lg text-foreground/75 lg:grid-cols-2">
           <p>
-            Every brand experience is built with purpose. We start by understanding <em>why</em> an
-            experience is needed; What needs to be achieved? Who do we need to reach? Where will a
-            live experience have the greatest impact?
+            Before anything gets designed we want one sentence on what the activation has to
+            achieve. Trial, footfall, sign ups, or shifting stock in a specific store. The answer
+            changes the whole build.
           </p>
           <p>
-            We design experiences for our brand activations in the UK, USA and selected
-            international markets, from major sporting events and cultural moments to retail spaces
-            and public commuter hotspots.
+            We run these in malls, metro stations, campuses, markets and at events across Indian
+            cities. Sometimes the right answer is a small table in the right doorway rather than a
+            stage.
           </p>
         </div>
         <div className="mt-8">
@@ -62,9 +61,7 @@ function BrandExperience() {
       </Panel>
 
       <Panel tone="raised" className="!py-10">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">
-          Proven experiential marketing results
-        </h2>
+        <h2 className="font-display text-3xl font-bold md:text-5xl">Recent activations</h2>
         <Marquee />
         <CaseStudyGrid items={CASE_STUDIES.slice(0, 6)} />
       </Panel>
@@ -72,20 +69,20 @@ function BrandExperience() {
       <Panel>
         <h2 className="font-display text-3xl font-bold md:text-5xl">Why brand experience works</h2>
         <p className="mt-6 max-w-3xl text-lg text-foreground/80">
-          Our campaigns ensure brands show up in the moments that really matter, driving engagement,
-          trial and action through live experiences. Perfect for when you need to:
+          An activation earns its budget when it changes what someone does next. Usually that means
+          one of these:
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {[
             {
               image: "/images/a-busy-indoor-mall-cinema.webp",
               alt: "Thrust brand activation crowd",
-              title: "Turn activation into experiences that perform",
+              title: "Put a product in front of people who have never tried it",
             },
             {
               image: "/images/a-lively-outdoor-indoor-mall.webp",
               alt: "woman taking photo of staff",
-              title: "Launch a new product to the right audience",
+              title: "Give a launch somewhere physical to happen",
             },
           ].map((card) => (
             <div key={card.title} className="overflow-hidden rounded-3xl bg-background">

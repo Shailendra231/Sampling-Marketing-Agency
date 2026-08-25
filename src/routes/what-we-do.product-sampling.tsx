@@ -5,17 +5,17 @@ import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/componen
 export const Route = createFileRoute("/what-we-do/product-sampling")({
   head: () => ({
     meta: [
-      { title: "Product Sampling Agency | Product Sampling Agency" },
+      { title: "Product sampling, run properly | Product Sampling Agency" },
       {
         name: "description",
         content:
-          "Product Sampling Agency designs product sampling campaigns that boost sales, build loyalty and inspire advocacy for brands in the UK, USA and worldwide.",
+          "Product sampling campaigns planned around the right sites, the right hours and a properly briefed team.",
       },
-      { property: "og:title", content: "Product Sampling Agency | Product Sampling Agency" },
+      { property: "og:title", content: "Product sampling, run properly" },
       {
         property: "og:description",
         content:
-          "Boost sales, build loyalty and inspire advocacy with Product Sampling Agency product sampling.",
+          "Product sampling campaigns planned around the right sites, the right hours and a properly briefed team.",
       },
       { property: "og:image", content: `${SITE_URL}/images/a-busy-outdoor-indoor-mall.webp` },
       { name: "twitter:image", content: `${SITE_URL}/images/a-busy-outdoor-indoor-mall.webp` },
@@ -28,28 +28,28 @@ export const Route = createFileRoute("/what-we-do/product-sampling")({
 
 const BENEFITS = [
   {
-    title: "Sales Growth",
-    copy: "Product sampling campaigns have been proven to drive sales growth, with conversion rates soaring as high as 70%. It’s a persuasive force that motivates consumers to take action and make a purchase.",
+    title: "Trial beats advertising",
+    copy: "Someone who has used your product once already knows whether they like it. That is a shorter argument than any ad has to make.",
   },
   {
-    title: "Heightened Brand Awareness",
-    copy: "Sampling not only introduces your brand to new audiences but also creates a buzz and generates word-of-mouth recommendations. This helps to amplify your brand’s visibility and increase awareness among consumers.",
+    title: "You reach people who never see your ads",
+    copy: "Commuters, students, shoppers mid errand. Plenty of them are not scrolling where your media budget is pointed.",
   },
   {
-    title: "Strong Return on Investment",
-    copy: "With a staggering 81% of consumers who receive a sample ending up making a purchase from that brand, product sampling delivers a strong return on investment.",
+    title: "You hear the objection out loud",
+    copy: "Price, smell, texture, packaging. Our teams write down what people actually say, including the unflattering parts.",
   },
   {
-    title: "Influence Buyer Behaviour",
-    copy: "By offering consumers a hands-on experience with your product, sampling has the ability to influence their decision-making process, increasing the likelihood of future purchases.",
+    title: "It works next to the shelf",
+    copy: "Sample inside or beside the store that stocks you and the walk from trying it to buying it is about ten steps.",
   },
   {
-    title: "Gain Valuable Consumer Insights",
-    copy: "Product sampling provides an opportunity to gather real-time consumer feedback and valuable insights to refine your marketing strategies and product offerings.",
+    title: "You can see the geography",
+    copy: "Per site counts tell you which neighbourhoods responded and which were a waste of a Saturday.",
   },
   {
-    title: "Real-Time Consumer Feedback",
-    copy: "Through product sampling, you receive immediate feedback from consumers, enabling you to gauge their reactions and opinions and shape future campaigns.",
+    title: "It scales down as well as up",
+    copy: "One mall for a weekend is a real test. You do not need thirty cities to learn something useful.",
   },
 ];
 
@@ -57,49 +57,45 @@ function ProductSampling() {
   return (
     <div className="space-y-6 pb-6">
       <PageHero
-        title="Product sampling for your brand"
-        intro="How can product sampling benefit brands and consumers"
+        title="Product sampling, run properly"
+        intro="The shortest route from never heard of you to bought it twice."
       />
 
       <Panel tone="base">
         <h2 className="font-display max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
-          Boost Sales, Build Loyalty &amp; Inspire Advocacy with Product Sampling Agency
+          Getting a product into someone’s hands
         </h2>
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <div className="space-y-4 text-lg text-foreground/75">
             <p>
-              Product Sampling Agency is more than a product sampling agency; we’re a trusted
-              partner for top brands like Mondelez, Danone, Adidas, Pernod Ricard, Samsung, and
-              Diageo.
+              Stand somewhere busy, hand things out. That is the whole idea, and it is why people
+              assume it cannot really go wrong. It goes wrong constantly.
             </p>
-            <p>
-              We know strategic product sampling can be game-changing. Studies show that brands
-              using sampling outperform competitors and achieve higher ROI. Why? Because:
-            </p>
+            <p>It is usually one of these:</p>
             <ul className="list-disc space-y-2 pl-6">
-              <li>People buy what they’ve tried and loved</li>
-              <li>Happy customers become brand champions</li>
-              <li>Trial experiences create lasting positive associations</li>
+              <li>The site had footfall but the wrong people in it</li>
+              <li>The team was there at the wrong hour</li>
+              <li>Nobody told the staff what the product is for</li>
             </ul>
           </div>
           <div className="space-y-4 text-lg text-foreground/75">
-            <p>At Product Sampling Agency, we design sampling campaigns that:</p>
+            <p>So that is where we spend the planning time.</p>
             <ul className="list-disc space-y-2 pl-6">
               <li>
-                <strong className="text-foreground">Drive sales</strong>: Get your product into
-                potential customers’ hands
+                <strong className="text-foreground">Sites</strong>: chosen for who walks through,
+                not just how many
               </li>
               <li>
-                <strong className="text-foreground">Create advocates</strong>: Turn satisfied
-                samplers into loyal champions
+                <strong className="text-foreground">Timing</strong>: the hours your buyer is
+                actually there
               </li>
               <li>
-                <strong className="text-foreground">Build success</strong>: Lay the foundation for
-                long-term brand love
+                <strong className="text-foreground">Briefing</strong>: staff who can answer the
+                second question, not only the first
               </li>
             </ul>
             <p className="font-semibold text-foreground">
-              Unlock the power of product sampling with Product Sampling Agency.
+              Then we count it, and tell you what the count means.
             </p>
           </div>
         </div>
@@ -107,7 +103,7 @@ function ProductSampling() {
 
       <Panel tone="raised">
         <h2 className="font-display text-3xl font-bold md:text-4xl">
-          Why choose product sampling?
+          What trial actually buys you
         </h2>
         <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {BENEFITS.map((benefit) => (
@@ -118,38 +114,36 @@ function ProductSampling() {
           ))}
         </div>
         <p className="mt-12 max-w-4xl text-lg font-semibold text-foreground">
-          When it comes to reaching consumers, driving sales, and amplifying your brand’s impact,
-          product sampling is a strategic choice that yields impressive results. Trust Product
-          Sampling Agency, the experts in product sampling, to design and execute impactful
-          campaigns that deliver exceptional outcomes for your brand.
+          Sampling is not the cheapest way to reach a thousand people. It is one of the few ways to
+          find out whether they like what you sell. If that is the question you have, it is worth
+          the logistics.
         </p>
       </Panel>
 
       <Panel>
         <h2 className="font-display max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
-          Product Sampling Agency is the world’s leading product sampling agency
+          Why brands keep us on the route
         </h2>
         <div className="mt-8 grid gap-8 text-lg text-foreground/80 lg:grid-cols-2">
           <div className="space-y-4">
-            <p className="font-semibold text-foreground">Why?</p>
+            <p className="font-semibold text-foreground">Mostly, it is the boring discipline.</p>
             <p>
-              We recognise the diversity of different demographics, the nuances in worldwide
-              consumer expectations, and evolving trends that influence global markets.
+              A metro gate in Gurugram at 9am and the same gate at 4pm are two different audiences.
+              We plan for the one you want rather than the one that is easier to reach.
             </p>
             <p>
-              We also invest time into understanding your brand’s unique qualities and core
-              elements, building meaningful and memorable experiences that resonate, and generate
-              sales.
+              Before a campaign starts we want to know what the product is for and who has already
+              said no to it. That shapes the pitch more than any deck does.
             </p>
           </div>
           <div className="space-y-4">
             <p>
-              PSA People understand that they are in the business of relationships and are trained
-              in the art of connecting with consumers, through body language and sales techniques.
+              Our field staff are trained to start a conversation without cornering anyone. People
+              can tell the difference, and so can your numbers at the end of the day.
             </p>
             <p>
-              We will work closely with you to deliver successful product sampling campaigns that
-              drive tangible results for your business.
+              You will have one person to call for the whole campaign, and they will have been to
+              the sites.
             </p>
             <PillLink to="/contact">Start your project</PillLink>
           </div>
@@ -157,17 +151,11 @@ function ProductSampling() {
       </Panel>
 
       <Panel tone="base">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">
-          We create measurable moments
-        </h2>
+        <h2 className="font-display text-3xl font-bold md:text-4xl">What you get back</h2>
         <p className="mt-6 max-w-3xl text-lg text-foreground/75">
-          Product Sampling Agency, the leading product sampling agency, has a remarkable track
-          record of{" "}
-          <strong className="text-foreground">
-            successfully reaching over 3 million consumers in the past 5 years around the world
-          </strong>
-          . As specialists in product sampling, we understand the importance of precise consumer
-          targeting and implementing the right strategy to achieve maximum impact.
+          Counts per site and per shift, what people said when they tried it, photos from the day,
+          and stock reconciled against what went out. If a site underperformed you will hear that
+          from us before you spot it in the report.
         </p>
         <div className="mt-10">
           <CaseStudyGrid items={CASE_STUDIES.filter((_, i) => [3, 1, 5].includes(i))} />

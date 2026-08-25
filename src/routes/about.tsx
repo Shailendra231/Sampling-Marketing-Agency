@@ -5,17 +5,16 @@ import { ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "We are Product Sampling Agency | About Our Brand Activation Team" },
+      { title: "Who you will be dealing with | About Our Brand Activation Team" },
       {
         name: "description",
         content:
-          "Product Sampling Agency are a team of passionate, creative individuals crafting unforgettable brand experiences from Old Amersham for brands around the world.",
+          "A sampling and activation team based in Gurugram, running campaigns across Indian cities.",
       },
-      { property: "og:title", content: "We are Product Sampling Agency" },
+      { property: "og:title", content: "Who you will be dealing with" },
       {
         property: "og:description",
-        content:
-          "A team of passionate, creative people who believe in the power of human connection.",
+        content: "A sampling and activation team based in Gurugram.",
       },
       { property: "og:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
       { name: "twitter:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
@@ -30,12 +29,12 @@ function About() {
   return (
     <div className="space-y-6 pb-6">
       <PageHero
-        title="We are Product Sampling Agency"
-        intro="Product Sampling Agency are a team of passionate, creative individuals who believe in the power of human connection."
+        title="Who you will be dealing with"
+        intro="We are a sampling and activation team based in Gurugram, working across Indian cities."
         extra={
           <p className="mt-4 max-w-2xl text-lg text-foreground/80">
-            Our goal is to craft unforgettable brand experiences that touch the hearts of people
-            around the world.
+            Most of our work happens on a footpath, in a mall atrium or at a society gate, on a
+            weekday, in the heat.
           </p>
         }
       />
@@ -50,7 +49,7 @@ function About() {
           />
           <img
             src={"/images/a-bright-outdoor-covered-community.webp"}
-            alt="Product Sampling Agency team picture"
+            alt="Part of the team between shifts"
             loading="lazy"
             className="aspect-[3/2] w-full rounded-3xl object-cover"
           />
@@ -59,32 +58,32 @@ function About() {
 
       <Panel>
         <h2 className="font-display max-w-4xl text-3xl font-bold leading-tight md:text-5xl">
-          We’re passionate &amp; creative. But mostly, we’re just nice people who love creating
-          great experiences
+          Small team. You will speak to the person running your campaign
         </h2>
         <div className="mt-8 grid gap-8 text-lg text-foreground/80 lg:grid-cols-2">
           <div className="space-y-4">
-            <p>In a world full of noise and competition, standing out is an art.</p>
-            <p>At Product Sampling Agency, we get it and we’ve got your back.</p>
+            <p>Sampling is an operations job wearing a marketing costume.</p>
             <p>
-              We’re a team of specialists, nestled in the picturesque town of Old Amersham, many of
-              us are young mums.
+              The idea is usually the easy part. Getting thirty trained people to the right places
+              on the right morning is not.
             </p>
+            <p>We are based in Gurugram and run campaigns across the NCR and other metros.</p>
             <p>
-              Our approach is rooted in collaboration – we’re not a typical faceless big agency.
+              We are small enough that the person who plans your route is the person who answers the
+              phone.
             </p>
           </div>
           <div className="space-y-4">
             <p>
-              When you work with us, you’re not just a client. You’ll get to know our team because
-              we’re real humans who truly care about your success.
+              You will get the same person from the first call to the final report, and they will
+              have visited the sites.
             </p>
             <p>
-              Our clients trust us because we’re the dependable choice, guided by unwavering
-              integrity with a good sense of humour.
+              When a day goes badly we say so in the report. That is worth more to you than a clean
+              slide.
             </p>
             <p className="font-semibold text-foreground">
-              The time for authentic relationships is now.
+              Come and see a shift before you commit to anything.
             </p>
             <PillLink to="/contact">Get in touch</PillLink>
           </div>
@@ -96,7 +95,7 @@ function About() {
           {[
             {
               src: "/images/a-busy-outdoor-indoor-mall-2.webp",
-              alt: "Product Sampling Agency staff chatting",
+              alt: "Field team briefing before a shift",
             },
             {
               src: "/images/a-clean-modern-social-media-2.webp",
@@ -119,11 +118,11 @@ function About() {
           {[
             {
               src: "/images/a-lively-outdoor-indoor-mall.webp",
-              alt: "Product Sampling Agency staff talking",
+              alt: "Promoter talking to a shopper",
             },
             {
               src: "/images/a-realistic-street-sidewalk-scene.webp",
-              alt: "Product Sampling Agency staff chatting",
+              alt: "Field team briefing before a shift",
             },
             {
               src: "/images/a-bright-outdoor-covered-community.webp",
