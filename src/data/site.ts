@@ -59,8 +59,8 @@ export const SERVICES = [
   },
   {
     title: "Product Sampling",
-    image: "/images/a-busy-outdoor-indoor-mall.webp",
-    alt: "A sampling counter with staff handing products to shoppers",
+    image: "/images/a-bright-outdoor-indoor-courtyard.webp",
+    alt: "A promoter handing out samples from a branded counter",
     copy: "Your product in the right hands, in places people already go. Malls, campuses, metro stations, housing societies, markets and events.",
     cta: "See how sampling works",
     to: "/what-we-do/product-sampling",
@@ -196,6 +196,6 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     date: "January 2026",
     title: "Planning around festival season",
-    image: "/images/a-bright-outdoor-covered-community.webp",
+    image: "/images/outdoor-street-market-scene-with.webp",
   },
 ];

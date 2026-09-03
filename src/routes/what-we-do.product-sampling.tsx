@@ -17,8 +17,14 @@ export const Route = createFileRoute("/what-we-do/product-sampling")({
         content:
           "Product sampling campaigns planned around the right sites, the right hours and a properly briefed team.",
       },
-      { property: "og:image", content: `${SITE_URL}/images/a-busy-outdoor-indoor-mall.webp` },
-      { name: "twitter:image", content: `${SITE_URL}/images/a-busy-outdoor-indoor-mall.webp` },
+      {
+        property: "og:image",
+        content: `${SITE_URL}/images/a-bright-outdoor-indoor-courtyard.webp`,
+      },
+      {
+        name: "twitter:image",
+        content: `${SITE_URL}/images/a-bright-outdoor-indoor-courtyard.webp`,
+      },
       { property: "og:url", content: `${SITE_URL}/what-we-do/product-sampling` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/what-we-do/product-sampling` }],

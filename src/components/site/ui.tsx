@@ -258,58 +258,68 @@ export function LogoCylinder({ logos }: { logos: ClientLogo[] }) {
   const step = 360 / logos.length;
   const radius = Math.round((PANEL_W + PANEL_GAP) / 2 / Math.tan(Math.PI / logos.length));
 
+  // The drum is physically wider than the column it sits in — at this radius the
+  // side faces swing about 335px either side of centre — so it has to be clipped
+  // or it laps over the copy beside it. The mask fades those edges instead of
+  // slicing them, which reads as a band rather than a mistake. Clipping happens
+  // on a wrapper, not on the perspective element itself: `overflow` on the same
+  // node that establishes 3D can flatten the transform in some browsers.
+  const fade = "linear-gradient(to right, transparent 0, black 12%, black 88%, transparent 100%)";
+
   return (
-    <div
-      className="cursor-grab touch-pan-y select-none [perspective:1300px] active:cursor-grabbing"
-      aria-label="Clients we have worked with"
-      onPointerDown={(event) => {
-        grab.current = { active: true, from: event.clientX, base: spin.current.drag };
-        event.currentTarget.setPointerCapture(event.pointerId);
-      }}
-      onPointerMove={(event) => {
-        if (!grab.current.active) return;
-        spin.current.drag = grab.current.base + (event.clientX - grab.current.from) * DRAG_DEG;
-        apply();
-      }}
-      onPointerUp={(event) => {
-        grab.current.active = false;
-        event.currentTarget.releasePointerCapture(event.pointerId);
-      }}
-      onPointerCancel={() => {
-        grab.current.active = false;
-      }}
-    >
+    <div className="overflow-hidden" style={{ maskImage: fade, WebkitMaskImage: fade }}>
       <div
-        ref={drum}
-        className="relative h-72 [transform-style:preserve-3d]"
-        style={{ transform: `translateZ(-${radius}px) rotateY(var(--spin,0deg))` }}
+        className="cursor-grab touch-pan-y select-none [perspective:1300px] active:cursor-grabbing"
+        aria-label="Clients we have worked with"
+        onPointerDown={(event) => {
+          grab.current = { active: true, from: event.clientX, base: spin.current.drag };
+          event.currentTarget.setPointerCapture(event.pointerId);
+        }}
+        onPointerMove={(event) => {
+          if (!grab.current.active) return;
+          spin.current.drag = grab.current.base + (event.clientX - grab.current.from) * DRAG_DEG;
+          apply();
+        }}
+        onPointerUp={(event) => {
+          grab.current.active = false;
+          event.currentTarget.releasePointerCapture(event.pointerId);
+        }}
+        onPointerCancel={() => {
+          grab.current.active = false;
+        }}
       >
-        {logos.map((logo, i) => (
-          <div
-            key={logo.src}
-            style={{
-              width: PANEL_W,
-              backgroundColor: logo.tile,
-              transform: `translate(-50%,-50%) rotateY(${i * step}deg) translateZ(${radius}px)`,
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-            }}
-            className={`absolute left-1/2 top-1/2 flex h-28 items-center justify-center rounded-brand-md ${
-              logo.wide ? "px-3" : "px-6"
-            }`}
-          >
-            {/* Not lazy. A panel rotated edge-on has zero projected width, so the
+        <div
+          ref={drum}
+          className="relative h-72 [transform-style:preserve-3d]"
+          style={{ transform: `translateZ(-${radius}px) rotateY(var(--spin,0deg))` }}
+        >
+          {logos.map((logo, i) => (
+            <div
+              key={logo.src}
+              style={{
+                width: PANEL_W,
+                backgroundColor: logo.tile,
+                transform: `translate(-50%,-50%) rotateY(${i * step}deg) translateZ(${radius}px)`,
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+              }}
+              className={`absolute left-1/2 top-1/2 flex h-28 items-center justify-center rounded-brand-md ${
+                logo.wide ? "px-3" : "px-6"
+              }`}
+            >
+              {/* Not lazy. A panel rotated edge-on has zero projected width, so the
                 lazy-load intersection check skips it, and rotating it back into
                 view is a transform change, which never re-triggers that check —
                 the image would simply never load. Nine small files, load them. */}
-            <img
-              src={logo.src}
-              alt={logo.name}
-              draggable={false}
-              className={`w-auto max-w-full object-contain ${capFor(logo)}`}
-            />
-          </div>
-        ))}
+              <img
+                src={logo.src}
+                alt={logo.name}
+                draggable={false}
+                className={`w-auto max-w-full object-contain ${capFor(logo)}`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

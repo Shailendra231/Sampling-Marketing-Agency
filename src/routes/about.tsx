@@ -48,8 +48,8 @@ function About() {
             className="aspect-[3/2] w-full rounded-3xl object-cover"
           />
           <img
-            src={"/images/a-bright-outdoor-covered-community.webp"}
-            alt="Part of the team between shifts"
+            src={"/images/outdoor-daytime-scene-at-the.webp"}
+            alt="Promoters sampling at a housing society gate"
             loading="lazy"
             className="aspect-[3/2] w-full rounded-3xl object-cover"
           />
@@ -94,8 +94,8 @@ function About() {
         <div className="grid gap-6 md:grid-cols-2">
           {[
             {
-              src: "/images/a-busy-outdoor-indoor-mall-2.webp",
-              alt: "Field team briefing before a shift",
+              src: "/images/a-crowded-indoor-scene-inside.webp",
+              alt: "Sampling on an intercity train",
             },
             {
               src: "/images/a-clean-modern-social-media-2.webp",
@@ -125,8 +125,8 @@ function About() {
               alt: "Field team briefing before a shift",
             },
             {
-              src: "/images/a-bright-outdoor-covered-community.webp",
-              alt: "Product Sampling Agency staff",
+              src: "/images/a-bright-outdoor-indoor-courtyard.webp",
+              alt: "Field staff at a campus activation",
             },
           ].map((image) => (
             <img
