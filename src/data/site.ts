@@ -6,7 +6,21 @@ export const SITE_URL = "https://productsamplingagency.in";
 /** Public contact address. Used for every mailto link on the site. */
 export const CONTACT_EMAIL = "productsamplingagency@gmail.com";
 
-export const STAFFING_LOGIN = "https://productsamplingagency.com/apply";
+/** Where we actually are. Both the footer and the contact page render this, and
+ *  a business address that disagrees with itself between pages is a real
+ *  local-search problem, so it lives in one place. */
+export const OFFICES = [
+  {
+    region: "India",
+    email: CONTACT_EMAIL,
+    entity: "Product Sampling Agency",
+    lines: ["Star Tower", "Sector 30", "Gurugram", "Haryana 122001", "India"],
+  },
+];
+
+/** Message cap on the enquiry form. Shared so the counter the visitor sees and
+ *  the server-side check that guards the sheet can never drift apart. */
+export const MESSAGE_MAX = 200;
 
 export type NavItem = {
   label: string;
@@ -61,20 +75,35 @@ export const SERVICES = [
   },
 ] as const;
 
-/** Client logos, served from /public. Each renders on a light tile because most
- *  of these are dark artwork on transparency and would vanish on our ground. */
-export const CLIENT_LOGOS: { src: string; name: string; wide?: boolean }[] = [
-  // Our own mark is a long, short wordmark, so the tile constrains it by width
-  // and it lands shorter than the rest. `wide` buys it back a little room.
-  { src: "/samplrr.svg", name: "Samplrr", wide: true },
-  { src: "/CoTravpng.png", name: "CoTrav" },
-  { src: "/newgen.svg", name: "Newgen" },
-  { src: "/Ondios.png", name: "OneDios" },
-  { src: "/Safeobuddy.png", name: "Safe'O'Buddy" },
-  { src: "/taxivaxi.png", name: "TaxiVaxi" },
-  { src: "/Trident.svg", name: "Trident Hotels" },
-  { src: "/voxturr.png", name: "Voxturr" },
-  { src: "/Barsys.png", name: "Barsys" },
+/** Client logos, served from /public. Each renders on its own tile because the
+ *  artwork is mostly dark on transparency and would vanish on our ground. */
+export const CLIENT_LOGOS: {
+  src: string;
+  name: string;
+  wide?: boolean;
+  /** Lifts the height cap for marks that are squarer than the wordmarks around
+   *  them and would otherwise sit at half the panel height. */
+  tall?: boolean;
+  /** Tile ground, drawn from the logo's own dominant hue. Kept near-white for
+   *  dark artwork so the tint costs almost no contrast; light-inked logos get a
+   *  dark tile instead, which is the only way they read at all. */
+  tile: string;
+}[] = [
+  // `wide` is for long, short wordmarks: the tile constrains those by width, so
+  // they land shorter than the rest and need the padding trimmed to compensate.
+  { src: "/eema.png", name: "Event & Entertainment Management Association", tile: "#FAE8E1" },
+  { src: "/CoTravpng.png", name: "CoTrav", tile: "#E6E1FA" },
+  { src: "/newgen.svg", name: "Newgen", tile: "#FAECE1" },
+  { src: "/Ondios.png", name: "OneDios", tile: "#E1FAF2" },
+  { src: "/Safeobuddy.png", name: "Safe'O'Buddy", tile: "#E1ECFA" },
+  // White artwork, so it is 1.00:1 on any light tile — literally invisible.
+  // A dark neutral ground puts it at 14.6:1.
+  { src: "/the-wedding-square.webp", name: "The Wedding Square", tile: "#2A2733", tall: true },
+  { src: "/Trident.svg", name: "Trident Hotels", tile: "#FAE1E3" },
+  // Gold artwork: ink luminance 0.65 against white is 1.49:1, effectively
+  // invisible. A deep ground of the same hue takes it to 9.9:1.
+  { src: "/the-event-square.png", name: "The Event Square", tile: "#2B2818" },
+  { src: "/Barsys.png", name: "Barsys", tile: "#F4F4F6", tall: true },
 ];
 
 /** Capability icons come from lucide-react so they inherit currentColor — the

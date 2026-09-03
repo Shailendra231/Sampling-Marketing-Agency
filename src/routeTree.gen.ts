@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PrivacyCookiePolicyRouteImport } from './routes/privacy-cookie-policy'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ApiEnquiryRouteImport } from './routes/api.enquiry'
 import { Route as WhatWeDoBrandExperienceRouteImport } from './routes/what-we-do.brand-experience'
 import { Route as WhatWeDoProductSamplingRouteImport } from './routes/what-we-do.product-sampling'
 import { Route as WhatWeDoStaffingRouteImport } from './routes/what-we-do.staffing'
@@ -55,6 +56,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiEnquiryRoute = ApiEnquiryRouteImport.update({
+  id: '/api/enquiry',
+  path: '/api/enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhatWeDoBrandExperienceRoute = WhatWeDoBrandExperienceRouteImport.update({
   id: '/what-we-do/brand-experience',
   path: '/what-we-do/brand-experience',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/privacy-cookie-policy': typeof PrivacyCookiePolicyRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/enquiry': typeof ApiEnquiryRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
   '/what-we-do/staffing': typeof WhatWeDoStaffingRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/privacy-cookie-policy': typeof PrivacyCookiePolicyRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/enquiry': typeof ApiEnquiryRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
   '/what-we-do/staffing': typeof WhatWeDoStaffingRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/privacy-cookie-policy': typeof PrivacyCookiePolicyRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/enquiry': typeof ApiEnquiryRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
   '/what-we-do/staffing': typeof WhatWeDoStaffingRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/privacy-cookie-policy'
     | '/projects'
     | '/sitemap.xml'
+    | '/api/enquiry'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
     | '/what-we-do/staffing'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/privacy-cookie-policy'
     | '/projects'
     | '/sitemap.xml'
+    | '/api/enquiry'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
     | '/what-we-do/staffing'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/privacy-cookie-policy'
     | '/projects'
     | '/sitemap.xml'
+    | '/api/enquiry'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
     | '/what-we-do/staffing'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   PrivacyCookiePolicyRoute: typeof PrivacyCookiePolicyRoute
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiEnquiryRoute: typeof ApiEnquiryRoute
   WhatWeDoBrandExperienceRoute: typeof WhatWeDoBrandExperienceRoute
   WhatWeDoProductSamplingRoute: typeof WhatWeDoProductSamplingRoute
   WhatWeDoStaffingRoute: typeof WhatWeDoStaffingRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/enquiry': {
+      id: '/api/enquiry'
+      path: '/api/enquiry'
+      fullPath: '/api/enquiry'
+      preLoaderRoute: typeof ApiEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/what-we-do/brand-experience': {
       id: '/what-we-do/brand-experience'
       path: '/what-we-do/brand-experience'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyCookiePolicyRoute: PrivacyCookiePolicyRoute,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiEnquiryRoute: ApiEnquiryRoute,
   WhatWeDoBrandExperienceRoute: WhatWeDoBrandExperienceRoute,
   WhatWeDoProductSamplingRoute: WhatWeDoProductSamplingRoute,
   WhatWeDoStaffingRoute: WhatWeDoStaffingRoute,

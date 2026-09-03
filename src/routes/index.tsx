@@ -1,8 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { SVGProps } from "react";
 import { CAPABILITIES, CASE_STUDIES, CLIENT_LOGOS, SERVICES, SITE_URL } from "@/data/site";
-import { CaseStudyGrid, ContactCta, Marquee, Panel, PillLink } from "@/components/site/ui";
-import { cn } from "@/lib/utils";
+import {
+  CaseStudyGrid,
+  ContactCta,
+  LogoCylinder,
+  Marquee,
+  Panel,
+  PillLink,
+} from "@/components/site/ui";
 
 /**
  * Icons and copy for the three pillars, taken verbatim from the Cards row of
@@ -175,27 +181,7 @@ function Index() {
               <PillLink to="/projects">View our Work</PillLink>
             </div>
           </div>
-          <div className="grid grid-cols-2 items-center gap-6 sm:grid-cols-3">
-            {CLIENT_LOGOS.map((logo) => (
-              <div
-                key={logo.src}
-                className={cn(
-                  "flex h-20 items-center justify-center rounded-brand-md bg-white",
-                  logo.wide ? "px-2" : "px-5",
-                )}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  loading="lazy"
-                  className={cn(
-                    "w-auto max-w-full object-contain",
-                    logo.wide ? "max-h-12" : "max-h-10",
-                  )}
-                />
-              </div>
-            ))}
-          </div>
+          <LogoCylinder logos={CLIENT_LOGOS} />
         </div>
       </Panel>
 

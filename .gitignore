@@ -39,3 +39,6 @@ bun.lock
 
 # Source images (originals). Optimised WebP lives in public/images.
 Samplrr_Service_Images/
+
+# Deployment ids and the Apps Script URL — secret, never commit
+docs/ids.txt

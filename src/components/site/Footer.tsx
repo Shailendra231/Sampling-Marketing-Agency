@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
+import { OFFICES } from "@/data/site";
 import { Socials, Wordmark } from "./Header";
+import { PillLink } from "./ui";
 
 export function Footer() {
   return (
@@ -9,33 +11,29 @@ export function Footer() {
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-                Notes from the field
+                Tell us what you are launching
               </h2>
               <p className="mt-3 max-w-md text-foreground/70">
-                Occasional emails about what worked on site and what flopped. We send one when there
-                is something worth saying, which is not every month.
+                What the product is, who needs to try it and roughly when. We come back with sites
+                and a count.
               </p>
-              <form
-                className="mt-6 flex max-w-md flex-col gap-3 sm:flex-row"
-                onSubmit={(event) => event.preventDefault()}
-              >
-                <label htmlFor="newsletter-email" className="sr-only">
-                  Email
-                </label>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  required
-                  placeholder="Email (Required)"
-                  className="h-12 flex-1 rounded-full bg-background px-5 text-foreground outline-none placeholder:text-foreground/50 focus:ring-2 focus:ring-foreground/20"
-                />
-                <button
-                  type="submit"
-                  className="h-12 shrink-0 whitespace-nowrap rounded-full bg-gradient-cta px-8 text-sm font-semibold text-dark shadow-glow-green transition-all hover:brightness-110"
-                >
-                  Sign up
-                </button>
-              </form>
+              <div className="mt-6">
+                <PillLink to="/contact">Start a project</PillLink>
+              </div>
+
+              {OFFICES.map((office) => (
+                <address key={office.region} className="mt-8 not-italic text-foreground/70">
+                  <p className="font-semibold text-foreground">{office.entity}</p>
+                  <p className="mt-1">{office.lines.join(", ")}</p>
+                  <a
+                    href={`mailto:${office.email}`}
+                    className="mt-1 inline-block underline underline-offset-4 hover:text-foreground"
+                  >
+                    {office.email}
+                  </a>
+                </address>
+              ))}
+
               <div className="mt-8 flex items-center gap-4 text-foreground">
                 <span className="text-sm font-semibold">Follow us:</span>
                 <Socials />

@@ -1,0 +1,10 @@
+# Copy to .dev.vars (gitignored) for `vite dev`, and set the same two values as
+# Worker secrets for production:
+#   npx wrangler secret put SHEETS_WEBHOOK_URL
+#   npx wrangler secret put SHEETS_WEBHOOK_TOKEN
+
+# The Apps Script web app URL, ending in /exec
+SHEETS_WEBHOOK_URL="https://script.google.com/macros/s/AKfycb.../exec"
+
+# Shared secret. Must match TOKEN in the Apps Script. Any long random string.
+SHEETS_WEBHOOK_TOKEN="change-me"
