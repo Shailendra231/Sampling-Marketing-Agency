@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CASE_STUDIES, SITE_URL } from "@/data/site";
 import { CaseStudyGrid, ContactCta, Marquee, PageHero, Panel } from "@/components/site/ui";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Our Work | Sampling and activation campaigns" },

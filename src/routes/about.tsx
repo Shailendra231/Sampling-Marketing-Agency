@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BLOG_POSTS, SITE_URL } from "@/data/site";
+import { SITE_URL } from "@/data/site";
 import { ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
 
 export const Route = createFileRoute("/about")({
@@ -16,8 +16,14 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "A sampling and activation team based in Gurugram.",
       },
-      { property: "og:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
-      { name: "twitter:image", content: `${SITE_URL}/images/a-bright-modern-office-interior.webp` },
+      {
+        property: "og:image",
+        content: `${SITE_URL}/images/culture-intelligence-summit-portrait.webp`,
+      },
+      {
+        name: "twitter:image",
+        content: `${SITE_URL}/images/culture-intelligence-summit-portrait.webp`,
+      },
       { property: "og:url", content: `${SITE_URL}/about` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
@@ -40,19 +46,33 @@ function About() {
       />
 
       <Panel tone="base">
-        <div className="grid gap-8 md:grid-cols-2">
-          <img
-            src={"/images/a-bright-modern-office-interior.webp"}
-            alt="Mark Dunn"
-            loading="lazy"
-            className="aspect-[3/2] w-full rounded-3xl object-cover"
-          />
-          <img
-            src={"/images/outdoor-daytime-scene-at-the.webp"}
-            alt="Promoters sampling at a housing society gate"
-            loading="lazy"
-            className="aspect-[3/2] w-full rounded-3xl object-cover"
-          />
+        <div className="grid gap-6 md:grid-cols-2">
+          {[
+            {
+              src: "/images/travel-solutions-exhibition-stand.webp",
+              alt: "Staff on a travel solutions stand at a trade exhibition",
+            },
+            {
+              src: "/images/bma-infosolutions-exhibition-stand.webp",
+              alt: "A BMA Infosolutions stand at a trade exhibition",
+            },
+            {
+              src: "/images/trident-group-brand-experience.webp",
+              alt: "Visitors at a Trident Group brand experience event",
+            },
+            {
+              src: "/images/culture-intelligence-summit-portrait.webp",
+              alt: "At the ShareChat and Moj Culture Intelligence Summit backdrop",
+            },
+          ].map((image) => (
+            <img
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              className="aspect-[3/2] w-full rounded-3xl object-cover"
+            />
+          ))}
         </div>
       </Panel>
 
@@ -87,77 +107,6 @@ function About() {
             </p>
             <PillLink to="/contact">Get in touch</PillLink>
           </div>
-        </div>
-      </Panel>
-
-      <Panel tone="base" className="!py-10">
-        <div className="grid gap-6 md:grid-cols-2">
-          {[
-            {
-              src: "/images/a-crowded-indoor-scene-inside.webp",
-              alt: "Sampling on an intercity train",
-            },
-            {
-              src: "/images/a-clean-modern-social-media-2.webp",
-              alt: "Product Sampling Agency staff",
-            },
-          ].map((image) => (
-            <img
-              key={image.src}
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-              className="aspect-[3/2] w-full rounded-3xl object-cover"
-            />
-          ))}
-        </div>
-      </Panel>
-
-      <Panel tone="raised">
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              src: "/images/a-lively-outdoor-indoor-mall.webp",
-              alt: "Promoter talking to a shopper",
-            },
-            {
-              src: "/images/a-realistic-street-sidewalk-scene.webp",
-              alt: "Field team briefing before a shift",
-            },
-            {
-              src: "/images/a-bright-outdoor-indoor-courtyard.webp",
-              alt: "Field staff at a campus activation",
-            },
-          ].map((image) => (
-            <img
-              key={image.src}
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-              className="aspect-[3/2] w-full rounded-3xl object-cover"
-            />
-          ))}
-        </div>
-      </Panel>
-
-      <Panel tone="base">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">News, views and inspiration</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {BLOG_POSTS.slice(0, 3).map((post) => (
-            <article key={post.title} className="overflow-hidden rounded-3xl bg-raised">
-              <img
-                src={post.image}
-                alt={`Product Sampling Agency - ${post.title}`}
-                loading="lazy"
-                className="aspect-[3/2] w-full object-cover"
-              />
-              <div className="p-7">
-                <p className="text-sm font-semibold text-foreground/60">{post.date}</p>
-                <h3 className="font-display mt-2 text-xl font-bold">{post.title}</h3>
-                <span className="mt-4 inline-block text-sm font-semibold">Read blog →</span>
-              </div>
-            </article>
-          ))}
         </div>
       </Panel>
 

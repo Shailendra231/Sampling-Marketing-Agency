@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { SITE_URL } from "@/data/site";
+import { CASE_STUDIES, SITE_URL } from "@/data/site";
 
 interface SitemapEntry {
   path: string;
@@ -18,8 +18,14 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/what-we-do/product-sampling", changefreq: "monthly", priority: "0.9" },
           { path: "/what-we-do/staffing", changefreq: "monthly", priority: "0.9" },
           { path: "/projects", changefreq: "monthly", priority: "0.8" },
+          ...CASE_STUDIES.map((study) => ({
+            path: `/projects/${study.slug}`,
+            changefreq: "yearly" as const,
+            priority: "0.7",
+          })),
           { path: "/about", changefreq: "monthly", priority: "0.7" },
           { path: "/blog", changefreq: "weekly", priority: "0.7" },
+          { path: "/blog/20-product-sampling-ideas", changefreq: "monthly", priority: "0.8" },
           { path: "/contact", changefreq: "yearly", priority: "0.6" },
           { path: "/privacy-cookie-policy", changefreq: "yearly", priority: "0.3" },
         ];

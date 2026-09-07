@@ -11,12 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PrivacyCookiePolicyRouteImport } from './routes/privacy-cookie-policy'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiEnquiryRouteImport } from './routes/api.enquiry'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as Blog20ProductSamplingIdeasRouteImport } from './routes/blog.20-product-sampling-ideas'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as WhatWeDoBrandExperienceRouteImport } from './routes/what-we-do.brand-experience'
 import { Route as WhatWeDoProductSamplingRouteImport } from './routes/what-we-do.product-sampling'
 import { Route as WhatWeDoStaffingRouteImport } from './routes/what-we-do.staffing'
@@ -31,11 +33,6 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -46,11 +43,6 @@ const PrivacyCookiePolicyRoute = PrivacyCookiePolicyRouteImport.update({
   path: '/privacy-cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -59,6 +51,27 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ApiEnquiryRoute = ApiEnquiryRouteImport.update({
   id: '/api/enquiry',
   path: '/api/enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Blog20ProductSamplingIdeasRoute =
+  Blog20ProductSamplingIdeasRouteImport.update({
+    id: '/blog/20-product-sampling-ideas',
+    path: '/blog/20-product-sampling-ideas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhatWeDoBrandExperienceRoute = WhatWeDoBrandExperienceRouteImport.update({
@@ -80,97 +93,111 @@ const WhatWeDoStaffingRoute = WhatWeDoStaffingRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/privacy-cookie-policy': typeof PrivacyCookiePolicyRoute
-  '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/enquiry': typeof ApiEnquiryRoute
+  '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
   '/what-we-do/staffing': typeof WhatWeDoStaffingRoute
+  '/blog/': typeof BlogIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/privacy-cookie-policy': typeof PrivacyCookiePolicyRoute
-  '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/enquiry': typeof ApiEnquiryRoute
+  '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
   '/what-we-do/staffing': typeof WhatWeDoStaffingRoute
+  '/blog': typeof BlogIndexRoute
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/privacy-cookie-policy': typeof PrivacyCookiePolicyRoute
-  '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/enquiry': typeof ApiEnquiryRoute
+  '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
   '/what-we-do/staffing': typeof WhatWeDoStaffingRoute
+  '/blog/': typeof BlogIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
     | '/privacy-cookie-policy'
-    | '/projects'
     | '/sitemap.xml'
     | '/api/enquiry'
+    | '/blog/20-product-sampling-ideas'
+    | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
     | '/what-we-do/staffing'
+    | '/blog/'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
     | '/privacy-cookie-policy'
-    | '/projects'
     | '/sitemap.xml'
     | '/api/enquiry'
+    | '/blog/20-product-sampling-ideas'
+    | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
     | '/what-we-do/staffing'
+    | '/blog'
+    | '/projects'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
     | '/contact'
     | '/privacy-cookie-policy'
-    | '/projects'
     | '/sitemap.xml'
     | '/api/enquiry'
+    | '/blog/20-product-sampling-ideas'
+    | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
     | '/what-we-do/staffing'
+    | '/blog/'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   PrivacyCookiePolicyRoute: typeof PrivacyCookiePolicyRoute
-  ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiEnquiryRoute: typeof ApiEnquiryRoute
+  Blog20ProductSamplingIdeasRoute: typeof Blog20ProductSamplingIdeasRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   WhatWeDoBrandExperienceRoute: typeof WhatWeDoBrandExperienceRoute
   WhatWeDoProductSamplingRoute: typeof WhatWeDoProductSamplingRoute
   WhatWeDoStaffingRoute: typeof WhatWeDoStaffingRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -189,13 +216,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -210,13 +230,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyCookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -229,6 +242,34 @@ declare module '@tanstack/react-router' {
       path: '/api/enquiry'
       fullPath: '/api/enquiry'
       preLoaderRoute: typeof ApiEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/20-product-sampling-ideas': {
+      id: '/blog/20-product-sampling-ideas'
+      path: '/blog/20-product-sampling-ideas'
+      fullPath: '/blog/20-product-sampling-ideas'
+      preLoaderRoute: typeof Blog20ProductSamplingIdeasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/what-we-do/brand-experience': {
@@ -258,15 +299,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   PrivacyCookiePolicyRoute: PrivacyCookiePolicyRoute,
-  ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiEnquiryRoute: ApiEnquiryRoute,
+  Blog20ProductSamplingIdeasRoute: Blog20ProductSamplingIdeasRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
   WhatWeDoBrandExperienceRoute: WhatWeDoBrandExperienceRoute,
   WhatWeDoProductSamplingRoute: WhatWeDoProductSamplingRoute,
   WhatWeDoStaffingRoute: WhatWeDoStaffingRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

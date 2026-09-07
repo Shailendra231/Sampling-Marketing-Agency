@@ -95,8 +95,9 @@ export function CaseStudyGrid({ items = CASE_STUDIES }: { items?: CaseStudy[] })
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {items.map((study) => (
         <Link
-          key={study.title}
-          to="/projects"
+          key={study.slug}
+          to="/projects/$slug"
+          params={{ slug: study.slug }}
           className="group block overflow-hidden rounded-3xl bg-background"
         >
           <div className="aspect-[3/2] overflow-hidden">
