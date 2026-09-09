@@ -411,6 +411,15 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     date: "September 2026",
+    title: "What Is Product Sampling?",
+    image: "/images/a-realistic-indoor-public-space.webp",
+    to: "/blog/what-is-product-sampling",
+    excerpt:
+      "What sampling is, why it works, where it fits, what it costs and how to plan a campaign that earns a real first try.",
+    readMinutes: 6,
+  },
+  {
+    date: "September 2026",
     title: "20 Product Sampling Ideas to Get Your Product Into Consumers' Hands",
     image: "/images/a-lively-outdoor-indoor-mall.webp",
     to: "/blog/20-product-sampling-ideas",

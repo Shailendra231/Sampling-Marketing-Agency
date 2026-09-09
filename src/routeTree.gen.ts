@@ -17,6 +17,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiEnquiryRouteImport } from './routes/api.enquiry'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as Blog20ProductSamplingIdeasRouteImport } from './routes/blog.20-product-sampling-ideas'
+import { Route as BlogWhatIsProductSamplingRouteImport } from './routes/blog.what-is-product-sampling'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as WhatWeDoBrandExperienceRouteImport } from './routes/what-we-do.brand-experience'
@@ -64,6 +65,12 @@ const Blog20ProductSamplingIdeasRoute =
     path: '/blog/20-product-sampling-ideas',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogWhatIsProductSamplingRoute =
+  BlogWhatIsProductSamplingRouteImport.update({
+    id: '/blog/what-is-product-sampling',
+    path: '/blog/what-is-product-sampling',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -98,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/enquiry': typeof ApiEnquiryRoute
   '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
+  '/blog/what-is-product-sampling': typeof BlogWhatIsProductSamplingRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
@@ -113,6 +121,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/enquiry': typeof ApiEnquiryRoute
   '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
+  '/blog/what-is-product-sampling': typeof BlogWhatIsProductSamplingRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
@@ -129,6 +138,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/enquiry': typeof ApiEnquiryRoute
   '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
+  '/blog/what-is-product-sampling': typeof BlogWhatIsProductSamplingRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/enquiry'
     | '/blog/20-product-sampling-ideas'
+    | '/blog/what-is-product-sampling'
     | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
@@ -161,6 +172,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/enquiry'
     | '/blog/20-product-sampling-ideas'
+    | '/blog/what-is-product-sampling'
     | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
@@ -176,6 +188,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/enquiry'
     | '/blog/20-product-sampling-ideas'
+    | '/blog/what-is-product-sampling'
     | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
@@ -192,6 +205,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiEnquiryRoute: typeof ApiEnquiryRoute
   Blog20ProductSamplingIdeasRoute: typeof Blog20ProductSamplingIdeasRoute
+  BlogWhatIsProductSamplingRoute: typeof BlogWhatIsProductSamplingRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   WhatWeDoBrandExperienceRoute: typeof WhatWeDoBrandExperienceRoute
   WhatWeDoProductSamplingRoute: typeof WhatWeDoProductSamplingRoute
@@ -258,6 +272,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Blog20ProductSamplingIdeasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/what-is-product-sampling': {
+      id: '/blog/what-is-product-sampling'
+      path: '/blog/what-is-product-sampling'
+      fullPath: '/blog/what-is-product-sampling'
+      preLoaderRoute: typeof BlogWhatIsProductSamplingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -304,6 +325,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiEnquiryRoute: ApiEnquiryRoute,
   Blog20ProductSamplingIdeasRoute: Blog20ProductSamplingIdeasRoute,
+  BlogWhatIsProductSamplingRoute: BlogWhatIsProductSamplingRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   WhatWeDoBrandExperienceRoute: WhatWeDoBrandExperienceRoute,
   WhatWeDoProductSamplingRoute: WhatWeDoProductSamplingRoute,
