@@ -27,13 +27,13 @@ export const Route = createFileRoute("/projects/")({
 
 function Projects() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Our Work"
         intro="Sampling routes, mall activations and staffed campaigns from the last few seasons."
       />
 
-      <Panel tone="base" className="!py-10">
+      <Panel tone="base">
         <Marquee text="Case Studies" />
         <CaseStudyGrid items={CASE_STUDIES} />
       </Panel>

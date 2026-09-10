@@ -27,7 +27,7 @@ export const Route = createFileRoute("/privacy-cookie-policy")({
 
 function H({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display pt-8 text-2xl font-bold text-foreground md:text-3xl">{children}</h2>
+    <h2 className="font-display pt-8 text-heading font-semibold text-foreground">{children}</h2>
   );
 }
 
@@ -38,7 +38,7 @@ function Bullets({ items }: { items: React.ReactNode[] }) {
         <li key={i} className="flex gap-4">
           <span
             aria-hidden="true"
-            className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-400"
+            className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-400"
           />
           <span>{item}</span>
         </li>
@@ -51,14 +51,14 @@ function PrivacyPolicy() {
   const office = OFFICES[0];
 
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Privacy & Cookie Policy"
         intro="What this site collects, who else can see it, and how to have it removed."
       />
 
       <Panel tone="base">
-        <div className="max-w-[68ch] space-y-4 text-lg leading-relaxed text-foreground/75">
+        <div className="max-w-[68ch] space-y-4 text-foreground/75">
           <p className="text-caption text-muted-foreground">Last updated {UPDATED}</p>
 
           <p>
@@ -159,7 +159,7 @@ function PrivacyPolicy() {
             For anything on this page, including a request to see or delete your data, email{" "}
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="font-semibold text-green-300 underline underline-offset-4 hover:text-green-200"
+              className="font-semibold text-green-300 underline wrap-anywhere underline-offset-4 hover:text-green-200"
             >
               {CONTACT_EMAIL}
             </a>

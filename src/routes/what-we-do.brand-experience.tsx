@@ -33,17 +33,17 @@ export const Route = createFileRoute("/what-we-do/brand-experience")({
 
 function BrandExperience() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Brand Experience Agency"
         intro="Planned around what the day has to achieve, then staffed and run by us."
       />
 
       <Panel tone="base">
-        <h2 className="font-display max-w-3xl text-4xl font-bold leading-tight md:text-5xl">
+        <h2 className="font-display max-w-3xl text-display font-semibold">
           Every activation should have a job
         </h2>
-        <div className="mt-8 grid gap-6 text-lg text-foreground/75 lg:grid-cols-2">
+        <div className="mt-7 grid gap-12.5 text-foreground/75 lg:grid-cols-2">
           <p>
             Before anything gets designed we want one sentence on what the activation has to
             achieve. Trial, footfall, sign ups, or shifting stock in a specific store. The answer
@@ -55,24 +55,24 @@ function BrandExperience() {
             stage.
           </p>
         </div>
-        <div className="mt-8">
+        <div className="mt-11.5">
           <PillLink to="/contact">Get in touch</PillLink>
         </div>
       </Panel>
 
-      <Panel tone="raised" className="!py-10">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">Recent activations</h2>
+      <Panel tone="raised">
+        <h2 className="font-display text-display font-semibold">Recent activations</h2>
         <Marquee />
         <CaseStudyGrid items={CASE_STUDIES.slice(0, 6)} />
       </Panel>
 
       <Panel>
-        <h2 className="font-display text-3xl font-bold md:text-5xl">Why brand experience works</h2>
-        <p className="mt-6 max-w-3xl text-lg text-foreground/80">
+        <h2 className="font-display text-display font-semibold">Why brand experience works</h2>
+        <p className="mt-7 max-w-3xl text-foreground/80">
           An activation earns its budget when it changes what someone does next. Usually that means
           one of these:
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-section grid gap-12.5 md:grid-cols-2">
           {[
             {
               image: "/images/a-busy-indoor-mall-cinema.webp",
@@ -95,7 +95,7 @@ function BrandExperience() {
                 />
               </div>
               <div className="p-7">
-                <h3 className="font-display text-xl font-bold">{card.title}</h3>
+                <h3 className="font-display text-title font-semibold">{card.title}</h3>
               </div>
             </div>
           ))}

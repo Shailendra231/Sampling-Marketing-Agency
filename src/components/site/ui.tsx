@@ -19,9 +19,9 @@ export function Panel({
     base: "bg-background text-foreground",
   } as const;
   return (
-    <section className="px-5 md:px-10">
+    <section className="px-5">
       <div
-        className={`mx-auto max-w-[1600px] rounded-panel px-6 py-14 md:px-14 md:py-20 ${tones[tone]} ${className}`}
+        className={`mx-auto max-w-[1600px] rounded-panel px-inset py-section ${tones[tone]} ${className}`}
       >
         {children}
       </div>
@@ -44,7 +44,7 @@ export function PillLink({
     variant === "ink"
       ? "bg-gradient-cta text-dark shadow-glow-green hover:brightness-110"
       : "bg-panel text-foreground hover:bg-panel/80";
-  const cls = `inline-flex h-12 items-center rounded-full px-7 text-sm font-semibold transition-colors ${styles}`;
+  const cls = `inline-flex h-12 items-center rounded-full px-7 text-button font-semibold transition-colors ${styles}`;
   if (href) {
     return (
       <a href={href} className={cls}>
@@ -66,7 +66,7 @@ export function Marquee({ text = "View our Work" }: { text?: string }) {
       {[0, 1, 2].map((i) => (
         <div key={i} className="flex whitespace-nowrap">
           <span
-            className={`font-display text-4xl font-bold uppercase tracking-tight text-foreground/15 md:text-6xl ${
+            className={`font-display text-display font-semibold uppercase tracking-tight text-foreground/15 ${
               i === 1
                 ? "animate-[marquee_38s_linear_infinite_reverse]"
                 : "animate-[marquee_30s_linear_infinite]"
@@ -76,7 +76,7 @@ export function Marquee({ text = "View our Work" }: { text?: string }) {
           </span>
           <span
             aria-hidden="true"
-            className={`font-display text-4xl font-bold uppercase tracking-tight text-foreground/15 md:text-6xl ${
+            className={`font-display text-display font-semibold uppercase tracking-tight text-foreground/15 ${
               i === 1
                 ? "animate-[marquee_38s_linear_infinite_reverse]"
                 : "animate-[marquee_30s_linear_infinite]"
@@ -92,7 +92,7 @@ export function Marquee({ text = "View our Work" }: { text?: string }) {
 
 export function CaseStudyGrid({ items = CASE_STUDIES }: { items?: CaseStudy[] }) {
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-7.5 md:grid-cols-2 lg:grid-cols-3">
       {items.map((study) => (
         <Link
           key={study.slug}
@@ -109,8 +109,10 @@ export function CaseStudyGrid({ items = CASE_STUDIES }: { items?: CaseStudy[] })
             />
           </div>
           <div className="p-6">
-            <h3 className="font-display text-xl font-bold text-foreground">{study.title}</h3>
-            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground/70 group-hover:text-foreground">
+            <h3 className="font-display text-subtitle font-semibold text-foreground">
+              {study.title}
+            </h3>
+            <span className="mt-8 inline-flex items-center gap-2 text-button font-semibold text-foreground/70 group-hover:text-foreground">
               Go to case study
               <span aria-hidden="true">→</span>
             </span>
@@ -132,12 +134,8 @@ export function PageHero({
 }) {
   return (
     <Panel tone="primary" className="min-h-[420px]">
-      <h1 className="font-display max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-        {title}
-      </h1>
-      {intro ? (
-        <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">{intro}</p>
-      ) : null}
+      <h1 className="font-display max-w-4xl text-display font-semibold">{title}</h1>
+      {intro ? <p className="mt-9.5 max-w-2xl text-foreground/80">{intro}</p> : null}
       {extra}
     </Panel>
   );
@@ -147,14 +145,14 @@ export function ContactCta() {
   return (
     <Panel tone="raised">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
+        <h2 className="font-display text-display font-semibold">
           Want to see a shift before you commit?
         </h2>
-        <p className="mt-5 text-lg text-foreground/75">
+        <p className="mt-7 text-foreground/75">
           Tell us what the product is and who needs to try it. We will come back with sites, a rough
           count and what it costs.
         </p>
-        <div className="mt-8">
+        <div className="mt-11.5">
           <EnquiryDialog />
         </div>
       </div>

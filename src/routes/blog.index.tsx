@@ -37,7 +37,7 @@ function Blog() {
   const [lead, ...rest] = BLOG_POSTS;
 
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Notes from the field"
         intro="What we learn on site: picking locations, briefing teams, and why some campaigns convert and others do not."
@@ -57,16 +57,14 @@ function Blog() {
               />
             </div>
             <div className="flex flex-col justify-center p-8 md:py-12 md:pr-12">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-caption">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-button">
                 <span className="font-semibold text-green-300">Latest</span>
                 <span className="text-foreground/60">{lead.date}</span>
                 <span className="text-foreground/60">{lead.readMinutes} min read</span>
               </div>
-              <h2 className="font-display mt-4 text-2xl font-bold leading-snug md:text-4xl">
-                {lead.title}
-              </h2>
-              <p className="mt-5 max-w-prose text-lg text-foreground/75">{lead.excerpt}</p>
-              <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-green-300">
+              <h2 className="font-display mt-4 text-heading font-semibold">{lead.title}</h2>
+              <p className="mt-7 max-w-prose text-foreground/75">{lead.excerpt}</p>
+              <span className="mt-8 inline-flex items-center gap-2 text-button font-semibold text-green-300">
                 Read the guide
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                   →
@@ -78,8 +76,8 @@ function Blog() {
       ) : null}
 
       {rest.length > 0 ? (
-        <Panel tone="base">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Panel tone="base" className={lead ? "!pt-0" : ""}>
+          <div className="grid gap-7.5 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <Link
                 key={post.title}
@@ -95,12 +93,14 @@ function Blog() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                  <div className="flex flex-wrap items-center gap-x-3 text-caption text-foreground/60">
+                  <div className="flex flex-wrap items-center gap-x-3 text-button text-foreground/60">
                     <span>{post.date}</span>
                     <span>{post.readMinutes} min read</span>
                   </div>
-                  <h2 className="font-display mt-2 flex-1 text-xl font-bold">{post.title}</h2>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-green-300">
+                  <h2 className="font-display mt-4 flex-1 text-subtitle font-semibold">
+                    {post.title}
+                  </h2>
+                  <span className="mt-6 inline-flex items-center gap-2 text-button font-semibold text-green-300">
                     Read blog
                     <span
                       aria-hidden="true"

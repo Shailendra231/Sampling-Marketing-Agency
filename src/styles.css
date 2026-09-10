@@ -36,9 +36,9 @@
 
 @theme inline {
   --font-sans:
-    "Poppins", ui-sans-serif, system-ui, sans-serif;
+    "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-display:
-    "Poppins", ui-sans-serif, system-ui, sans-serif;
+    "Outfit", ui-sans-serif, system-ui, sans-serif;
 
   /* [02] Brand — violet tonal ramp */
   --color-violet-100: var(--violet-100);
@@ -97,26 +97,40 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  /* [04] Type scale. Sizes the document uses but never tabulates (15/18/30)
-     are included as lead/eyebrow/section steps. */
-  --text-eyebrow: 13px;
+  /* Type scale, measured off wearepurity.com. The fluid steps run linearly
+     from a 390px viewport to a 1440px one and hold there; the comment on each
+     gives those two end sizes.
+     - display:  page and section headings, 40 → 66 (caps at 70)
+     - heading:  article and case-study subheadings, 28 → 47
+     - title:    large card titles, 24 → 40
+     - subtitle: feature and small card titles, 22 → 30
+     - copy:     all body text, 21.6 at every width
+     - button:   buttons, text links and the main nav, 20 */
+  --text-display: clamp(2.474rem, 1.861rem + 2.514vw, 4.375rem);
+  /* 1.2 on small screens, tightening to a fixed 70.4px once the size passes it. */
+  --text-display--line-height: min(1.2em, 4.4rem);
+  --text-heading: clamp(1.75rem, 1.3rem + 1.844vw, 2.96rem);
+  --text-heading--line-height: 1.2;
+  --text-title: clamp(1.5rem, 1.129rem + 1.524vw, 2.5rem);
+  --text-title--line-height: 1.2;
+  --text-subtitle: clamp(1.375rem, 1.189rem + 0.762vw, 1.875rem);
+  --text-subtitle--line-height: 1.2;
+  --text-copy: 1.35rem;
+  --text-copy--line-height: 1.62;
+  --text-button: 1.25rem;
+  --text-button--line-height: 1;
+  --text-caption: 1rem;
+  --text-caption--line-height: 1.5;
+  --text-eyebrow: 0.875rem;
   --text-eyebrow--line-height: 1.2;
-  --text-caption: 14px;
-  --text-caption--line-height: 1.6;
-  --text-lead: 18px;
-  --text-lead--line-height: 1.65;
-  --text-h3: 20px;
-  --text-h3--line-height: 1.4;
-  --text-h2: 28px;
-  --text-h2--line-height: 1.25;
-  --text-section: 30px;
-  --text-section--line-height: 1.2;
-  --text-h1: 40px;
-  --text-h1--line-height: 1.12;
-  --text-display: 56px;
-  --text-display--line-height: 1.02;
-  --text-hero: 68px;
-  --text-hero--line-height: 1.02;
+
+  /* Spacing rhythm, also from wearepurity.com. Both run 390 → 1440 like the
+     type above.
+     - section: a panel's top and bottom padding, and the gap between a
+       section's intro and the content under it, 100 → 150
+     - inset:   a panel's side padding, 20 → 70 */
+  --spacing-section: clamp(6.25rem, 5.089rem + 4.762vw, 9.375rem);
+  --spacing-inset: clamp(1.25rem, 0.089rem + 4.762vw, 4.375rem);
 
   /* Elevation — [06] specifies only the green CTA glow. */
   --shadow-glow-green: 0 10px 30px oklch(0.8761 0.2819 139.97 / 0.3);
@@ -325,6 +339,8 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-size: var(--text-copy);
+    line-height: var(--text-copy--line-height);
   }
 
   /* [06] gives no focus treatment; the action colour carries it. */

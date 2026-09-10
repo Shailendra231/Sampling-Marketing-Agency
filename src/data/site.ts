@@ -32,7 +32,6 @@ export type NavItem = {
 export const NAV: NavItem[] = [
   { label: "Brand Experience", to: "/what-we-do/brand-experience" },
   { label: "Product Sampling", to: "/what-we-do/product-sampling" },
-  { label: "Our Work", to: "/projects" },
   { label: "About", to: "/about" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },

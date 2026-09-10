@@ -115,7 +115,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500/15 ring-1 ring-green-500/40">
           <Check className="h-6 w-6 text-green-300" strokeWidth={2.4} />
         </span>
-        <p className="font-display mt-6 text-2xl font-bold text-foreground">Thank you</p>
+        <p className="font-display mt-6 text-title font-semibold text-foreground">Thank you</p>
         <p className="mt-3 max-w-sm text-body">
           Your enquiry is with us and a confirmation is on its way to your inbox. You will hear back
           within one working day.
@@ -123,7 +123,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
         <button
           type="button"
           onClick={() => setStatus({ state: "idle" })}
-          className="mt-7 text-caption font-semibold text-green-300 underline decoration-green-500/40 underline-offset-4 transition-colors hover:text-green-200"
+          className="mt-7 text-button font-semibold text-green-300 underline decoration-green-500/40 underline-offset-4 transition-colors hover:text-green-200"
         >
           Send another enquiry
         </button>
@@ -148,7 +148,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
           name="enquiry"
           required
           defaultValue=""
-          className={`${wellCls} h-14 cursor-pointer appearance-none px-4 pb-1 pt-5 text-sm`}
+          className={`${wellCls} h-14 cursor-pointer appearance-none px-4 pb-1 pt-5 text-caption`}
         >
           <option value="" disabled>
             Please select
@@ -187,7 +187,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
               autoComplete={field.ac}
               required={!field.optional}
               placeholder=" "
-              className={`${wellCls} h-14 pb-1 pl-11 pr-4 pt-5 text-sm`}
+              className={`${wellCls} h-14 pb-1 pl-11 pr-4 pt-5 text-caption`}
             />
             <label htmlFor={uid(field.id)} className={`${labelCls} ${filledCls}`}>
               {field.label}
@@ -208,7 +208,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
           rows={4}
           onChange={(event) => setChars(event.target.value.length)}
           aria-describedby={uid("message-count")}
-          className={`${wellCls} resize-none px-4 pb-3 pt-7 text-sm`}
+          className={`${wellCls} resize-none px-4 pb-3 pt-7 text-caption`}
         />
         <label
           htmlFor={uid("message")}
@@ -232,7 +232,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
         <span
           id={uid("message-count")}
           aria-live="polite"
-          className={`text-xs tabular-nums ${nearLimit ? "text-amber-300" : "text-muted-foreground"}`}
+          className={`text-eyebrow tabular-nums ${nearLimit ? "text-amber-300" : "text-muted-foreground"}`}
         >
           {chars}/{MESSAGE_MAX}
         </span>
@@ -256,7 +256,7 @@ export function EnquiryForm({ idPrefix = "" }: { idPrefix?: string }) {
         <button
           type="submit"
           disabled={status.state === "sending"}
-          className="group inline-flex h-12 items-center gap-2 rounded-full bg-gradient-cta px-8 text-sm font-semibold text-dark shadow-glow-green transition-all duration-200 hover:brightness-110 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:brightness-100"
+          className="group inline-flex h-12 items-center gap-2 rounded-full bg-gradient-cta px-8 text-button font-semibold text-dark shadow-glow-green transition-all duration-200 hover:brightness-110 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:brightness-100"
         >
           {status.state === "sending" ? (
             <>

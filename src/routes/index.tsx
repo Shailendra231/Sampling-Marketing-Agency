@@ -106,25 +106,25 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <Panel tone="primary" className="relative min-h-[520px]">
-        <h1 className="font-display max-w-3xl text-6xl font-bold leading-[0.98] tracking-tight md:text-8xl">
+        <h1 className="font-display max-w-3xl text-display font-semibold">
           We put products in people’s hands
         </h1>
-        <p className="mt-8 max-w-xl text-lg text-foreground/80 md:text-2xl">
+        <p className="mt-9.5 max-w-xl text-foreground/80">
           Sampling, live brand activations and trained field teams, run across India.
         </p>
       </Panel>
 
       {/* THREE PILLARS — cards from SMA Brand System [06] */}
-      <section className="px-5 md:px-10">
-        <div className="mx-auto max-w-[1600px] rounded-[28px] border border-border bg-gradient-card px-6 py-14 md:px-14 md:py-16">
-          <div className="grid gap-12 md:grid-cols-3 md:gap-8">
+      <section className="px-5">
+        <div className="mx-auto max-w-[1600px] rounded-[28px] border border-border bg-gradient-card px-inset py-section">
+          <div className="grid gap-16 md:grid-cols-3 md:gap-12.5">
             {PILLARS.map((pillar) => (
               <div key={pillar.title} className="flex flex-col items-center text-center">
                 <pillar.Icon className={`h-11 w-11 ${pillar.tone}`} />
-                <h3 className="mt-5 text-h3 font-bold">{pillar.title}</h3>
-                <p className="mt-3 max-w-[16rem] text-caption text-body">{pillar.copy}</p>
+                <h3 className="mt-4 text-subtitle font-semibold">{pillar.title}</h3>
+                <p className="mt-2 max-w-[18rem] text-body">{pillar.copy}</p>
               </div>
             ))}
           </div>
@@ -132,17 +132,17 @@ function Index() {
       </section>
 
       <Panel tone="raised">
-        <h2 className="font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
+        <h2 className="font-display text-display font-semibold">
           Sampling works.
           <br />
           <span className="text-green-300">When it is planned properly.</span>
         </h2>
-        <p className="mt-8 max-w-2xl text-lg text-foreground/80 md:text-xl">
+        <p className="mt-7 max-w-2xl text-foreground/80">
           Wrong site, wrong hour, a team nobody briefed. Those three account for most of the
           sampling budgets we have watched go nowhere, so they are what we plan around.
         </p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-section grid gap-12.5 md:grid-cols-3">
           {SERVICES.map((service) => (
             <Link
               key={service.title}
@@ -158,9 +158,9 @@ function Index() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-7">
-                <h3 className="font-display text-2xl font-bold">{service.title}</h3>
-                <p className="mt-3 flex-1 text-foreground/70">{service.copy}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold">
+                <h3 className="font-display text-title font-semibold">{service.title}</h3>
+                <p className="mt-4 flex-1 text-foreground/70">{service.copy}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-button font-semibold">
                   {service.cta} <span aria-hidden="true">→</span>
                 </span>
               </div>
@@ -170,14 +170,14 @@ function Index() {
       </Panel>
 
       <Panel tone="base">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+        <div className="grid gap-12.5 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
-            <h2 className="font-display text-3xl font-bold md:text-4xl">How we work</h2>
-            <p className="mt-5 text-lg text-foreground/75">
+            <h2 className="font-display text-display font-semibold">How we work</h2>
+            <p className="mt-7 text-foreground/75">
               We handle the route, the site permissions, the team and the counting. Afterwards you
               get the numbers plus a straight account of how it went, weak sites included.
             </p>
-            <div className="mt-8">
+            <div className="mt-11.5">
               <PillLink to="/projects">View our Work</PillLink>
             </div>
           </div>
@@ -186,13 +186,13 @@ function Index() {
       </Panel>
 
       <Panel tone="raised">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-12.5 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-section">
           {CAPABILITIES.map((item) => (
             <div key={item.title} className="flex gap-4">
               <item.Icon aria-hidden="true" className="h-9 w-9 text-green-500" strokeWidth={1.6} />
               <div>
-                <h3 className="font-display text-lg font-bold">{item.title}</h3>
-                <p className="mt-1 text-foreground/70">{item.copy}</p>
+                <h3 className="font-display text-subtitle font-semibold">{item.title}</h3>
+                <p className="mt-2 text-foreground/70">{item.copy}</p>
               </div>
             </div>
           ))}
@@ -200,14 +200,12 @@ function Index() {
       </Panel>
 
       <Panel>
-        <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
-          What we handle
-        </h2>
-        <p className="mt-6 max-w-2xl text-lg text-foreground/80">
+        <h2 className="font-display text-display font-semibold">What we handle</h2>
+        <p className="mt-7 max-w-2xl text-foreground/80">
           Planning, permissions, kit, staffing and reporting. You can hand us the whole thing or
           drop us into the part you are stuck on.
         </p>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-section grid gap-12.5 md:grid-cols-2">
           {[
             {
               image: "/images/a-realistic-indoor-public-space.webp",
@@ -232,18 +230,16 @@ function Index() {
                 />
               </div>
               <div className="p-7">
-                <h3 className="font-display text-2xl font-bold">{block.title}</h3>
-                <p className="mt-3 text-foreground/70">{block.copy}</p>
+                <h3 className="font-display text-title font-semibold">{block.title}</h3>
+                <p className="mt-7 text-foreground/70">{block.copy}</p>
               </div>
             </div>
           ))}
         </div>
       </Panel>
 
-      <Panel tone="base" className="!py-10">
-        <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
-          Some of the work
-        </h2>
+      <Panel tone="base">
+        <h2 className="font-display text-display font-semibold">Some of the work</h2>
         <Marquee />
         <CaseStudyGrid items={CASE_STUDIES.slice(0, 6)} />
       </Panel>

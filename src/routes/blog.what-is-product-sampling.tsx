@@ -4,7 +4,6 @@ import { SITE_URL } from "@/data/site";
 import { ContactCta, Panel } from "@/components/site/ui";
 
 const HERO = "/images/a-realistic-indoor-public-space.webp";
-const CONSULTATION = "https://calendly.com/ramkumarshailendra/30min";
 const TITLE = "What Is Product Sampling?";
 const PATH = "/blog/what-is-product-sampling";
 const PUBLISHED = "2026-09-10";
@@ -222,7 +221,7 @@ const SCHEMA = {
 
 function Post() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
@@ -231,18 +230,16 @@ function Post() {
       <Panel tone="primary">
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-caption font-semibold text-on-violet transition-colors hover:text-green-300"
+          className="inline-flex items-center gap-2 text-button font-semibold text-on-violet transition-colors hover:text-green-300"
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
           Field notes
         </Link>
 
-        <h1 className="font-display mt-7 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
-          {TITLE}
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">{SUMMARY}</p>
+        <h1 className="font-display mt-7 max-w-4xl text-display font-semibold">{TITLE}</h1>
+        <p className="mt-9.5 max-w-2xl text-foreground/80">{SUMMARY}</p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-caption text-on-violet/80">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-button text-on-violet/80">
           <span className="font-semibold text-green-300">{PUBLISHED_LABEL}</span>
           <span className="inline-flex items-center gap-2">
             <Clock className="h-4 w-4" strokeWidth={1.8} />
@@ -258,10 +255,10 @@ function Post() {
           className="aspect-[16/7] w-full rounded-3xl object-cover"
         />
 
-        <div className="mt-10 max-w-[68ch] space-y-5">
-          <p className="text-xl leading-relaxed text-foreground/90 md:text-2xl">{LEAD[0]}</p>
+        <div className="mt-12 max-w-[68ch] space-y-4">
+          <p className="text-foreground/90">{LEAD[0]}</p>
           {LEAD.slice(1).map((para) => (
-            <p key={para} className="text-lg leading-relaxed text-foreground/75">
+            <p key={para} className="text-foreground/75">
               {para}
             </p>
           ))}
@@ -269,10 +266,10 @@ function Post() {
       </Panel>
 
       <Panel tone="raised">
-        <h2 className="font-display max-w-[68ch] text-2xl font-bold md:text-3xl">
+        <h2 className="font-display max-w-[68ch] text-heading font-semibold">
           What is in this guide
         </h2>
-        <ol className="mt-8 grid gap-x-8 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-7 grid gap-x-8 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
           {SECTIONS.map((section, i) => (
             <li key={section.heading}>
               <a
@@ -297,22 +294,20 @@ function Post() {
               id={slug(section.heading)}
               className="scroll-mt-24 border-t border-border-strong/40 pt-12 first:border-t-0 first:pt-0"
             >
-              <h2 className="font-display max-w-[68ch] text-2xl font-bold leading-snug md:text-3xl">
+              <h2 className="font-display max-w-[68ch] text-heading font-semibold">
                 {section.heading}
               </h2>
 
-              <div className="mt-5 max-w-[68ch] space-y-5">
+              <div className="mt-7 max-w-[68ch] space-y-4">
                 {section.body.map((para) => (
-                  <p key={para} className="text-lg leading-relaxed text-foreground/75">
+                  <p key={para} className="text-foreground/75">
                     {para}
                   </p>
                 ))}
               </div>
 
               {section.listIntro ? (
-                <p className="mt-5 max-w-[68ch] text-lg leading-relaxed text-foreground/75">
-                  {section.listIntro}
-                </p>
+                <p className="mt-4 max-w-[68ch] text-foreground/75">{section.listIntro}</p>
               ) : null}
 
               {section.bullets ? (
@@ -321,9 +316,9 @@ function Post() {
                     <li key={item} className="flex max-w-[68ch] gap-4">
                       <span
                         aria-hidden="true"
-                        className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-400"
+                        className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-400"
                       />
-                      <span className="text-lg leading-relaxed text-foreground/75">{item}</span>
+                      <span className="text-foreground/75">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -333,14 +328,12 @@ function Post() {
                 <ol className="mt-8 max-w-[68ch] space-y-7">
                   {section.ordered.map((step, i) => (
                     <li key={step.title} className="flex gap-5">
-                      <span className="font-display shrink-0 text-sm font-bold tabular-nums text-green-300/70">
+                      <span className="font-display shrink-0 text-subtitle font-semibold tabular-nums text-green-300/70">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <h3 className="font-display text-lg font-bold">{step.title}</h3>
-                        <p className="mt-2 text-lg leading-relaxed text-foreground/75">
-                          {step.copy}
-                        </p>
+                        <h3 className="font-display text-subtitle font-semibold">{step.title}</h3>
+                        <p className="mt-2 text-foreground/75">{step.copy}</p>
                       </div>
                     </li>
                   ))}
@@ -348,9 +341,9 @@ function Post() {
               ) : null}
 
               {section.outro ? (
-                <div className="mt-6 max-w-[68ch] space-y-5">
+                <div className="mt-4 max-w-[68ch] space-y-4">
                   {section.outro.map((para) => (
-                    <p key={para} className="text-lg leading-relaxed text-foreground/75">
+                    <p key={para} className="text-foreground/75">
                       {para}
                     </p>
                   ))}
@@ -358,63 +351,6 @@ function Post() {
               ) : null}
             </section>
           ))}
-        </div>
-      </Panel>
-
-      <Panel tone="raised">
-        <div className="max-w-[68ch]">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Ready to plan your sampling campaign?
-          </h2>
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-foreground/75">
-            <p className="border-l-2 border-green-500/60 pl-6 text-xl text-foreground/90">
-              Sampling is not a giveaway. It is a first experience, and the campaign is only as good
-              as the moment it creates.
-            </p>
-            <p>
-              Product Sampling Agency handles planning, permissions, field teams, distribution and
-              reporting across India, with campaigns built around the right audience, site and
-              moment. If you are at the stage of choosing a partner, we can help you scope the
-              right-fit approach for your brand.
-            </p>
-            <p>
-              Looking for formats to start from? Read{" "}
-              <Link
-                to="/blog/20-product-sampling-ideas"
-                className="font-semibold text-green-300 underline underline-offset-4 hover:text-green-200"
-              >
-                20 product sampling ideas
-              </Link>
-              , or see{" "}
-              <Link
-                to="/what-we-do/product-sampling"
-                className="font-semibold text-green-300 underline underline-offset-4 hover:text-green-200"
-              >
-                how we run sampling campaigns
-              </Link>
-              .
-            </p>
-            <p>
-              Want to discuss your campaign?{" "}
-              <a
-                href={CONSULTATION}
-                className="font-semibold text-green-300 underline underline-offset-4 hover:text-green-200"
-              >
-                Book a 30-minute consultation
-              </a>
-              .
-            </p>
-          </div>
-
-          <div className="mt-12 border-t border-border-strong/60 pt-8">
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 text-caption font-semibold text-green-300 transition-colors hover:text-green-200"
-            >
-              <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
-              All field notes
-            </Link>
-          </div>
         </div>
       </Panel>
 

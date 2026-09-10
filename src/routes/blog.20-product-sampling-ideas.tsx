@@ -207,7 +207,7 @@ const SCHEMA = {
 
 function Post() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <ReadingProgress />
       <script
         type="application/ld+json"
@@ -217,20 +217,18 @@ function Post() {
       <Panel tone="primary">
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-caption font-semibold text-on-violet transition-colors hover:text-green-300"
+          className="inline-flex items-center gap-2 text-button font-semibold text-on-violet transition-colors hover:text-green-300"
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
           Field notes
         </Link>
 
-        <h1 className="font-display mt-7 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
-          {TITLE}
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">
+        <h1 className="font-display mt-7 max-w-4xl text-display font-semibold">{TITLE}</h1>
+        <p className="mt-9.5 max-w-2xl text-foreground/80">
           Twenty ways to put a product in the right hands, and how to choose between them.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-caption text-on-violet/80">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-button text-on-violet/80">
           <span className="font-semibold text-green-300">{PUBLISHED_LABEL}</span>
           <span className="inline-flex items-center gap-2">
             <Clock className="h-4 w-4" strokeWidth={1.8} />
@@ -250,10 +248,10 @@ function Post() {
           className="aspect-[16/7] w-full rounded-3xl object-cover"
         />
 
-        <div className="mt-10 max-w-[68ch] space-y-5">
-          <p className="text-xl leading-relaxed text-foreground/90 md:text-2xl">{LEAD[0]}</p>
+        <div className="mt-12 max-w-[68ch] space-y-4">
+          <p className="text-foreground/90">{LEAD[0]}</p>
           {LEAD.slice(1).map((para) => (
-            <p key={para} className="text-lg leading-relaxed text-foreground/75">
+            <p key={para} className="text-foreground/75">
               {para}
             </p>
           ))}
@@ -261,10 +259,10 @@ function Post() {
       </Panel>
 
       <Panel tone="raised">
-        <h2 className="font-display max-w-[68ch] text-2xl font-bold md:text-3xl">
+        <h2 className="font-display max-w-[68ch] text-heading font-semibold">
           What is in this guide
         </h2>
-        <ol className="mt-8 grid gap-x-8 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-7 grid gap-x-8 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
           {IDEAS.map((idea, i) => (
             <li key={idea.title}>
               <a
@@ -289,15 +287,13 @@ function Post() {
               id={slug(idea.title)}
               className="scroll-mt-24 border-t border-border-strong/40 pt-10 first:border-t-0 first:pt-0"
             >
-              <p className="font-display text-sm font-bold tabular-nums text-green-300/70">
+              <p className="font-display text-button font-semibold tabular-nums text-green-300/70">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h2 className="font-display mt-3 max-w-[68ch] text-2xl font-bold leading-snug md:text-3xl">
+              <h2 className="font-display mt-3 max-w-[68ch] text-heading font-semibold">
                 {idea.title}
               </h2>
-              <p className="mt-4 max-w-[68ch] text-lg leading-relaxed text-foreground/75">
-                {idea.copy}
-              </p>
+              <p className="mt-7 max-w-[68ch] text-foreground/75">{idea.copy}</p>
             </li>
           ))}
         </ol>
@@ -305,10 +301,10 @@ function Post() {
 
       <Panel tone="raised">
         <div className="max-w-[68ch]">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
+          <h2 className="font-display text-heading font-semibold">
             So, which product sampling idea should you choose?
           </h2>
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-foreground/75">
+          <div className="mt-7 space-y-4 text-foreground/75">
             <p>
               There is no universal answer. The right sampling strategy depends on what you sell,
               who you sell it to and where those consumers naturally spend their time. A protein
@@ -317,7 +313,7 @@ function Post() {
               benefit from retail and supermarket sampling. A D2C product might combine targeted
               offline sampling with influencer content and digital follow-up.
             </p>
-            <p className="border-l-2 border-green-500/60 pl-6 text-xl text-foreground/90">
+            <p className="border-l-2 border-green-500/60 pl-6 text-foreground/90">
               The smartest campaigns do not ask, &lsquo;Where can we distribute samples?&rsquo; They
               ask, &lsquo;Where will the right consumer be most open to trying this?&rsquo;
             </p>
@@ -329,10 +325,10 @@ function Post() {
             </p>
           </div>
 
-          <h2 className="font-display mt-14 text-3xl font-bold md:text-4xl">
+          <h2 className="font-display mt-16 text-heading font-semibold">
             Ready to put your product in the right hands?
           </h2>
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-foreground/75">
+          <div className="mt-7 space-y-4 text-foreground/75">
             <p>
               A great sampling campaign does not begin with a box of samples. It begins with the
               consumer. Who are they? Where do they spend their time? What are they doing when they
@@ -359,7 +355,7 @@ function Post() {
           <div className="mt-12 border-t border-border-strong/60 pt-8">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-caption font-semibold text-green-300 transition-colors hover:text-green-200"
+              className="inline-flex items-center gap-2 text-button font-semibold text-green-300 transition-colors hover:text-green-200"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
               All field notes

@@ -38,17 +38,17 @@ function Eyebrow({ children }: { children: ReactNode }) {
 
 function Contact() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Get in touch"
         intro="Tell us what the product is and who needs to try it."
         extra={
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-11.5 flex flex-wrap gap-3">
             {OFFICES.map((office) => (
               <a
                 key={office.region}
                 href={`mailto:${office.email}`}
-                className="inline-flex items-center gap-2 rounded-full border border-violet-tint/40 px-5 py-2.5 text-caption font-semibold text-on-violet transition-colors hover:border-green-500 hover:text-green-300"
+                className="inline-flex max-w-full flex-wrap items-center gap-x-2 rounded-full border border-violet-tint/40 px-5 py-2.5 text-button wrap-anywhere font-semibold text-on-violet transition-colors hover:border-green-500 hover:text-green-300"
               >
                 <span className="text-violet-tint">{office.region}</span>
                 {office.email}
@@ -61,8 +61,8 @@ function Contact() {
       {/* 1 — PRIMARY ACTION: the enquiry form leads the page */}
       <Panel tone="raised">
         <Eyebrow>Start a conversation</Eyebrow>
-        <h2 className="font-display mt-3 text-section font-bold md:text-h1">Discuss a project</h2>
-        <p className="mt-4 max-w-2xl text-lead text-body">
+        <h2 className="font-display mt-3 text-display font-semibold">Discuss a project</h2>
+        <p className="mt-7 max-w-2xl text-body">
           Tell us what the product is, who needs to try it, and roughly when. We will come back with
           sites and a count.
         </p>
@@ -70,25 +70,25 @@ function Contact() {
           &quot;*&quot; indicates required fields
         </p>
 
-        <div className="mt-8 max-w-3xl">
+        <div className="mt-11.5 max-w-3xl">
           <EnquiryForm />
         </div>
       </Panel>
 
       {/* 2 — SUPPORTING DETAIL: where we are */}
-      <section className="px-5 md:px-10">
+      <section className="px-5">
         <div className="mx-auto max-w-[1600px]">
           <Eyebrow>Our office</Eyebrow>
-          <div className="mt-6 grid gap-6 md:grid-cols-2 [&>*:only-child]:md:max-w-xl">
+          <div className="mt-6 grid gap-7.5 md:grid-cols-2 [&>*:only-child]:md:max-w-xl">
             {OFFICES.map((office) => (
               <div
                 key={office.region}
                 className="rounded-brand-xl border border-border bg-gradient-card p-8 md:p-10"
               >
-                <h2 className="font-display text-h3 font-bold">{office.region}</h2>
+                <h2 className="font-display text-subtitle font-semibold">{office.region}</h2>
                 <a
                   href={`mailto:${office.email}`}
-                  className="mt-3 inline-block font-semibold text-green-300 underline decoration-green-300/40 underline-offset-4 transition-colors hover:text-green-500"
+                  className="mt-3 inline-block font-semibold text-green-300 underline decoration-green-300/40 underline-offset-4 wrap-anywhere transition-colors hover:text-green-500"
                 >
                   {office.email}
                 </a>

@@ -41,17 +41,17 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background">
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 md:px-10">
+      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-7 md:px-14 md:py-8">
         <Link to="/" className="text-foreground" aria-label="Product Sampling Agency home">
           <Wordmark />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-7.5 xl:flex" aria-label="Main">
           {NAV.map((item) => (
             <div key={item.label} className="group relative">
               <Link
                 to={item.to!}
-                className="flex items-center gap-1 text-[0.95rem] font-medium text-foreground transition-opacity hover:opacity-60"
+                className="flex items-center gap-1 text-button text-foreground transition-opacity hover:opacity-60"
                 activeProps={{ className: "opacity-60" }}
               >
                 {item.label}
@@ -67,7 +67,7 @@ export function Header() {
                     <Link
                       key={child.label}
                       to={child.to}
-                      className="block rounded-xl px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-raised"
+                      className="block rounded-xl px-3 py-2 text-button text-foreground transition-colors hover:bg-raised"
                     >
                       {child.label}
                     </Link>
@@ -82,7 +82,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="flex flex-col gap-[5px] p-2 text-foreground lg:hidden"
+          className="flex flex-col gap-[5px] p-2 text-foreground xl:hidden"
           aria-label="Open menu"
         >
           <span className="block h-[2px] w-7 bg-current" />
@@ -92,7 +92,7 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="fixed inset-0 z-50 flex flex-col bg-panel px-6 py-6 text-foreground lg:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-panel px-5 py-7 text-foreground xl:hidden">
           <div className="flex items-center justify-between">
             <Wordmark />
             <button
@@ -110,7 +110,7 @@ export function Header() {
                 key={item.label}
                 to={item.to!}
                 onClick={() => setOpen(false)}
-                className="font-display text-3xl font-semibold"
+                className="font-display text-heading font-semibold"
               >
                 {item.label}
               </Link>

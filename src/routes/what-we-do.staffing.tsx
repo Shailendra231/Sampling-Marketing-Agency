@@ -74,12 +74,12 @@ const OFFERS = [
 
 function Staffing() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Field teams"
         intro="Trained staff for sampling routes, mall activations, retail promotions and events."
         extra={
-          <div className="mt-6 max-w-2xl space-y-4 text-lg text-foreground/80">
+          <div className="mt-4 max-w-2xl space-y-4 text-foreground/80">
             <p>
               We supply staff to brands, agencies, malls and event organisers across Indian cities.
               Reliability matters, but so does whether someone can actually start a conversation
@@ -91,60 +91,60 @@ function Staffing() {
       />
 
       <Panel tone="base">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">Who we send</h2>
-        <p className="mt-6 max-w-3xl text-lg font-semibold text-foreground">
+        <h2 className="font-display text-display font-semibold">Who we send</h2>
+        <p className="mt-7 max-w-3xl font-semibold text-foreground">
           A promoter who understands the product will outsell a better looking one who does not. We
           pick for the brief, not from a spreadsheet.
         </p>
-        <p className="mt-4 max-w-3xl text-lg text-foreground/75">
+        <p className="mt-4 max-w-3xl text-foreground/75">
           Everyone gets briefed on the product, the objections and the count before a shift. A
           supervisor is on site, and attendance is tracked so you are not paying for people who did
           not turn up.
         </p>
-        <div className="mt-8">
+        <div className="mt-11.5">
           <PillLink to="/contact">Get in touch</PillLink>
         </div>
       </Panel>
 
       <Panel tone="raised">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">Why people call us back</h2>
-        <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <h2 className="font-display text-display font-semibold">Why people call us back</h2>
+        <div className="mt-section grid gap-12.5 md:grid-cols-2 lg:grid-cols-3">
           {REASONS.map((reason) => (
             <div key={reason.title} className="rounded-3xl bg-background p-7">
-              <h3 className="font-display text-xl font-bold">{reason.title}</h3>
-              <p className="mt-3 text-foreground/70">{reason.copy}</p>
+              <h3 className="font-display text-subtitle font-semibold">{reason.title}</h3>
+              <p className="mt-4 text-foreground/70">{reason.copy}</p>
             </div>
           ))}
         </div>
-        <div className="mt-10">
+        <div className="mt-16">
           <PillLink to="/contact">Work with us</PillLink>
         </div>
       </Panel>
 
       <Panel>
-        <h2 className="font-display text-3xl font-bold md:text-5xl">What We Offer</h2>
-        <p className="mt-6 max-w-3xl text-lg text-foreground/80">
+        <h2 className="font-display text-display font-semibold">What We Offer</h2>
+        <p className="mt-7 max-w-3xl text-foreground/80">
           Recruitment, briefing and supervision are ours to handle. You get one point of contact,
           and a team that has been told what the product does.
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-section grid gap-12.5 md:grid-cols-3">
           {OFFERS.map((offer) => (
             <div key={offer.title} className="flex flex-col rounded-3xl bg-background p-7">
-              <h3 className="font-display text-2xl font-bold">{offer.title}</h3>
-              <p className="mt-3 flex-1 text-foreground/70">{offer.copy}</p>
-              <span className="mt-6 text-sm font-semibold">{offer.cta} →</span>
+              <h3 className="font-display text-title font-semibold">{offer.title}</h3>
+              <p className="mt-4 flex-1 text-foreground/70">{offer.copy}</p>
+              <span className="mt-6 text-button font-semibold">{offer.cta} →</span>
             </div>
           ))}
         </div>
       </Panel>
 
       <Panel tone="base">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">Where these teams work</h2>
-        <p className="mt-6 max-w-3xl text-lg text-foreground/75">
+        <h2 className="font-display text-display font-semibold">Where these teams work</h2>
+        <p className="mt-7 max-w-3xl text-foreground/75">
           Malls, metro stations, campuses, markets, society gates and road races. Different crowds,
           different pitch, same discipline about turning up prepared.
         </p>
-        <div className="mt-10">
+        <div className="mt-section">
           <CaseStudyGrid items={CASE_STUDIES.slice(2, 5)} />
         </div>
       </Panel>

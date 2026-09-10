@@ -37,7 +37,7 @@ function Facts({ study }: { study: CaseStudy }) {
     { Icon: Layers, label: study.format },
   ];
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-caption text-on-violet/80">
+    <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-button text-on-violet/80">
       {facts.map(({ Icon, label }) => (
         <span key={label} className="inline-flex items-center gap-2">
           <Icon className="h-4 w-4 text-green-300" strokeWidth={1.8} />
@@ -53,15 +53,15 @@ function Facts({ study }: { study: CaseStudy }) {
 function ListSection({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h2 className="font-display text-2xl font-bold md:text-3xl">{title}</h2>
-      <ul className="mt-6 space-y-4">
+      <h2 className="font-display text-heading font-semibold">{title}</h2>
+      <ul className="mt-7 space-y-4">
         {items.map((item) => (
           <li key={item} className="flex max-w-[68ch] gap-4">
             <span
               aria-hidden="true"
-              className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-400"
+              className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-400"
             />
-            <span className="text-lg leading-relaxed text-foreground/75">{item}</span>
+            <span className="text-foreground/75">{item}</span>
           </li>
         ))}
       </ul>
@@ -75,13 +75,13 @@ function CaseStudyPage() {
 
   if (!study) {
     return (
-      <div className="space-y-6 pb-6">
+      <div className="space-y-5 pb-5">
         <Panel tone="primary">
-          <h1 className="font-display text-4xl font-bold md:text-6xl">Case study not found</h1>
-          <p className="mt-6 max-w-2xl text-lg text-foreground/80">
+          <h1 className="font-display text-display font-semibold">Case study not found</h1>
+          <p className="mt-9.5 max-w-2xl text-foreground/80">
             That link does not match anything in our work. The full list is below.
           </p>
-          <div className="mt-8">
+          <div className="mt-11.5">
             <PillLink to="/projects">See all work</PillLink>
           </div>
         </Panel>
@@ -92,20 +92,18 @@ function CaseStudyPage() {
   const others = CASE_STUDIES.filter((item) => item.slug !== study.slug).slice(0, 3);
 
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <Panel tone="primary">
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 text-caption font-semibold text-on-violet transition-colors hover:text-green-300"
+          className="inline-flex items-center gap-2 text-button font-semibold text-on-violet transition-colors hover:text-green-300"
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
           Our Work
         </Link>
 
-        <h1 className="font-display mt-7 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
-          {study.title}
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">{study.excerpt}</p>
+        <h1 className="font-display mt-7 max-w-4xl text-display font-semibold">{study.title}</h1>
+        <p className="mt-9.5 max-w-2xl text-foreground/80">{study.excerpt}</p>
         <Facts study={study} />
       </Panel>
 
@@ -117,29 +115,27 @@ function CaseStudyPage() {
         />
 
         <div className="mt-12">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">The brief</h2>
-          <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-foreground/85">
-            {study.challenge}
-          </p>
+          <h2 className="font-display text-heading font-semibold">The brief</h2>
+          <p className="mt-7 max-w-[68ch] text-foreground/85">{study.challenge}</p>
         </div>
       </Panel>
 
       <Panel tone="raised">
-        <h2 className="font-display text-2xl font-bold md:text-3xl">How we planned it</h2>
-        <ol className="mt-8 space-y-8">
+        <h2 className="font-display text-heading font-semibold">How we planned it</h2>
+        <ol className="mt-7 space-y-8">
           {study.approach.map((step, i) => (
             <li key={step} className="max-w-[68ch]">
-              <p className="font-display text-sm font-bold tabular-nums text-green-300/70">
+              <p className="font-display text-button font-semibold tabular-nums text-green-300/70">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <p className="mt-2 text-lg leading-relaxed text-foreground/80">{step}</p>
+              <p className="mt-2 text-foreground/80">{step}</p>
             </li>
           ))}
         </ol>
       </Panel>
 
       <Panel tone="base">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12.5 lg:grid-cols-2">
           <ListSection title="What we handled" items={study.delivered} />
           <ListSection title="What we measured" items={study.measured} />
         </div>
@@ -147,8 +143,8 @@ function CaseStudyPage() {
 
       {others.length > 0 ? (
         <Panel tone="raised">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">More work</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <h2 className="font-display text-heading font-semibold">More work</h2>
+          <div className="mt-12 grid gap-7.5 md:grid-cols-3">
             {others.map((item) => (
               <Link
                 key={item.slug}
@@ -166,7 +162,7 @@ function CaseStudyPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-caption text-foreground/60">{item.sector}</p>
-                  <h3 className="font-display mt-1 text-lg font-bold">{item.title}</h3>
+                  <h3 className="font-display mt-2 text-subtitle font-semibold">{item.title}</h3>
                 </div>
               </Link>
             ))}
@@ -175,7 +171,7 @@ function CaseStudyPage() {
           <div className="mt-10 border-t border-border-strong/60 pt-8">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 text-caption font-semibold text-green-300 transition-colors hover:text-green-200"
+              className="inline-flex items-center gap-2 text-button font-semibold text-green-300 transition-colors hover:text-green-200"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
               All work

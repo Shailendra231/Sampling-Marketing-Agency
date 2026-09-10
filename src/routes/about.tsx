@@ -33,12 +33,12 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-5 pb-5">
       <PageHero
         title="Who you will be dealing with"
         intro="We are a sampling and activation team based in Gurugram, working across Indian cities."
         extra={
-          <p className="mt-4 max-w-2xl text-lg text-foreground/80">
+          <p className="mt-4 max-w-2xl text-foreground/80">
             Most of our work happens on a footpath, in a mall atrium or at a society gate, on a
             weekday, in the heat.
           </p>
@@ -46,7 +46,7 @@ function About() {
       />
 
       <Panel tone="base">
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-12.5 md:grid-cols-2">
           {[
             {
               src: "/images/travel-solutions-exhibition-stand.webp",
@@ -77,10 +77,10 @@ function About() {
       </Panel>
 
       <Panel>
-        <h2 className="font-display max-w-4xl text-3xl font-bold leading-tight md:text-5xl">
+        <h2 className="font-display max-w-4xl text-display font-semibold">
           Small team. You will speak to the person running your campaign
         </h2>
-        <div className="mt-8 grid gap-8 text-lg text-foreground/80 lg:grid-cols-2">
+        <div className="mt-7 grid gap-12.5 text-foreground/80 lg:grid-cols-2">
           <div className="space-y-4">
             <p>Sampling is an operations job wearing a marketing costume.</p>
             <p>

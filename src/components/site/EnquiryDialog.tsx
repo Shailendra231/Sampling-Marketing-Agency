@@ -18,7 +18,7 @@ export function EnquiryDialog({ label = "Talk to us" }: { label?: string }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger className="group inline-flex h-12 items-center gap-2 rounded-full bg-gradient-cta px-7 text-sm font-semibold text-dark shadow-glow-green transition-all duration-200 hover:brightness-110 active:scale-[0.98]">
+      <DialogTrigger className="group inline-flex h-12 items-center gap-2 rounded-full bg-gradient-cta px-7 text-button font-semibold text-dark shadow-glow-green transition-all duration-200 hover:brightness-110 active:scale-[0.98]">
         {label}
         <ArrowRight
           className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
@@ -36,10 +36,10 @@ export function EnquiryDialog({ label = "Talk to us" }: { label?: string }) {
             <p className="text-eyebrow font-semibold uppercase tracking-[0.14em] text-green-300">
               Start a conversation
             </p>
-            <DialogTitle className="font-display pt-2 text-left text-3xl font-bold tracking-tight">
+            <DialogTitle className="font-display pt-2 text-left text-heading font-semibold">
               Discuss a project
             </DialogTitle>
-            <DialogDescription className="max-w-lg pt-3 text-left text-body">
+            <DialogDescription className="max-w-lg pt-3 text-left text-copy text-body">
               Tell us what the product is, who needs to try it, and roughly when. We come back with
               sites and a count.
             </DialogDescription>
