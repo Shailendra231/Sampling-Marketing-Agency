@@ -12,6 +12,10 @@ export function Panel({
   tone?: "panel" | "primary" | "raised" | "base";
   className?: string;
 }) {
+  // Content panels alternate --background (#231942, the page ground) and
+  // --raised (#17132E), with the violet gradient kept for heroes. This is the
+  // palette the live site paints; the tones map straight onto the tokens
+  // rather than retuning them inside the panel.
   const tones = {
     panel: "bg-panel text-foreground",
     primary: "bg-gradient-primary text-foreground",

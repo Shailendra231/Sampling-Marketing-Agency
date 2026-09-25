@@ -11,7 +11,6 @@
   }
 }
 
-
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -35,10 +34,8 @@
  */
 
 @theme inline {
-  --font-sans:
-    "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-display:
-    "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
 
   /* [02] Brand — violet tonal ramp */
   --color-violet-100: var(--violet-100);
@@ -80,7 +77,6 @@
   --color-body-strong: var(--body-strong);
   --color-violet-tint: var(--violet-tint);
   --color-on-violet: var(--on-violet);
-
 
   /* [05] Corner radius. The document declares 12/16/28/pill but every card in
      [06] is drawn at 20px, so 20 is kept as the card step. */
@@ -188,7 +184,7 @@
   /* ── [02] Green tonal ramp ────────────────────────────────────────── */
   --green-100: oklch(0.9699 0.0608 134.88); /* #E4FFD6 */
   --green-200: oklch(0.9364 0.1397 134.57); /* #C2FF9E */
-  --green-300: oklch(0.9076 0.2105 136.30); /* #9BFF66 */
+  --green-300: oklch(0.9076 0.2105 136.3); /* #9BFF66 */
   --green-400: oklch(0.8847 0.2642 138.67); /* #6DFF2B */
   --green-500: oklch(0.8761 0.2819 139.97); /* #52FF00 — Neon Green, action */
   --green-600: oklch(0.7665 0.2483 140.29); /* #3FD600 */
@@ -205,7 +201,7 @@
   --panel: oklch(0.2258 0.0458 287.88); /* #1B1830 — neutral chip, inner panel */
   --deep-violet: oklch(0.2506 0.0745 291.31); /* #231942 — hero radial, secondary gradient */
   --divider: oklch(0.2305 0.0382 287.59); /* #1C1A2E — subtle row rule */
-  --border-violet: oklch(0.3404 0.1130 287.63); /* #372A6E */
+  --border-violet: oklch(0.3404 0.113 287.63); /* #372A6E */
   /* Form wells can't be delineated by fill — no surface differs from its panel
      by more than 1.19:1 on this ground — so inputs rely on this border. */
   --border-strong: oklch(0.3909 0.0988 289.45); /* #453A76, 1.81 on --raised */
@@ -215,10 +211,10 @@
   --field: oklch(0.2899 0.0794 287.53); /* #2A2350 */
 
   /* ── Text roles ──────────────────────────────────────────────────── */
-  --body: oklch(0.7860 0.0225 291.62); /* #B9B7C7 — body copy, 9.8:1 */
+  --body: oklch(0.786 0.0225 291.62); /* #B9B7C7 — body copy, 9.8:1 */
   --body-strong: oklch(0.8784 0.0274 292.71); /* #D7D4E8 — 13.4:1 */
   --violet-tint: oklch(0.8112 0.1013 293.57); /* #C4B5FD — labels, eyebrows, 10.5:1 */
-  --on-violet: oklch(0.9116 0.0480 295.91); /* #E4DCFF — body on violet gradients */
+  --on-violet: oklch(0.9116 0.048 295.91); /* #E4DCFF — body on violet gradients */
 
   /* ── [03] Gradients ──────────────────────────────────────────────── */
   --gradient-primary: linear-gradient(90deg, var(--violet-700), var(--violet-500));
@@ -228,21 +224,12 @@
   --gradient-cta: linear-gradient(180deg, var(--green-400), var(--green-600));
   --gradient-band: linear-gradient(100deg, var(--violet-700), var(--violet-500));
   --gradient-card: linear-gradient(160deg, var(--raised), var(--dark));
-  --gradient-hero: radial-gradient(
-    120% 120% at 100% 0%,
-    var(--deep-violet) 0%,
-    var(--dark) 62%
-  );
+  --gradient-hero: radial-gradient(120% 120% at 100% 0%, var(--deep-violet) 0%, var(--dark) 62%);
   /* Homepage hero card: dark violet field with a bright violet bloom
      center-right, per the GRADIENT APPLICATION board in [07]. */
   --gradient-hero-card:
     radial-gradient(56% 76% at 64% 52%, var(--violet-500) 0%, transparent 72%),
-    linear-gradient(
-      135deg,
-      var(--violet-900) 0%,
-      var(--violet-800) 46%,
-      var(--violet-900) 100%
-    );
+    linear-gradient(135deg, var(--violet-900) 0%, var(--violet-800) 46%, var(--violet-900) 100%);
   --gradient-mark-glow: radial-gradient(
     closest-side,
     oklch(0.8761 0.2819 139.97 / 0.28) 0%,
@@ -292,7 +279,15 @@
   --sidebar-accent-foreground: var(--violet-tint);
   --sidebar-border: oklch(0.3448 0.0883 290.76);
   --sidebar-ring: var(--green-500);
+}
 
+/* ── Dark surfaces ─────────────────────────────────────────────────────
+ * Retunes the surface tokens inside a flat Dark #0D0D12 block, so cards and
+ * rules inside it stay neutral rather than picking up the violet ground.
+ * Applied by the footer shell. */
+.surface-dark {
+  --background: color-mix(in oklab, var(--dark), white 6%);
+  --border: color-mix(in oklab, var(--dark), white 14%);
 }
 
 @utility bg-gradient-primary {
@@ -333,7 +328,9 @@
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    /* The raw token, not --color-border: that alias is resolved on :root and
+       would carry the dark border into white panels. */
+    border-color: var(--border);
   }
 
   body {

@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, MapPin, Layers, Tag } from "lucide-react";
 import { CASE_STUDIES, SITE_URL, type CaseStudy } from "@/data/site";
+import { breadcrumb, graph } from "@/data/schema";
 import { ContactCta, Panel, PillLink } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 const find = (slug: string) => CASE_STUDIES.find((study) => study.slug === slug);
 
@@ -90,9 +92,18 @@ function CaseStudyPage() {
   }
 
   const others = CASE_STUDIES.filter((item) => item.slug !== study.slug).slice(0, 3);
+  /** Home > Projects > this study, so the trail in search results matches
+   *  the path a reader actually took. */
+  const schema = graph(
+    breadcrumb([
+      { name: "Projects", path: "/projects" },
+      { name: study.title, path: `/projects/${study.slug}` },
+    ]),
+  );
 
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={schema} />
       <Panel tone="primary">
         <Link
           to="/projects"

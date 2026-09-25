@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CASE_STUDIES, SITE_URL } from "@/data/site";
+import { breadcrumb, graph, service } from "@/data/schema";
 import {
   CaseStudyGrid,
   ContactCta,
@@ -8,6 +9,7 @@ import {
   Panel,
   PillLink,
 } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const Route = createFileRoute("/what-we-do/brand-experience")({
   head: () => ({
@@ -31,9 +33,23 @@ export const Route = createFileRoute("/what-we-do/brand-experience")({
   component: BrandExperience,
 });
 
+/** What this page sells, tied back to the business node in the root
+ *  schema, plus where the page sits in the site. */
+const SCHEMA = graph(
+  service({
+    name: "Live brand activations",
+    description:
+      "Live brand activations planned around what the day has to achieve, then designed, permitted, staffed and run across Indian cities.",
+    serviceType: "Brand experience marketing",
+    path: "/what-we-do/brand-experience",
+  }),
+  breadcrumb([{ name: "Brand Experience", path: "/what-we-do/brand-experience" }]),
+);
+
 function BrandExperience() {
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Brand Experience Agency"
         intro="Planned around what the day has to achieve, then staffed and run by us."
@@ -66,7 +82,7 @@ function BrandExperience() {
         <CaseStudyGrid items={CASE_STUDIES.slice(0, 6)} />
       </Panel>
 
-      <Panel>
+      <Panel tone="base">
         <h2 className="font-display text-display font-semibold">Why brand experience works</h2>
         <p className="mt-7 max-w-3xl text-foreground/80">
           An activation earns its budget when it changes what someone does next. Usually that means

@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CONTACT_EMAIL, OFFICES, SITE_URL } from "@/data/site";
+import { breadcrumb, graph } from "@/data/schema";
 import { PageHero, Panel } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 const UPDATED = "7 September 2026";
 
@@ -17,6 +19,10 @@ export const Route = createFileRoute("/privacy-cookie-policy")({
       {
         property: "og:description",
         content: "What we collect through this site, who processes it, and how to have it deleted.",
+      },
+      {
+        property: "og:image",
+        content: `${SITE_URL}/images/a-clean-modern-marketing-comms.webp`,
       },
       { property: "og:url", content: `${SITE_URL}/privacy-cookie-policy` },
     ],
@@ -47,11 +53,18 @@ function Bullets({ items }: { items: React.ReactNode[] }) {
   );
 }
 
+/** Where this page sits in the site, for the breadcrumb trail in search
+ *  results. The business itself is described once, in the root schema. */
+const SCHEMA = graph(
+  breadcrumb([{ name: "Privacy & Cookie Policy", path: "/privacy-cookie-policy" }]),
+);
+
 function PrivacyPolicy() {
   const office = OFFICES[0];
 
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Privacy & Cookie Policy"
         intro="What this site collects, who else can see it, and how to have it removed."

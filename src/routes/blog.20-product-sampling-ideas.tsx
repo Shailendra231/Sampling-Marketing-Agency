@@ -2,11 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Clock, ListOrdered } from "lucide-react";
 import { SITE_URL } from "@/data/site";
+import { breadcrumb, graph } from "@/data/schema";
 import { ContactCta, Panel } from "@/components/site/ui";
 
 const HERO = "/images/a-lively-outdoor-indoor-mall.webp";
 const CONSULTATION = "https://calendly.com/ramkumarshailendra/30min";
 const TITLE = "20 Product Sampling Ideas to Get Your Product Into Consumers' Hands";
+const PATH = "/blog/20-product-sampling-ideas";
 const PUBLISHED = "2026-09-06";
 const PUBLISHED_LABEL = "September 2026";
 
@@ -28,9 +30,9 @@ export const Route = createFileRoute("/blog/20-product-sampling-ideas")({
       { property: "article:published_time", content: PUBLISHED },
       { property: "og:image", content: `${SITE_URL}${HERO}` },
       { name: "twitter:image", content: `${SITE_URL}${HERO}` },
-      { property: "og:url", content: `${SITE_URL}/blog/20-product-sampling-ideas` },
+      { property: "og:url", content: `${SITE_URL}${PATH}` },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/blog/20-product-sampling-ideas` }],
+    links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],
   }),
   component: Post,
 });
@@ -194,16 +196,21 @@ function ReadingProgress() {
 
 /** Article schema so search and answer engines can read the piece as an article
  *  rather than inferring it from the markup. */
-const SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: TITLE,
-  datePublished: PUBLISHED,
-  image: `${SITE_URL}${HERO}`,
-  mainEntityOfPage: `${SITE_URL}/blog/20-product-sampling-ideas`,
-  author: { "@type": "Organization", name: "Product Sampling Agency" },
-  publisher: { "@type": "Organization", name: "Product Sampling Agency" },
-};
+const SCHEMA = graph(
+  {
+    "@type": "BlogPosting",
+    headline: TITLE,
+    datePublished: PUBLISHED,
+    image: `${SITE_URL}${HERO}`,
+    mainEntityOfPage: `${SITE_URL}${PATH}`,
+    author: { "@type": "Organization", name: "Product Sampling Agency" },
+    publisher: { "@type": "Organization", name: "Product Sampling Agency" },
+  },
+  breadcrumb([
+    { name: "Blog", path: "/blog" },
+    { name: TITLE, path: PATH },
+  ]),
+);
 
 function Post() {
   return (

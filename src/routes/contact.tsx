@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { OFFICES, SITE_URL } from "@/data/site";
+import { breadcrumb, graph } from "@/data/schema";
 import { PageHero, Panel } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 
 export const Route = createFileRoute("/contact")({
@@ -11,7 +13,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Talk to us about a sampling route, a mall activation or a staffing brief. We are at Star Tower, Gurugram.",
+          "Talk to us about a sampling route, a mall activation or a staffing brief. We are at DLF Star Tower, Sector 30, Gurugram.",
       },
       { property: "og:title", content: "Talk to us | Product Sampling Agency" },
       {
@@ -36,9 +38,14 @@ function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
+/** Where this page sits in the site, for the breadcrumb trail in search
+ *  results. The business itself is described once, in the root schema. */
+const SCHEMA = graph(breadcrumb([{ name: "Contact", path: "/contact" }]));
+
 function Contact() {
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Get in touch"
         intro="Tell us what the product is and who needs to try it."
@@ -59,7 +66,7 @@ function Contact() {
       />
 
       {/* 1 — PRIMARY ACTION: the enquiry form leads the page */}
-      <Panel tone="raised">
+      <Panel tone="base">
         <Eyebrow>Start a conversation</Eyebrow>
         <h2 className="font-display mt-3 text-display font-semibold">Discuss a project</h2>
         <p className="mt-7 max-w-2xl text-body">
@@ -76,35 +83,30 @@ function Contact() {
       </Panel>
 
       {/* 2 — SUPPORTING DETAIL: where we are */}
-      <section className="px-5">
-        <div className="mx-auto max-w-[1600px]">
-          <Eyebrow>Our office</Eyebrow>
-          <div className="mt-6 grid gap-7.5 md:grid-cols-2 [&>*:only-child]:md:max-w-xl">
-            {OFFICES.map((office) => (
-              <div
-                key={office.region}
-                className="rounded-brand-xl border border-border bg-gradient-card p-8 md:p-10"
+      <Panel tone="raised">
+        <Eyebrow>Our office</Eyebrow>
+        <div className="mt-6 grid gap-7.5 md:grid-cols-2 [&>*:only-child]:md:max-w-xl">
+          {OFFICES.map((office) => (
+            <div key={office.region} className="rounded-brand-xl bg-background p-8 md:p-10">
+              <h2 className="font-display text-subtitle font-semibold">{office.region}</h2>
+              <a
+                href={`mailto:${office.email}`}
+                className="mt-3 inline-block font-semibold text-green-300 underline decoration-green-300/40 underline-offset-4 wrap-anywhere transition-colors hover:text-green-500"
               >
-                <h2 className="font-display text-subtitle font-semibold">{office.region}</h2>
-                <a
-                  href={`mailto:${office.email}`}
-                  className="mt-3 inline-block font-semibold text-green-300 underline decoration-green-300/40 underline-offset-4 wrap-anywhere transition-colors hover:text-green-500"
-                >
-                  {office.email}
-                </a>
-                <address className="mt-5 not-italic leading-relaxed text-body">
-                  {office.entity}
-                  {office.lines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </address>
-              </div>
-            ))}
-          </div>
+                {office.email}
+              </a>
+              <address className="mt-5 not-italic leading-relaxed text-body">
+                {office.entity}
+                {office.lines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+            </div>
+          ))}
         </div>
-      </section>
+      </Panel>
     </div>
   );
 }

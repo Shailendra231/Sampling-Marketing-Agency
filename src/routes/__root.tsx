@@ -12,6 +12,9 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
+import { JsonLd } from "@/components/site/JsonLd";
+import { SITE_SCHEMA } from "@/data/schema";
+import { SITE_URL } from "@/data/site";
 import { Footer } from "@/components/site/Footer";
 
 function NotFoundComponent() {
@@ -95,6 +98,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "productsamplingagency" },
       { name: "twitter:card", content: "summary_large_image" },
+      // Fallback social image. Routes that set their own og:image override
+      // this by name; without it a route that forgets one unfurls bare.
+      {
+        property: "og:image",
+        content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp`,
+      },
+      {
+        name: "twitter:image",
+        content: `${SITE_URL}/images/a-vibrant-candid-outdoor-indoor.webp`,
+      },
     ],
     links: [
       {
@@ -140,6 +153,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <JsonLd schema={SITE_SCHEMA} />
         <Header />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <main>

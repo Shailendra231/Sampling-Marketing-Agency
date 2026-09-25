@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { NAV } from "@/data/site";
+import { NAV, SOCIALS } from "@/data/site";
 import { SmaMark } from "./SmaMark";
 
 function Wordmark({ className = "" }: { className?: string }) {
@@ -15,8 +15,8 @@ function Socials({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <a
-        href="https://www.linkedin.com/company/productsamplingagency"
-        aria-label="Product Sampling Agency on LinkedIn"
+        href={SOCIALS[0].href}
+        aria-label={`Product Sampling Agency on ${SOCIALS[0].name}`}
         className="transition-opacity hover:opacity-60"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
@@ -24,8 +24,8 @@ function Socials({ className = "" }: { className?: string }) {
         </svg>
       </a>
       <a
-        href="https://www.instagram.com/productsamplingagency/"
-        aria-label="Product Sampling Agency on Instagram"
+        href={SOCIALS[1].href}
+        aria-label={`Product Sampling Agency on ${SOCIALS[1].name}`}
         className="transition-opacity hover:opacity-60"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">

@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CASE_STUDIES, SITE_URL } from "@/data/site";
+import { breadcrumb, graph, service } from "@/data/schema";
 import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const Route = createFileRoute("/what-we-do/product-sampling")({
   head: () => ({
@@ -59,9 +61,23 @@ const BENEFITS = [
   },
 ];
 
+/** What this page sells, tied back to the business node in the root
+ *  schema, plus where the page sits in the site. */
+const SCHEMA = graph(
+  service({
+    name: "Product sampling",
+    description:
+      "Product sampling campaigns planned, staffed and run across Indian cities: malls, campuses, metro stations, housing societies, markets and events.",
+    serviceType: "Product sampling",
+    path: "/what-we-do/product-sampling",
+  }),
+  breadcrumb([{ name: "Product Sampling", path: "/what-we-do/product-sampling" }]),
+);
+
 function ProductSampling() {
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Product sampling, run properly"
         intro="The shortest route from never heard of you to bought it twice."
@@ -124,7 +140,7 @@ function ProductSampling() {
         </p>
       </Panel>
 
-      <Panel>
+      <Panel tone="base">
         <h2 className="font-display max-w-3xl text-display font-semibold">
           Why brands keep us on the route
         </h2>
@@ -154,7 +170,7 @@ function ProductSampling() {
         </div>
       </Panel>
 
-      <Panel tone="base">
+      <Panel tone="raised">
         <h2 className="font-display text-display font-semibold">What you get back</h2>
         <p className="mt-7 max-w-3xl text-foreground/75">
           Counts per site and per shift, what people said when they tried it, photos from the day,

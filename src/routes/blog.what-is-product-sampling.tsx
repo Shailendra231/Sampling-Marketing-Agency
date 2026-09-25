@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Clock } from "lucide-react";
 import { SITE_URL } from "@/data/site";
+import { breadcrumb } from "@/data/schema";
 import { ContactCta, Panel } from "@/components/site/ui";
 
 const HERO = "/images/a-realistic-indoor-public-space.webp";
@@ -198,6 +199,10 @@ const READ_MINUTES = Math.max(
 const SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
+    breadcrumb([
+      { name: "Blog", path: "/blog" },
+      { name: TITLE, path: PATH },
+    ]),
     {
       "@type": "BlogPosting",
       headline: TITLE,

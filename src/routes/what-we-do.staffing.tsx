@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CASE_STUDIES, SITE_URL } from "@/data/site";
+import { breadcrumb, graph, service } from "@/data/schema";
 import { CaseStudyGrid, ContactCta, PageHero, Panel, PillLink } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const Route = createFileRoute("/what-we-do/staffing")({
   head: () => ({
@@ -18,11 +20,11 @@ export const Route = createFileRoute("/what-we-do/staffing")({
       },
       {
         property: "og:image",
-        content: `${SITE_URL}/images/a-bright-realistic-outdoor-community.webp`,
+        content: `${SITE_URL}/images/a-bright-modern-office-interior.webp`,
       },
       {
         name: "twitter:image",
-        content: `${SITE_URL}/images/a-bright-realistic-outdoor-community.webp`,
+        content: `${SITE_URL}/images/a-bright-modern-office-interior.webp`,
       },
       { property: "og:url", content: `${SITE_URL}/what-we-do/staffing` },
     ],
@@ -72,9 +74,23 @@ const OFFERS = [
   },
 ];
 
+/** What this page sells, tied back to the business node in the root
+ *  schema, plus where the page sits in the site. */
+const SCHEMA = graph(
+  service({
+    name: "Promotional and event staffing",
+    description:
+      "Promoters, samplers and event staff briefed on your product before the shift, supplied and supervised across Indian cities.",
+    serviceType: "Promotional staffing",
+    path: "/what-we-do/staffing",
+  }),
+  breadcrumb([{ name: "Field Teams", path: "/what-we-do/staffing" }]),
+);
+
 function Staffing() {
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Field teams"
         intro="Trained staff for sampling routes, mall activations, retail promotions and events."
@@ -121,7 +137,7 @@ function Staffing() {
         </div>
       </Panel>
 
-      <Panel>
+      <Panel tone="base">
         <h2 className="font-display text-display font-semibold">What We Offer</h2>
         <p className="mt-7 max-w-3xl text-foreground/80">
           Recruitment, briefing and supervision are ours to handle. You get one point of contact,
@@ -138,7 +154,7 @@ function Staffing() {
         </div>
       </Panel>
 
-      <Panel tone="base">
+      <Panel tone="raised">
         <h2 className="font-display text-display font-semibold">Where these teams work</h2>
         <p className="mt-7 max-w-3xl text-foreground/75">
           Malls, metro stations, campuses, markets, society gates and road races. Different crowds,

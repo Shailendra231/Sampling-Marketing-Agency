@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BLOG_POSTS, SITE_URL } from "@/data/site";
+import { breadcrumb, graph } from "@/data/schema";
 import { ContactCta, PageHero, Panel } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -31,6 +33,10 @@ export const Route = createFileRoute("/blog/")({
   component: Blog,
 });
 
+/** Where this page sits in the site, for the breadcrumb trail in search
+ *  results. The business itself is described once, in the root schema. */
+const SCHEMA = graph(breadcrumb([{ name: "Blog", path: "/blog" }]));
+
 function Blog() {
   // The newest post leads at full width and the rest fall into a grid beneath.
   // A lone card in a three-column grid reads as an empty shelf.
@@ -38,13 +44,14 @@ function Blog() {
 
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Notes from the field"
         intro="What we learn on site: picking locations, briefing teams, and why some campaigns convert and others do not."
       />
 
-      {lead ? (
-        <Panel tone="base">
+      <Panel tone="base">
+        {lead ? (
           <Link
             to={lead.to}
             className="group grid gap-8 overflow-hidden rounded-3xl bg-raised md:grid-cols-2 md:items-stretch"
@@ -72,12 +79,10 @@ function Blog() {
               </span>
             </div>
           </Link>
-        </Panel>
-      ) : null}
+        ) : null}
 
-      {rest.length > 0 ? (
-        <Panel tone="base" className={lead ? "!pt-0" : ""}>
-          <div className="grid gap-7.5 md:grid-cols-2 lg:grid-cols-3">
+        {rest.length > 0 ? (
+          <div className={`grid gap-7.5 md:grid-cols-2 lg:grid-cols-3 ${lead ? "mt-section" : ""}`}>
             {rest.map((post) => (
               <Link
                 key={post.title}
@@ -113,8 +118,8 @@ function Blog() {
               </Link>
             ))}
           </div>
-        </Panel>
-      ) : null}
+        ) : null}
+      </Panel>
 
       <ContactCta />
     </div>

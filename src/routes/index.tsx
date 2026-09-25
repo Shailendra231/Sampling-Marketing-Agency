@@ -117,19 +117,17 @@ function Index() {
       </Panel>
 
       {/* THREE PILLARS — cards from SMA Brand System [06] */}
-      <section className="px-5">
-        <div className="mx-auto max-w-[1600px] rounded-[28px] border border-border bg-gradient-card px-inset py-section">
-          <div className="grid gap-16 md:grid-cols-3 md:gap-12.5">
-            {PILLARS.map((pillar) => (
-              <div key={pillar.title} className="flex flex-col items-center text-center">
-                <pillar.Icon className={`h-11 w-11 ${pillar.tone}`} />
-                <h3 className="mt-4 text-subtitle font-semibold">{pillar.title}</h3>
-                <p className="mt-2 max-w-[18rem] text-body">{pillar.copy}</p>
-              </div>
-            ))}
-          </div>
+      <Panel tone="raised">
+        <div className="grid gap-16 md:grid-cols-3 md:gap-12.5">
+          {PILLARS.map((pillar) => (
+            <div key={pillar.title} className="flex flex-col items-center text-center">
+              <pillar.Icon className={`h-11 w-11 ${pillar.tone}`} />
+              <h3 className="mt-4 text-subtitle font-semibold">{pillar.title}</h3>
+              <p className="mt-2 max-w-[18rem] text-body">{pillar.copy}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Panel>
 
       <Panel tone="raised">
         <h2 className="font-display text-display font-semibold">
@@ -199,7 +197,7 @@ function Index() {
         </div>
       </Panel>
 
-      <Panel>
+      <Panel tone="base">
         <h2 className="font-display text-display font-semibold">What we handle</h2>
         <p className="mt-7 max-w-2xl text-foreground/80">
           Planning, permissions, kit, staffing and reporting. You can hand us the whole thing or
@@ -238,7 +236,7 @@ function Index() {
         </div>
       </Panel>
 
-      <Panel tone="base">
+      <Panel tone="raised">
         <h2 className="font-display text-display font-semibold">Some of the work</h2>
         <Marquee />
         <CaseStudyGrid items={CASE_STUDIES.slice(0, 6)} />

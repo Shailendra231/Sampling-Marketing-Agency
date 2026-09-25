@@ -25,6 +25,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           })),
           { path: "/about", changefreq: "monthly", priority: "0.7" },
           { path: "/blog", changefreq: "weekly", priority: "0.7" },
+          {
+            path: "/blog/what-to-look-for-in-a-product-sampling-agency",
+            changefreq: "monthly",
+            priority: "0.8",
+          },
           { path: "/blog/what-is-product-sampling", changefreq: "monthly", priority: "0.8" },
           { path: "/blog/20-product-sampling-ideas", changefreq: "monthly", priority: "0.8" },
           { path: "/contact", changefreq: "yearly", priority: "0.6" },

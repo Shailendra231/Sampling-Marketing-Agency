@@ -1,7 +1,9 @@
 import { BarChart3, BookOpen, Cookie, Lightbulb, Users, UsersRound } from "lucide-react";
 
-/** Canonical public origin. Used for canonical links, og:url, and the sitemap. */
-export const SITE_URL = "https://productsamplingagency.in";
+/** Canonical public origin. Defined in lib/canonical-url so the Worker entry
+ *  can read it without importing this module (and its icons); re-exported here
+ *  because every route imports SITE_URL from "@/data/site". */
+export { SITE_URL } from "@/lib/canonical-url";
 
 /** Public contact address. Used for every mailto link on the site. */
 export const CONTACT_EMAIL = "productsamplingagency@gmail.com";
@@ -9,14 +11,48 @@ export const CONTACT_EMAIL = "productsamplingagency@gmail.com";
 /** Where we actually are. Both the footer and the contact page render this, and
  *  a business address that disagrees with itself between pages is a real
  *  local-search problem, so it lives in one place. */
+export const GURUGRAM = {
+  street: ["DLF Star Tower", "119, Block A", "Sector 30"],
+  locality: "Gurugram",
+  region: "Haryana",
+  postalCode: "122001",
+  country: "India",
+  /** ISO 3166-1 alpha-2, which is what schema.org addressCountry expects. */
+  countryCode: "IN",
+} as const;
+
 export const OFFICES = [
   {
     region: "India",
     email: CONTACT_EMAIL,
     entity: "Product Sampling Agency",
-    lines: ["Star Tower", "Sector 30", "Gurugram", "Haryana 122001", "India"],
+    /** The structured address. PostalAddress schema is built from this, and so
+     *  are the display lines below, so the two can never disagree. */
+    postal: GURUGRAM,
+    /** The same address as a visitor reads it, one line per row. */
+    lines: [
+      ...GURUGRAM.street,
+      GURUGRAM.locality,
+      `${GURUGRAM.region} ${GURUGRAM.postalCode}`,
+      GURUGRAM.country,
+    ],
   },
 ];
+
+/** Profiles we control, in the order they appear in the header. schema.org
+ *  sameAs is built from this too: those links are how search engines tie this
+ *  site to the same business elsewhere, so a stale URL here is a broken claim
+ *  about identity rather than just a dead link. */
+export const SOCIALS = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/product-sampling-agency-in/",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/productsamplingagency/",
+  },
+] as const;
 
 /** Message cap on the enquiry form. Shared so the counter the visitor sees and
  *  the server-side check that guards the sheet can never drift apart. */
@@ -408,6 +444,15 @@ export type BlogPost = {
 };
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    date: "September 2026",
+    title: "What to Look for in a Product Sampling Agency",
+    image: "/images/a-realistic-street-sidewalk-scene.webp",
+    to: "/blog/what-to-look-for-in-a-product-sampling-agency",
+    excerpt:
+      "A practical checklist for brand and category managers: the twelve questions worth asking before you hand a campaign to a sampling agency.",
+    readMinutes: 9,
+  },
   {
     date: "September 2026",
     title: "What Is Product Sampling?",

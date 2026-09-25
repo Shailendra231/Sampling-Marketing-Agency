@@ -18,6 +18,7 @@ import { Route as ApiEnquiryRouteImport } from './routes/api.enquiry'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as Blog20ProductSamplingIdeasRouteImport } from './routes/blog.20-product-sampling-ideas'
 import { Route as BlogWhatIsProductSamplingRouteImport } from './routes/blog.what-is-product-sampling'
+import { Route as BlogWhatToLookForInAProductSamplingAgencyRouteImport } from './routes/blog.what-to-look-for-in-a-product-sampling-agency'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as WhatWeDoBrandExperienceRouteImport } from './routes/what-we-do.brand-experience'
@@ -71,6 +72,12 @@ const BlogWhatIsProductSamplingRoute =
     path: '/blog/what-is-product-sampling',
     getParentRoute: () => rootRouteImport,
   } as any)
+const BlogWhatToLookForInAProductSamplingAgencyRoute =
+  BlogWhatToLookForInAProductSamplingAgencyRouteImport.update({
+    id: '/blog/what-to-look-for-in-a-product-sampling-agency',
+    path: '/blog/what-to-look-for-in-a-product-sampling-agency',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -106,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/api/enquiry': typeof ApiEnquiryRoute
   '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
   '/blog/what-is-product-sampling': typeof BlogWhatIsProductSamplingRoute
+  '/blog/what-to-look-for-in-a-product-sampling-agency': typeof BlogWhatToLookForInAProductSamplingAgencyRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
@@ -122,6 +130,7 @@ export interface FileRoutesByTo {
   '/api/enquiry': typeof ApiEnquiryRoute
   '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
   '/blog/what-is-product-sampling': typeof BlogWhatIsProductSamplingRoute
+  '/blog/what-to-look-for-in-a-product-sampling-agency': typeof BlogWhatToLookForInAProductSamplingAgencyRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
@@ -139,6 +148,7 @@ export interface FileRoutesById {
   '/api/enquiry': typeof ApiEnquiryRoute
   '/blog/20-product-sampling-ideas': typeof Blog20ProductSamplingIdeasRoute
   '/blog/what-is-product-sampling': typeof BlogWhatIsProductSamplingRoute
+  '/blog/what-to-look-for-in-a-product-sampling-agency': typeof BlogWhatToLookForInAProductSamplingAgencyRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/what-we-do/brand-experience': typeof WhatWeDoBrandExperienceRoute
   '/what-we-do/product-sampling': typeof WhatWeDoProductSamplingRoute
@@ -157,6 +167,7 @@ export interface FileRouteTypes {
     | '/api/enquiry'
     | '/blog/20-product-sampling-ideas'
     | '/blog/what-is-product-sampling'
+    | '/blog/what-to-look-for-in-a-product-sampling-agency'
     | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/api/enquiry'
     | '/blog/20-product-sampling-ideas'
     | '/blog/what-is-product-sampling'
+    | '/blog/what-to-look-for-in-a-product-sampling-agency'
     | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
@@ -189,6 +201,7 @@ export interface FileRouteTypes {
     | '/api/enquiry'
     | '/blog/20-product-sampling-ideas'
     | '/blog/what-is-product-sampling'
+    | '/blog/what-to-look-for-in-a-product-sampling-agency'
     | '/projects/$slug'
     | '/what-we-do/brand-experience'
     | '/what-we-do/product-sampling'
@@ -206,6 +219,7 @@ export interface RootRouteChildren {
   ApiEnquiryRoute: typeof ApiEnquiryRoute
   Blog20ProductSamplingIdeasRoute: typeof Blog20ProductSamplingIdeasRoute
   BlogWhatIsProductSamplingRoute: typeof BlogWhatIsProductSamplingRoute
+  BlogWhatToLookForInAProductSamplingAgencyRoute: typeof BlogWhatToLookForInAProductSamplingAgencyRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   WhatWeDoBrandExperienceRoute: typeof WhatWeDoBrandExperienceRoute
   WhatWeDoProductSamplingRoute: typeof WhatWeDoProductSamplingRoute
@@ -279,6 +293,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogWhatIsProductSamplingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/what-to-look-for-in-a-product-sampling-agency': {
+      id: '/blog/what-to-look-for-in-a-product-sampling-agency'
+      path: '/blog/what-to-look-for-in-a-product-sampling-agency'
+      fullPath: '/blog/what-to-look-for-in-a-product-sampling-agency'
+      preLoaderRoute: typeof BlogWhatToLookForInAProductSamplingAgencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -326,6 +347,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEnquiryRoute: ApiEnquiryRoute,
   Blog20ProductSamplingIdeasRoute: Blog20ProductSamplingIdeasRoute,
   BlogWhatIsProductSamplingRoute: BlogWhatIsProductSamplingRoute,
+  BlogWhatToLookForInAProductSamplingAgencyRoute:
+    BlogWhatToLookForInAProductSamplingAgencyRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   WhatWeDoBrandExperienceRoute: WhatWeDoBrandExperienceRoute,
   WhatWeDoProductSamplingRoute: WhatWeDoProductSamplingRoute,

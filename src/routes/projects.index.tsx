@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CASE_STUDIES, SITE_URL } from "@/data/site";
+import { breadcrumb, graph } from "@/data/schema";
 import { CaseStudyGrid, ContactCta, Marquee, PageHero, Panel } from "@/components/site/ui";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
@@ -25,9 +27,14 @@ export const Route = createFileRoute("/projects/")({
   component: Projects,
 });
 
+/** Where this page sits in the site, for the breadcrumb trail in search
+ *  results. The business itself is described once, in the root schema. */
+const SCHEMA = graph(breadcrumb([{ name: "Projects", path: "/projects" }]));
+
 function Projects() {
   return (
     <div className="space-y-5 pb-5">
+      <JsonLd schema={SCHEMA} />
       <PageHero
         title="Our Work"
         intro="Sampling routes, mall activations and staffed campaigns from the last few seasons."

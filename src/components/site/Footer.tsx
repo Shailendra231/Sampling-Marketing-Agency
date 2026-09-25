@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="mt-5 bg-background px-5 pb-5">
       <div className="mx-auto max-w-[1600px]">
-        <div className="rounded-panel bg-raised px-inset pb-10 pt-section">
+        <div className="surface-dark rounded-panel border border-gray/30 bg-dark px-inset pb-10 pt-section text-foreground">
           <div className="grid gap-12.5 lg:grid-cols-2">
             <div>
               <h2 className="font-display text-title font-semibold text-foreground">
